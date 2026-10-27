@@ -1,0 +1,1066 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta
+      name="description"
+      content="Informasi pelayanan NICU (Neonatal Intensive Care Unit) Rumah Sakit Umum Amanda Mitra Keluarga."
+    />
+
+    <title>NICU - RSU Amanda Mitra Keluarga</title>
+
+    <!-- GOOGLE FONT -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- FONT AWESOME -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <style>
+      /* ================= RESET ================= */
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        --primary-color: #67d86d;
+        --dark-color: #063b0b;
+        --white: #ffffff;
+        --text-color: #333333;
+        --light-bg: #f5f7f6;
+        --soft-green: #edf9ee;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        color: var(--text-color);
+        background: var(--light-bg);
+        line-height: 1.7;
+      }
+
+      /* ================= NAVBAR ================= */
+
+      .navbar {
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+
+        background: white;
+
+        box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1);
+      }
+
+      .navbar-container {
+        max-width: 1100px;
+        margin: auto;
+
+        padding: 10px 20px;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+
+        gap: 12px;
+
+        text-decoration: none;
+      }
+
+      .logo img {
+        width: 55px;
+        height: 55px;
+
+        object-fit: contain;
+      }
+
+      .logo-text strong {
+        display: block;
+
+        color: #d91f26;
+
+        font-size: 16px;
+
+        line-height: 1.2;
+      }
+
+      .logo-text span {
+        display: block;
+
+        color: #63b32e;
+
+        font-size: 13px;
+
+        font-weight: 600;
+      }
+
+      /* ================= HERO ================= */
+
+      .page-hero {
+        background:
+          linear-gradient(rgba(6, 59, 11, 0.78), rgba(6, 59, 11, 0.78)),
+          url("images/NICU 1.png");
+
+        background-size: cover;
+        background-position: center;
+
+        min-height: 350px;
+
+        display: flex;
+
+        align-items: center;
+        justify-content: center;
+
+        text-align: center;
+
+        color: white;
+
+        padding: 60px 20px;
+      }
+
+      .page-hero-content {
+        max-width: 800px;
+      }
+
+      .page-hero i {
+        font-size: 55px;
+
+        margin-bottom: 15px;
+
+        color: var(--primary-color);
+      }
+
+      .page-hero h1 {
+        font-size: 2.5rem;
+
+        margin-bottom: 10px;
+      }
+
+      .page-hero p {
+        font-size: 1rem;
+
+        opacity: 0.95;
+      }
+
+      /* ================= CONTAINER ================= */
+
+      .container {
+        max-width: 1100px;
+
+        margin: auto;
+
+        padding: 0 20px;
+      }
+
+      /* ================= CONTENT ================= */
+
+      .nicu-content {
+        padding: 80px 0;
+      }
+
+      .nicu-wrapper {
+        display: grid;
+
+        grid-template-columns: 1fr 1fr;
+
+        gap: 50px;
+
+        align-items: center;
+      }
+
+      /* ================= SLIDESHOW ================= */
+
+      .nicu-slider {
+        position: relative;
+
+        width: 100%;
+
+        height: 500px;
+
+        overflow: hidden;
+
+        border-radius: 15px;
+
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+
+        background: #ddd;
+      }
+
+      .nicu-slide {
+        position: absolute;
+
+        inset: 0;
+
+        width: 100%;
+        height: 100%;
+
+        opacity: 0;
+
+        transform: scale(1.03);
+
+        transition:
+          opacity 0.8s ease,
+          transform 1.2s ease;
+
+        pointer-events: none;
+      }
+
+      .nicu-slide.active {
+        opacity: 1;
+
+        transform: scale(1);
+
+        pointer-events: auto;
+      }
+
+      .nicu-slide img {
+        width: 100%;
+        height: 100%;
+
+        object-fit: cover;
+
+        display: block;
+
+        user-select: none;
+
+        -webkit-user-drag: none;
+      }
+
+      /* ================= SLIDER DOT ================= */
+
+      .slider-dots {
+        position: absolute;
+
+        bottom: 18px;
+
+        left: 0;
+
+        width: 100%;
+
+        display: flex;
+
+        justify-content: center;
+
+        gap: 8px;
+
+        z-index: 5;
+      }
+
+      .slider-dot {
+        width: 11px;
+
+        height: 11px;
+
+        border-radius: 50%;
+
+        background: rgba(255, 255, 255, 0.6);
+
+        cursor: pointer;
+
+        transition: 0.3s;
+      }
+
+      .slider-dot.active {
+        width: 28px;
+
+        border-radius: 20px;
+
+        background: var(--primary-color);
+      }
+
+      /* ================= SLIDER ARROWS ================= */
+
+      .slider-btn {
+        position: absolute;
+
+        top: 50%;
+
+        transform: translateY(-50%);
+
+        width: 45px;
+
+        height: 45px;
+
+        border: none;
+
+        border-radius: 50%;
+
+        background: rgba(0, 0, 0, 0.45);
+
+        color: white;
+
+        font-size: 18px;
+
+        cursor: pointer;
+
+        z-index: 10;
+
+        transition: 0.3s;
+      }
+
+      .slider-btn:hover {
+        background: var(--primary-color);
+      }
+
+      .slider-btn.prev {
+        left: 15px;
+      }
+
+      .slider-btn.next {
+        right: 15px;
+      }
+
+      /* ================= TEXT ================= */
+
+      .nicu-text h2 {
+        color: var(--dark-color);
+
+        font-size: 2rem;
+
+        margin-bottom: 20px;
+      }
+
+      .nicu-text p {
+        margin-bottom: 20px;
+
+        color: #555;
+      }
+
+      /* ================= LIST ================= */
+
+      .nicu-list {
+        margin-top: 20px;
+
+        list-style: none;
+      }
+
+      .nicu-list li {
+        margin-bottom: 12px;
+
+        display: flex;
+
+        align-items: flex-start;
+
+        gap: 10px;
+      }
+
+      .nicu-list i {
+        color: var(--primary-color);
+
+        margin-top: 5px;
+      }
+
+      /* ================= INFO ================= */
+
+      .info-section {
+        padding: 0 0 80px;
+      }
+
+      .section-title {
+        text-align: center;
+
+        margin-bottom: 35px;
+      }
+
+      .section-title h2 {
+        color: var(--dark-color);
+
+        font-size: 2rem;
+
+        margin-bottom: 8px;
+      }
+
+      .section-title p {
+        color: #666;
+
+        font-size: 15px;
+      }
+
+      .info-grid {
+        display: grid;
+
+        grid-template-columns: repeat(3, 1fr);
+
+        gap: 25px;
+      }
+
+      .info-card {
+        background: white;
+
+        padding: 30px 25px;
+
+        border-radius: 12px;
+
+        text-align: center;
+
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+
+        transition: 0.3s;
+      }
+
+      .info-card:hover {
+        transform: translateY(-5px);
+      }
+
+      .info-card i {
+        font-size: 35px;
+
+        color: var(--primary-color);
+
+        margin-bottom: 15px;
+      }
+
+      .info-card h3 {
+        color: var(--dark-color);
+
+        margin-bottom: 10px;
+      }
+
+      .info-card p {
+        color: #666;
+
+        font-size: 14px;
+      }
+
+      /* ================= INFORMASI TAMBAHAN ================= */
+
+      .additional-section {
+        padding: 0 0 80px;
+      }
+
+      .additional-box {
+        background: white;
+
+        padding: 40px;
+
+        border-radius: 15px;
+
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+      }
+
+      .additional-box h3 {
+        color: var(--dark-color);
+
+        font-size: 1.4rem;
+
+        margin-bottom: 15px;
+      }
+
+      .additional-box p {
+        color: #555;
+
+        margin-bottom: 15px;
+      }
+
+      .additional-list {
+        list-style: none;
+
+        margin-top: 15px;
+      }
+
+      .additional-list li {
+        display: flex;
+
+        gap: 10px;
+
+        margin-bottom: 10px;
+
+        color: #555;
+      }
+
+      .additional-list i {
+        color: var(--primary-color);
+
+        margin-top: 5px;
+      }
+
+      /* ================= TOMBOL KEMBALI ================= */
+
+      .back-to-services {
+        margin-top: 50px;
+
+        display: flex;
+
+        justify-content: flex-start;
+      }
+
+      .back-to-services a {
+        display: inline-flex;
+
+        align-items: center;
+
+        gap: 10px;
+
+        padding: 12px 22px;
+
+        background: var(--primary-color);
+
+        color: white;
+
+        border-radius: 7px;
+
+        text-decoration: none;
+
+        font-weight: 600;
+
+        transition: 0.3s;
+      }
+
+      .back-to-services a:hover {
+        background: #43b849;
+
+        transform: translateX(-3px);
+      }
+
+      /* ================= FOOTER ================= */
+
+      footer {
+        background: var(--dark-color);
+
+        color: white;
+
+        padding: 30px 0;
+
+        text-align: center;
+      }
+
+      footer p {
+        font-size: 14px;
+      }
+
+      /* ================= MOBILE ================= */
+
+      @media (max-width: 768px) {
+        .navbar-container {
+          padding: 8px 15px;
+        }
+
+        .logo img {
+          width: 45px;
+          height: 45px;
+        }
+
+        .logo-text strong {
+          font-size: 13px;
+        }
+
+        .logo-text span {
+          font-size: 11px;
+        }
+
+        .page-hero {
+          min-height: 300px;
+        }
+
+        .page-hero h1 {
+          font-size: 2rem;
+        }
+
+        .nicu-wrapper {
+          grid-template-columns: 1fr;
+        }
+
+        .nicu-slider {
+          height: 350px;
+        }
+
+        .nicu-text h2 {
+          font-size: 1.7rem;
+        }
+
+        .info-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .additional-box {
+          padding: 25px;
+        }
+
+        .slider-btn {
+          width: 40px;
+
+          height: 40px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .page-hero {
+          min-height: 270px;
+
+          padding: 50px 15px;
+        }
+
+        .page-hero i {
+          font-size: 45px;
+        }
+
+        .page-hero h1 {
+          font-size: 1.8rem;
+        }
+
+        .page-hero p {
+          font-size: 0.9rem;
+        }
+
+        .nicu-content {
+          padding: 55px 0;
+        }
+
+        .nicu-slider {
+          height: 300px;
+        }
+
+        .additional-section {
+          padding-bottom: 55px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- ================= NAVBAR ================= -->
+
+    <header class="navbar">
+      <div class="navbar-container">
+        <a href="index.html" class="logo">
+          <img
+            src="images/logo-removebg-preview.png"
+            alt="Logo Rumah Sakit Umum Amanda Mitra Keluarga"
+          />
+
+          <div class="logo-text">
+            <strong>RUMAH SAKIT UMUM AMANDA</strong>
+            <span>mitra keluarga</span>
+          </div>
+        </a>
+      </div>
+    </header>
+
+    <!-- ================= HERO ================= -->
+
+    <section class="page-hero">
+      <div class="page-hero-content">
+        <i class="fas fa-baby"></i>
+
+        <h1>NICU</h1>
+
+        <p>
+          Neonatal Intensive Care Unit untuk memberikan perawatan dan pemantauan
+          intensif bagi bayi yang membutuhkan perhatian medis khusus.
+        </p>
+      </div>
+    </section>
+
+    <!-- ================= CONTENT ================= -->
+
+    <section class="nicu-content">
+      <div class="container">
+        <div class="nicu-wrapper">
+          <!-- ================= SLIDESHOW ================= -->
+
+          <div class="nicu-slider" id="nicuSlider">
+            <!-- GAMBAR 1 -->
+
+            <div class="nicu-slide active">
+              <img
+                src="images/NICU.png"
+                alt="NICU Rumah Sakit Umum Amanda Mitra Keluarga"
+                draggable="false"
+              />
+            </div>
+
+            <!-- GAMBAR 2 -->
+
+            <div class="nicu-slide">
+              <img
+                src="images/NICU.png"
+                alt="Fasilitas NICU Rumah Sakit Umum Amanda Mitra Keluarga"
+                draggable="false"
+              />
+            </div>
+
+            <!-- GAMBAR 3 -->
+
+            <div class="nicu-slide">
+              <img
+                src="images/NICU.png"
+                alt="Ruang NICU Rumah Sakit Umum Amanda Mitra Keluarga"
+                draggable="false"
+              />
+            </div>
+
+            <!-- TOMBOL SEBELUMNYA -->
+
+            <button
+              type="button"
+              class="slider-btn prev"
+              id="prevBtn"
+              aria-label="Gambar sebelumnya"
+            >
+              <i class="fas fa-chevron-left"></i>
+            </button>
+
+            <!-- TOMBOL BERIKUTNYA -->
+
+            <button
+              type="button"
+              class="slider-btn next"
+              id="nextBtn"
+              aria-label="Gambar berikutnya"
+            >
+              <i class="fas fa-chevron-right"></i>
+            </button>
+
+            <!-- DOT -->
+
+            <div class="slider-dots">
+              <span class="slider-dot active" data-slide="0"></span>
+              <span class="slider-dot" data-slide="1"></span>
+              <span class="slider-dot" data-slide="2"></span>
+            </div>
+          </div>
+
+          <!-- ================= INFORMASI NICU ================= -->
+
+          <div class="nicu-text">
+            <h2>Pelayanan NICU</h2>
+
+            <p>
+              Neonatal Intensive Care Unit (NICU) merupakan unit pelayanan
+              khusus yang memberikan perawatan dan pemantauan intensif bagi bayi
+              yang membutuhkan perhatian medis lebih lanjut.
+            </p>
+
+            <p>
+              Pelayanan NICU Rumah Sakit Umum Amanda Mitra Keluarga didukung
+              oleh tenaga kesehatan serta fasilitas yang membantu memberikan
+              perawatan sesuai dengan kondisi dan kebutuhan bayi.
+            </p>
+
+            <ul class="nicu-list">
+              <li>
+                <i class="fas fa-check-circle"></i>
+
+                <span>
+                  Perawatan dan pemantauan bayi yang membutuhkan perhatian medis
+                  khusus.
+                </span>
+              </li>
+
+              <li>
+                <i class="fas fa-check-circle"></i>
+
+                <span>
+                  Pemantauan kondisi bayi secara berkala oleh tenaga kesehatan.
+                </span>
+              </li>
+
+              <li>
+                <i class="fas fa-check-circle"></i>
+
+                <span>
+                  Dukungan peralatan medis sesuai dengan kebutuhan perawatan
+                  bayi.
+                </span>
+              </li>
+
+              <li>
+                <i class="fas fa-check-circle"></i>
+
+                <span>
+                  Perawatan yang memperhatikan keamanan dan kenyamanan bayi.
+                </span>
+              </li>
+
+              <li>
+                <i class="fas fa-check-circle"></i>
+
+                <span>
+                  Didukung oleh tenaga kesehatan yang profesional dan kompeten.
+                </span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= INFORMASI ================= -->
+
+    <section class="info-section">
+      <div class="container">
+        <div class="section-title">
+          <h2>Pelayanan NICU</h2>
+
+          <p>
+            Perawatan khusus untuk membantu memenuhi kebutuhan bayi yang
+            memerlukan pemantauan dan penanganan medis.
+          </p>
+        </div>
+
+        <div class="info-grid">
+          <!-- CARD 1 -->
+
+          <div class="info-card">
+            <i class="fas fa-baby"></i>
+
+            <h3>Perawatan Bayi</h3>
+
+            <p>
+              Memberikan perawatan khusus bagi bayi yang membutuhkan perhatian
+              dan pemantauan medis.
+            </p>
+          </div>
+
+          <!-- CARD 2 -->
+
+          <div class="info-card">
+            <i class="fas fa-heart-pulse"></i>
+
+            <h3>Pemantauan Kondisi</h3>
+
+            <p>
+              Kondisi bayi dipantau secara berkala untuk membantu memastikan
+              kebutuhan perawatan dapat terpenuhi.
+            </p>
+          </div>
+
+          <!-- CARD 3 -->
+
+          <div class="info-card">
+            <i class="fas fa-user-nurse"></i>
+
+            <h3>Tenaga Profesional</h3>
+
+            <p>
+              Pelayanan didukung oleh tenaga kesehatan yang profesional,
+              kompeten, dan penuh kepedulian.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= INFORMASI TAMBAHAN ================= -->
+
+    <section class="additional-section">
+      <div class="container">
+        <div class="additional-box">
+          <h3>
+            <i
+              class="fas fa-circle-info"
+              style="color: var(--primary-color); margin-right: 8px"
+            ></i>
+
+            Informasi Penting NICU
+          </h3>
+
+          <p>
+            NICU diperuntukkan bagi bayi yang membutuhkan perawatan dan
+            pemantauan medis secara intensif sesuai dengan kondisi klinisnya.
+          </p>
+
+          <p>
+            Perawatan dilakukan dengan memperhatikan kondisi bayi serta
+            kebutuhan medisnya dan melibatkan tenaga kesehatan yang berkompeten.
+          </p>
+
+          <ul class="additional-list">
+            <li>
+              <i class="fas fa-check-circle"></i>
+
+              <span>
+                Perawatan diberikan berdasarkan kondisi dan kebutuhan medis
+                bayi.
+              </span>
+            </li>
+
+            <li>
+              <i class="fas fa-check-circle"></i>
+
+              <span> Kondisi bayi mendapatkan pemantauan secara berkala. </span>
+            </li>
+
+            <li>
+              <i class="fas fa-check-circle"></i>
+
+              <span>
+                Orang tua atau keluarga dapat mengikuti arahan tenaga kesehatan
+                selama proses perawatan.
+              </span>
+            </li>
+
+            <li>
+              <i class="fas fa-check-circle"></i>
+
+              <span>
+                Utamakan kebersihan dan ikuti ketentuan kunjungan selama berada
+                di area NICU.
+              </span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- ================= TOMBOL KEMBALI ================= -->
+
+        <div class="back-to-services">
+          <a href="index.html#services">
+            <i class="fas fa-arrow-left"></i>
+
+            Kembali ke Layanan
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+      <div class="container">
+        <p>
+          &copy; 2026 Rumah Sakit Umum Amanda Mitra Keluarga. All Rights
+          Reserved.
+        </p>
+      </div>
+    </footer>
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script>
+      const slides = document.querySelectorAll(".nicu-slide");
+
+      const dots = document.querySelectorAll(".slider-dot");
+
+      const nextBtn = document.getElementById("nextBtn");
+
+      const prevBtn = document.getElementById("prevBtn");
+
+      let currentSlide = 0;
+
+      let autoSlide;
+
+      /* ================= TAMPILKAN SLIDE ================= */
+
+      function showSlide(index) {
+        if (index >= slides.length) {
+          currentSlide = 0;
+        }
+
+        if (index < 0) {
+          currentSlide = slides.length - 1;
+        }
+
+        slides.forEach(function (slide) {
+          slide.classList.remove("active");
+        });
+
+        dots.forEach(function (dot) {
+          dot.classList.remove("active");
+        });
+
+        slides[currentSlide].classList.add("active");
+
+        if (dots[currentSlide]) {
+          dots[currentSlide].classList.add("active");
+        }
+      }
+
+      /* ================= SLIDE BERIKUTNYA ================= */
+
+      function nextSlide() {
+        currentSlide++;
+
+        if (currentSlide >= slides.length) {
+          currentSlide = 0;
+        }
+
+        showSlide(currentSlide);
+
+        resetAutoSlide();
+      }
+
+      /* ================= SLIDE SEBELUMNYA ================= */
+
+      function previousSlide() {
+        currentSlide--;
+
+        if (currentSlide < 0) {
+          currentSlide = slides.length - 1;
+        }
+
+        showSlide(currentSlide);
+
+        resetAutoSlide();
+      }
+
+      /* ================= TOMBOL NEXT ================= */
+
+      nextBtn.addEventListener("click", function () {
+        nextSlide();
+      });
+
+      /* ================= TOMBOL PREVIOUS ================= */
+
+      prevBtn.addEventListener("click", function () {
+        previousSlide();
+      });
+
+      /* ================= DOT NAVIGATION ================= */
+
+      dots.forEach(function (dot, index) {
+        dot.addEventListener("click", function () {
+          currentSlide = index;
+
+          showSlide(currentSlide);
+
+          resetAutoSlide();
+        });
+      });
+
+      /* ================= AUTO SLIDE ================= */
+
+      function startAutoSlide() {
+        autoSlide = setInterval(function () {
+          currentSlide++;
+
+          if (currentSlide >= slides.length) {
+            currentSlide = 0;
+          }
+
+          showSlide(currentSlide);
+        }, 4000);
+      }
+
+      /* ================= RESET AUTO SLIDE ================= */
+
+      function resetAutoSlide() {
+        clearInterval(autoSlide);
+
+        startAutoSlide();
+      }
+
+      /* ================= MULAI ================= */
+
+      showSlide(currentSlide);
+
+      startAutoSlide();
+    </script>
+  </body>
+</html>

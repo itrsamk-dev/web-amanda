@@ -1,0 +1,591 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Poliklinik - Rumah Sakit Umum Amanda Mitra Keluarga</title>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        --primary-color: #67d86d;
+        --dark-color: #063b0b;
+        --white: #ffffff;
+        --text-color: #333333;
+        --light-bg: #f3f4f6;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        color: var(--text-color);
+        background: var(--light-bg);
+        line-height: 1.7;
+      }
+
+      /* ================= NAVBAR ================= */
+
+      .navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 75px;
+        background: white;
+        z-index: 1000;
+        box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1);
+      }
+
+      .navbar-container {
+        max-width: 1100px;
+        height: 100%;
+        margin: auto;
+        padding: 0 20px;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      /* ================= LOGO ================= */
+
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        text-decoration: none;
+      }
+
+      .logo img {
+        width: 48px;
+        height: 48px;
+        object-fit: contain;
+      }
+
+      .logo-text {
+        display: flex;
+        flex-direction: column;
+        line-height: 1.1;
+      }
+
+      .logo-text strong {
+        color: #d91f26;
+        font-size: 15px;
+      }
+
+      .logo-text span {
+        color: #63b32e;
+        font-size: 13px;
+      }
+
+      /* ================= NAVIGATION ================= */
+
+      .nav-links {
+        display: flex;
+        gap: 25px;
+      }
+
+      .nav-links a {
+        color: var(--dark-color);
+        text-decoration: none;
+        font-weight: 600;
+        transition: 0.3s;
+      }
+
+      .nav-links a:hover {
+        color: var(--primary-color);
+      }
+
+      /* ================= HERO ================= */
+
+      .page-hero {
+        margin-top: 75px;
+        min-height: 430px;
+
+        position: relative;
+
+        display: flex;
+        align-items: center;
+
+        overflow: hidden;
+      }
+
+      .page-hero img {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+
+        object-fit: cover;
+        object-position: center;
+
+        inset: 0;
+      }
+
+      .hero-overlay {
+        position: absolute;
+        inset: 0;
+
+        background: linear-gradient(rgba(0, 0, 0, 0.58), rgba(0, 0, 0, 0.58));
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 2;
+
+        width: 100%;
+        max-width: 1100px;
+
+        margin: auto;
+        padding: 40px 20px;
+
+        color: white;
+      }
+
+      .hero-content h1 {
+        font-size: 2.7rem;
+        margin-bottom: 15px;
+      }
+
+      .hero-content p {
+        max-width: 700px;
+        font-size: 1rem;
+      }
+
+      /* ================= CONTENT ================= */
+
+      .content {
+        max-width: 1100px;
+        margin: auto;
+        padding: 80px 20px;
+      }
+
+      .section-title {
+        text-align: center;
+        margin-bottom: 50px;
+      }
+
+      .section-title h2 {
+        color: var(--dark-color);
+        font-size: 2.2rem;
+        margin-bottom: 10px;
+      }
+
+      .section-title p {
+        color: #666;
+      }
+
+      /* ================= FOTO ================= */
+
+      .photo-grid {
+        display: grid;
+
+        grid-template-columns: repeat(2, 1fr);
+
+        gap: 25px;
+
+        margin-bottom: 60px;
+      }
+
+      .photo-card {
+        overflow: hidden;
+
+        border-radius: 14px;
+
+        background: white;
+
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.12);
+      }
+
+      .photo-card img {
+        width: 100%;
+        height: 320px;
+
+        display: block;
+
+        object-fit: cover;
+
+        transition: 0.4s;
+      }
+
+      .photo-card:hover img {
+        transform: scale(1.05);
+      }
+
+      /* ================= INFORMATION ================= */
+
+      .information {
+        background: white;
+
+        border-radius: 14px;
+
+        padding: 40px;
+
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+      }
+
+      .information h2 {
+        color: var(--dark-color);
+        margin-bottom: 20px;
+      }
+
+      .information h3 {
+        color: var(--dark-color);
+        margin-top: 25px;
+        margin-bottom: 10px;
+      }
+
+      .information ul {
+        padding-left: 25px;
+      }
+
+      .information li {
+        margin-bottom: 8px;
+      }
+
+      /* ================= BUTTON ================= */
+
+      .back-button {
+        display: inline-flex;
+
+        align-items: center;
+        gap: 10px;
+
+        margin-top: 35px;
+
+        padding: 12px 24px;
+
+        background: var(--primary-color);
+        color: white;
+
+        text-decoration: none;
+
+        border-radius: 7px;
+
+        font-weight: 600;
+
+        transition: 0.3s;
+      }
+
+      .back-button:hover {
+        background: #43b849;
+        transform: translateY(-2px);
+      }
+
+      /* ================= FOOTER ================= */
+
+      footer {
+        background: var(--dark-color);
+        color: white;
+
+        padding: 35px 20px;
+
+        text-align: center;
+      }
+
+      .footer-logo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        gap: 12px;
+
+        margin-bottom: 15px;
+      }
+
+      .footer-logo img {
+        width: 55px;
+        height: 55px;
+
+        object-fit: contain;
+      }
+
+      .footer-logo-text {
+        display: flex;
+        flex-direction: column;
+
+        text-align: left;
+
+        line-height: 1.2;
+      }
+
+      .footer-logo-text strong {
+        color: #ffffff;
+        font-size: 16px;
+      }
+
+      .footer-logo-text span {
+        color: #67d86d;
+        font-size: 13px;
+      }
+
+      .social-icons {
+        margin-top: 15px;
+      }
+
+      .social-icons a {
+        display: inline-flex;
+
+        align-items: center;
+        justify-content: center;
+
+        width: 40px;
+        height: 40px;
+
+        margin: 0 5px;
+
+        color: white;
+
+        border-radius: 50%;
+
+        text-decoration: none;
+
+        background: rgba(255, 255, 255, 0.12);
+
+        transition: 0.3s;
+      }
+
+      .social-icons a:hover {
+        background: var(--primary-color);
+        transform: translateY(-3px);
+      }
+
+      /* ================= MOBILE ================= */
+
+      @media (max-width: 768px) {
+        .nav-links {
+          display: none;
+        }
+
+        .hero-content h1 {
+          font-size: 2rem;
+        }
+
+        .photo-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .photo-card img {
+          height: 260px;
+        }
+
+        .information {
+          padding: 25px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- =====================================================
+     NAVBAR
+====================================================== -->
+
+    <header class="navbar">
+      <div class="navbar-container">
+        <a href="index.html" class="logo">
+          <img
+            src="images/logo-removebg-preview.png"
+            alt="Logo Rumah Sakit Umum Amanda Mitra Keluarga"
+          />
+
+          <div class="logo-text">
+            <strong> RUMAH SAKIT UMUM AMANDA </strong>
+
+            <span> mitra keluarga </span>
+          </div>
+        </a>
+
+        <nav class="nav-links">
+          <a href="index.html"> Beranda </a>
+
+          <a href="index.html#about"> Tentang Kami </a>
+
+          <a href="index.html#services"> Layanan </a>
+
+          <a href="index.html#partners">Our Partner</a>
+
+          <a href="index.html#contact"> Kontak </a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- =====================================================
+     HERO POLIKLINIK
+====================================================== -->
+
+    <section class="page-hero">
+      <!-- GAMBAR POLIKLINIK -->
+
+      <img
+        src="images/POLIKLINIK.png"
+        alt="Ruang poliklinik Rumah Sakit Umum Amanda Mitra Keluarga"
+      />
+
+      <div class="hero-overlay"></div>
+
+      <div class="hero-content">
+        <h1>Poliklinik</h1>
+
+        <p>
+          Pelayanan kesehatan yang profesional dengan dukungan dokter dan tenaga
+          kesehatan untuk memenuhi kebutuhan kesehatan pasien.
+        </p>
+      </div>
+    </section>
+
+    <!-- =====================================================
+     CONTENT
+====================================================== -->
+
+    <main class="content">
+      <div class="section-title">
+        <h2>Fasilitas & Pelayanan Poliklinik</h2>
+
+        <p>Kenali fasilitas dan pelayanan poliklinik kami</p>
+      </div>
+
+      <!-- =====================================================
+       FOTO POLIKLINIK
+  ====================================================== -->
+
+      <div class="photo-grid">
+        <!-- FOTO 1 -->
+
+        <div class="photo-card">
+          <img src="images/NICU.png" alt="Pelayanan laboratorium rumah sakit" />
+        </div>
+
+        <!-- FOTO 2 -->
+
+        <div class="photo-card">
+          <img src="images/VIP 2.png" alt="Pemeriksaan medis" />
+        </div>
+
+        <!-- FOTO 3 -->
+
+        <div class="photo-card">
+          <img src="images/VVIP 2.png" alt="Ruang perawatan rumah sakit" />
+        </div>
+
+        <!-- FOTO 4 -->
+
+        <div class="photo-card">
+          <img src="images/ICU.jpg" alt="Ruang poliklinik rumah sakit" />
+        </div>
+      </div>
+
+      <!-- =====================================================
+       INFORMASI
+  ====================================================== -->
+
+      <section class="information">
+        <h2>Tentang Poliklinik</h2>
+
+        <p>
+          Poliklinik Rumah Sakit Umum Amanda Mitra Keluarga menyediakan
+          pelayanan kesehatan untuk membantu masyarakat mendapatkan pemeriksaan
+          dan penanganan medis secara profesional.
+        </p>
+
+        <h3>Pelayanan yang tersedia</h3>
+
+        <ul>
+          <li>Pemeriksaan dan konsultasi dokter</li>
+
+          <li>Pemeriksaan kesehatan pasien</li>
+
+          <li>Konsultasi kesehatan</li>
+
+          <li>Pemeriksaan penunjang sesuai kebutuhan</li>
+
+          <li>Pelayanan kesehatan yang nyaman dan profesional</li>
+        </ul>
+
+        <h3>Komitmen Kami</h3>
+
+        <p>
+          Kami mengutamakan kenyamanan, keselamatan, profesionalisme, dan
+          kepuasan pasien dalam memberikan pelayanan kesehatan.
+        </p>
+
+        <!-- KEMBALI -->
+
+        <a href="index.html" class="back-button">
+          <i class="fas fa-arrow-left"></i>
+          Kembali ke Layanan
+        </a>
+      </section>
+    </main>
+
+    <!-- =====================================================
+     FOOTER
+====================================================== -->
+
+    <footer>
+      <div class="footer-logo">
+        <img
+          src="images/logo-removebg-preview.png"
+          alt="Logo Rumah Sakit Umum Amanda Mitra Keluarga"
+        />
+
+        <div class="footer-logo-text">
+          <strong> RUMAH SAKIT UMUM AMANDA </strong>
+
+          <span> mitra keluarga </span>
+        </div>
+      </div>
+
+      <p>
+        &copy; 2026 Rumah Sakit Umum Amanda Mitra Keluarga. All Rights Reserved.
+      </p>
+
+      <div class="social-icons">
+        <a href="#" aria-label="Facebook">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+
+        <a
+          href="https://www.instagram.com/rsu_amandamk"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Instagram"
+        >
+          <i class="fab fa-instagram"></i>
+        </a>
+
+        <a href="#" aria-label="LinkedIn">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+
+        <a
+          href="https://wa.me/6281234561067"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="WhatsApp"
+        >
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </div>
+    </footer>
+  </body>
+</html>

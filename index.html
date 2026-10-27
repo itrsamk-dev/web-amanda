@@ -1,0 +1,1495 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta
+      name="description"
+      content="RSU Amanda Mitra Keluarga - Pelayanan kesehatan profesional, terpercaya dan berkualitas."
+    />
+
+    <meta name="theme-color" content="#087f43" />
+
+    <title>RSU Amanda Mitra Keluarga</title>
+    <link rel="icon" href="images/logo-removebg-preview.png" />
+
+    <!-- =====================================================
+         GOOGLE FONT
+    ====================================================== -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- =====================================================
+         FONT AWESOME
+    ====================================================== -->
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+
+    <!-- =====================================================
+         CSS
+    ====================================================== -->
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <!-- =========================================================
+         TOP BAR
+    ========================================================= -->
+
+    <div class="topbar">
+      <div class="container topbar-inner">
+        <div class="topbar-left">
+          <a
+            href="https://www.google.com/maps/search/?api=1&query=RSU+Amanda+Mitra+Keluarga+Karawang"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i class="fa-solid fa-location-dot"></i> Lokasi
+          </a>
+
+          <a href="tel:+6281287075555">
+            <i class="fa-solid fa-phone-volume"></i>
+            IGD 24 Jam:
+            <strong>0812 8707 5555</strong>
+          </a>
+
+          <a href="tel:+6282280749999">
+            <i class="fa-solid fa-headset"></i>
+            Call Center:
+            <strong>(0267) 511321</strong>
+          </a>
+
+          <a href="mailto:amandawadasrs2@gmail.com">
+            <i class="fa-solid fa-envelope"></i>
+            amandawadasrs2@gmail.com
+          </a>
+        </div>
+
+        <div class="topbar-right">
+          <span>
+            <i class="fa-regular fa-clock"></i>
+            <span id="currentTime">13.43.05 WIB</span>
+          </span>
+
+          <div class="language-switch">
+            <button class="language active">ID</button>
+            <button class="language">EN</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- =========================================================
+         NAVBAR
+    ========================================================= -->
+
+    <header class="navbar" id="navbar">
+      <div class="container navbar-inner">
+        <!-- LOGO + NAMA RUMAH SAKIT -->
+
+        <a href="#home" class="logo">
+          <img
+            src="images/logo-removebg-preview.png"
+            alt="Logo RSU Amanda Mitra Keluarga"
+          />
+
+          <div class="logo-text">
+            <strong>Rumah Sakit Umum Amanda</strong>
+            <span>Mitra Keluarga</span>
+          </div>
+        </a>
+
+        <!-- NAVIGATION -->
+
+        <nav class="nav-links" id="navLinks">
+          <a href="#home" class="nav-link active"> Beranda </a>
+
+          <a href="#about" class="nav-link"> Profil </a>
+
+          <div class="nav-dropdown">
+            <a href="#services" class="nav-link">
+              Layanan
+              <i class="fa-solid fa-chevron-down"></i>
+            </a>
+
+            <div class="dropdown-menu">
+              <a href="pelayanan.html"> Pelayanan Dokter </a>
+
+              <a href="rawatinap.html"> Rawat Inap </a>
+
+              <a href="hemodialisa.html"> Hemodialisa </a>
+
+              <a href="poliklinik.html"> Poliklinik </a>
+
+              <a href="laboratorium.html"> Laboratorium </a>
+
+              <a href="icu.html"> ICU </a>
+
+              <a href="nicu.html"> NICU </a>
+
+              <a href="igd.html"> IGD </a>
+            </div>
+          </div>
+
+          <a href="#partners" class="nav-link"> Our Partner </a>
+
+          <a href="#contact" class="nav-link"> Informasi </a>
+
+          <a href="#contact" class="nav-link"> Kontak </a>
+        </nav>
+
+        <!-- NAV ACTION -->
+
+        <div class="nav-actions">
+          <button class="nav-icon" aria-label="Cari" id="searchButton">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+
+          <a
+            href="https://www.google.com/maps/search/?api=1&query=-6.2839993%2C107.4573344"
+            class="nav-location"
+            aria-label="Lokasi RSU Amanda Mitra Keluarga"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="Lihat lokasi rumah sakit di Google Maps"
+          >
+            <i class="fa-solid fa-location-dot"></i>
+          </a>
+
+          <a href="#contact" class="appointment-btn">
+            <i class="fa-solid fa-heart-pulse"></i>
+            Daftar / Buat Janji
+          </a>
+        </div>
+
+        <!-- MOBILE MENU -->
+
+        <button
+          class="menu-toggle"
+          id="menuToggle"
+          aria-label="Buka menu"
+          aria-expanded="false"
+        >
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </header>
+
+    <!-- =========================================================
+         SEARCH BOX
+    ========================================================= -->
+
+    <div class="search-box" id="searchBox">
+      <div class="container search-inner">
+        <input
+          type="search"
+          id="searchInput"
+          placeholder="Cari layanan, dokter atau informasi..."
+        />
+
+        <button id="closeSearch" aria-label="Tutup pencarian">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- =========================================================
+         HERO
+    ========================================================= -->
+
+    <section class="hero" id="home">
+      <div class="hero-slider" id="heroSlider">
+        <!-- HERO 1 -->
+
+        <div class="hero-slide active">
+          <img
+            src="images/2.jpg"
+            alt="Pelayanan Rumah Sakit Amanda"
+            draggable="false"
+          />
+        </div>
+
+        <!-- HERO 2 -->
+
+        <div class="hero-slide">
+          <img
+            src="images/Ortho.jpeg"
+            alt="Pelayanan Rumah Sakit Amanda"
+            draggable="false"
+          />
+        </div>
+
+        <!-- HERO 3 -->
+
+        <div class="hero-slide">
+          <img
+            src="images/Pelayanan.jpeg"
+            alt="Pelayanan Rumah Sakit Amanda"
+            draggable="false"
+          />
+        </div>
+
+        <!-- HERO 4 -->
+
+        <div class="hero-slide">
+          <img
+            src="images/Traumacenter.jpeg"
+            alt="Pelayanan Rumah Sakit Amanda"
+            draggable="false"
+          />
+        </div>
+
+        <!-- HERO 5 -->
+
+        <div class="hero-slide">
+          <img
+            src="images/Kemilaucinta.jpeg"
+            alt="Pelayanan Rumah Sakit Amanda"
+            draggable="false"
+          />
+        </div>
+
+        <!-- HERO 6 -->
+
+        <div class="hero-slide">
+          <img
+            src="images/LAB 1.png"
+            alt="Laboratorium RSU Amanda"
+            draggable="false"
+          />
+        </div>
+
+        <!-- HERO 7 -->
+
+        <div class="hero-slide">
+          <img
+            src="images/LAB 2.jpeg"
+            alt="Fasilitas Laboratorium"
+            draggable="false"
+          />
+        </div>
+
+        <!-- HERO 8 -->
+
+        <div class="hero-slide">
+          <img
+            src="images/POLIKLINIK.png"
+            alt="Poliklinik RSU Amanda"
+            draggable="false"
+          />
+        </div>
+
+        <!-- HERO 9 -->
+
+        <div class="hero-slide">
+          <img src="images/VVIP 2.png" alt="Kamar VVIP" draggable="false" />
+        </div>
+
+        <!-- HERO 10 -->
+
+        <div class="hero-slide">
+          <img src="images/NICU.png" alt="Ruang NICU" draggable="false" />
+        </div>
+
+        <!-- HERO 11 -->
+
+        <div class="hero-slide">
+          <img
+            src="images/HEMODILISA.png"
+            alt="Ruang Hemodialisa"
+            draggable="false"
+          />
+        </div>
+
+        <!-- HERO 12 -->
+
+        <div class="hero-slide">
+          <img src="images/IGD 24 JAM.png" alt="IGD 24 Jam" draggable="false" />
+        </div>
+
+        <!-- HERO 13 -->
+
+        <div class="hero-slide">
+          <img src="images/ICU.jpg" alt="Ruang ICU" draggable="false" />
+        </div>
+      </div>
+
+      <!-- OVERLAY -->
+
+      <div class="hero-overlay"></div>
+
+      <!-- HERO CONTENT -->
+
+      <div class="hero-content container">
+        <div class="hero-badge">
+          <i class="fa-solid fa-heart-pulse"></i>
+          Pelayanan Kesehatan Terpercaya
+        </div>
+
+        <h1>
+          Rumah Sakit Umum
+          <span>Amanda Mitra Keluarga</span>
+        </h1>
+
+        <p>
+          Kami hadir sebagai mitra kesehatan terpercaya bagi masyarakat dengan
+          pelayanan medis profesional, berkualitas, aman, dan mengutamakan
+          kenyamanan pasien serta keluarga.
+        </p>
+
+        <div class="hero-buttons">
+          <a href="#services" class="btn btn-primary">
+            Lihat Layanan
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+
+          <a href="#contact" class="btn btn-white">
+            Hubungi Kami
+            <i class="fa-solid fa-phone"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- HERO PREVIOUS -->
+
+      <button
+        type="button"
+        class="hero-btn hero-prev"
+        id="heroPrev"
+        aria-label="Gambar sebelumnya"
+      >
+        <i class="fa-solid fa-chevron-left"></i>
+      </button>
+
+      <!-- HERO NEXT -->
+
+      <button
+        type="button"
+        class="hero-btn hero-next"
+        id="heroNext"
+        aria-label="Gambar berikutnya"
+      >
+        <i class="fa-solid fa-chevron-right"></i>
+      </button>
+
+      <!-- HERO DOTS -->
+
+      <div class="hero-dots" id="heroDots"></div>
+
+      <!-- HERO SCROLL -->
+
+      <a href="#about" class="hero-scroll">
+        <span>Scroll untuk melihat lebih banyak</span>
+        <i class="fa-solid fa-chevron-down"></i>
+      </a>
+    </section>
+
+    <!-- =========================================================
+         QUICK SERVICE
+    ========================================================= -->
+
+    <section class="quick-service">
+      <div class="container quick-grid">
+        <a href="igd.html" class="quick-card">
+          <div class="quick-icon emergency">
+            <i class="fa-solid fa-truck-medical"></i>
+          </div>
+
+          <div>
+            <span>LAYANAN</span>
+            <strong>IGD 24 Jam</strong>
+          </div>
+        </a>
+
+        <a href="pelayanan.html" class="quick-card">
+          <div class="quick-icon">
+            <i class="fa-solid fa-user-doctor"></i>
+          </div>
+
+          <div>
+            <span>JADWAL</span>
+            <strong>Dokter</strong>
+          </div>
+        </a>
+
+        <a href="#services" class="quick-card">
+          <div class="quick-icon">
+            <i class="fa-solid fa-hospital"></i>
+          </div>
+
+          <div>
+            <span>INFORMASI</span>
+            <strong>Fasilitas</strong>
+          </div>
+        </a>
+
+        <a href="#contact" class="quick-card">
+          <div class="quick-icon">
+            <i class="fa-solid fa-calendar-check"></i>
+          </div>
+
+          <div>
+            <span>PENDAFTARAN</span>
+            <strong>Buat Janji</strong>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         ABOUT
+    ========================================================= -->
+
+    <section class="about" id="about">
+      <div class="container">
+        <div class="section-title">
+          <span>TENTANG KAMI</span>
+
+          <h2>
+            Rumah Sakit Untuk
+            <strong>Anda & Keluarga</strong>
+          </h2>
+
+          <p>Mengenal lebih dekat Rumah Sakit Umum Amanda Mitra Keluarga.</p>
+        </div>
+
+        <div class="about-wrapper">
+          <!-- ABOUT TEXT -->
+
+          <div class="about-text">
+            <div class="about-heading">
+              <div class="heading-icon">
+                <i class="fa-solid fa-hospital"></i>
+              </div>
+
+              <div>
+                <small>TENTANG KAMI</small>
+                <h3>Siapa Kami?</h3>
+              </div>
+            </div>
+
+            <p>
+              Rumah Sakit Umum Amanda Mitra Keluarga adalah fasilitas kesehatan
+              yang berkomitmen memberikan pelayanan medis terbaik bagi
+              masyarakat dan keluarga.
+            </p>
+
+            <p>
+              Kami hadir dengan mengutamakan profesionalisme, keselamatan
+              pasien, kenyamanan, serta pelayanan yang penuh kepedulian.
+            </p>
+
+            <!-- VISION -->
+
+            <div class="vision-box">
+              <div class="vision-icon">
+                <i class="fa-solid fa-eye"></i>
+              </div>
+
+              <div>
+                <h4>Visi Kami</h4>
+
+                <p>
+                  Menjadi rumah sakit pilihan utama masyarakat yang memberikan
+                  pelayanan kesehatan bermutu, profesional, terjangkau, dan
+                  berorientasi pada keselamatan serta kepuasan pasien.
+                </p>
+              </div>
+            </div>
+
+            <!-- MISSION -->
+
+            <div class="mission">
+              <h3>
+                <i class="fa-solid fa-bullseye"></i>
+                Misi Kami
+              </h3>
+
+              <ul>
+                <li>
+                  <i class="fa-solid fa-circle-check"></i>
+                  Memberikan pelayanan medis yang profesional dan berkualitas.
+                </li>
+
+                <li>
+                  <i class="fa-solid fa-circle-check"></i>
+                  Mengutamakan keselamatan dan kenyamanan pasien.
+                </li>
+
+                <li>
+                  <i class="fa-solid fa-circle-check"></i>
+                  Menyediakan fasilitas kesehatan yang modern dan memadai.
+                </li>
+
+                <li>
+                  <i class="fa-solid fa-circle-check"></i>
+                  Meningkatkan kompetensi dokter dan tenaga kesehatan.
+                </li>
+
+                <li>
+                  <i class="fa-solid fa-circle-check"></i>
+                  Membangun hubungan yang baik dengan pasien dan keluarga.
+                </li>
+
+                <li>
+                  <i class="fa-solid fa-circle-check"></i>
+                  Mendukung masyarakat dalam meningkatkan kesadaran hidup sehat.
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- ABOUT IMAGE -->
+
+          <div class="about-image">
+            <div class="image-slider" id="imageSlider">
+              <!-- IMAGE 1 -->
+
+              <div class="about-slide active">
+                <img
+                  src="images/LAB 1.png"
+                  alt="Laboratorium"
+                  draggable="false"
+                />
+
+                <div class="image-caption">
+                  <i class="fa-solid fa-microscope"></i>
+                  Laboratorium
+                </div>
+              </div>
+
+              <!-- IMAGE 2 -->
+
+              <div class="about-slide">
+                <img
+                  src="images/LAB 2.jpeg"
+                  alt="Fasilitas Laboratorium"
+                  draggable="false"
+                />
+
+                <div class="image-caption">
+                  <i class="fa-solid fa-flask"></i>
+                  Fasilitas Laboratorium
+                </div>
+              </div>
+
+              <!-- IMAGE 3 -->
+
+              <div class="about-slide">
+                <img
+                  src="images/POLIKLINIK.png"
+                  alt="Poliklinik"
+                  draggable="false"
+                />
+
+                <div class="image-caption">
+                  <i class="fa-solid fa-hospital-user"></i>
+                  Poliklinik
+                </div>
+              </div>
+
+              <!-- IMAGE 4 -->
+
+              <div class="about-slide">
+                <img
+                  src="images/VVIP 2.png"
+                  alt="Kamar VVIP"
+                  draggable="false"
+                />
+
+                <div class="image-caption">
+                  <i class="fa-solid fa-bed"></i>
+                  Kamar VVIP
+                </div>
+              </div>
+
+              <!-- IMAGE 5 -->
+
+              <div class="about-slide">
+                <img src="images/VIP 2.png" alt="Kamar VIP" draggable="false" />
+
+                <div class="image-caption">
+                  <i class="fa-solid fa-bed"></i>
+                  Kamar VIP
+                </div>
+              </div>
+
+              <!-- IMAGE 6 -->
+
+              <div class="about-slide">
+                <img
+                  src="images/HEMODILISA.png"
+                  alt="Hemodialisa"
+                  draggable="false"
+                />
+
+                <div class="image-caption">
+                  <i class="fa-solid fa-droplet"></i>
+                  Hemodialisa
+                </div>
+              </div>
+
+              <!-- IMAGE 7 -->
+
+              <div class="about-slide">
+                <img src="images/ICU.jpg" alt="ICU" draggable="false" />
+
+                <div class="image-caption">
+                  <i class="fa-solid fa-heart-pulse"></i>
+                  ICU
+                </div>
+              </div>
+
+              <!-- IMAGE 8 -->
+
+              <div class="about-slide">
+                <img src="images/NICU.png" alt="NICU" draggable="false" />
+
+                <div class="image-caption">
+                  <i class="fa-solid fa-baby"></i>
+                  NICU
+                </div>
+              </div>
+
+              <!-- IMAGE 9 -->
+
+              <div class="about-slide">
+                <img src="images/IGD 24 JAM.png" alt="IGD" draggable="false" />
+
+                <div class="image-caption">
+                  <i class="fa-solid fa-truck-medical"></i>
+                  IGD 24 Jam
+                </div>
+              </div>
+
+              <!-- IMAGE 10 -->
+
+              <div class="about-slide">
+                <img
+                  src="images/RUANG OPERASI 1.png"
+                  alt="Kamar Operasi"
+                  draggable="false"
+                />
+
+                <div class="image-caption">
+                  <i class="fa-solid fa-user-doctor"></i>
+                  Kamar Operasi
+                </div>
+              </div>
+
+              <!-- IMAGE 11 -->
+
+              <div class="about-slide">
+                <img
+                  src="images/RUANG OPERASI 2.png"
+                  alt="Ruang Operasi"
+                  draggable="false"
+                />
+
+                <div class="image-caption">
+                  <i class="fa-solid fa-hospital"></i>
+                  Ruang Operasi
+                </div>
+              </div>
+
+              <!-- BUTTON -->
+
+              <button
+                class="slider-btn prev"
+                id="prevBtn"
+                type="button"
+                aria-label="Foto sebelumnya"
+              >
+                <i class="fa-solid fa-chevron-left"></i>
+              </button>
+
+              <button
+                class="slider-btn next"
+                id="nextBtn"
+                type="button"
+                aria-label="Foto berikutnya"
+              >
+                <i class="fa-solid fa-chevron-right"></i>
+              </button>
+
+              <!-- DOT -->
+
+              <div class="slider-dots" id="sliderDots"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         SERVICES
+    ========================================================= -->
+
+    <section class="services" id="services">
+      <div class="container">
+        <div class="section-title">
+          <span>LAYANAN KAMI</span>
+
+          <h2>
+            Pelayanan Kesehatan
+            <strong>Untuk Keluarga</strong>
+          </h2>
+
+          <p>
+            Berbagai layanan kesehatan dengan dukungan tenaga medis profesional
+            dan fasilitas yang memadai.
+          </p>
+        </div>
+
+        <div class="services-grid">
+          <!-- SERVICE 1 -->
+
+          <article class="service-card">
+            <div class="service-icon">
+              <i class="fa-solid fa-user-doctor"></i>
+            </div>
+
+            <h3>Pelayanan Dokter</h3>
+
+            <p>
+              Pelayanan medis oleh dokter dan tenaga kesehatan yang profesional
+              dan berpengalaman.
+            </p>
+
+            <a href="pelayanan.html">
+              Selengkapnya
+              <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </article>
+
+          <!-- SERVICE 2 -->
+
+          <article class="service-card">
+            <div class="service-icon">
+              <i class="fa-solid fa-bed"></i>
+            </div>
+
+            <h3>Rawat Inap</h3>
+
+            <p>
+              Fasilitas rawat inap yang nyaman dengan dukungan tenaga kesehatan
+              selama masa perawatan.
+            </p>
+
+            <a href="rawatinap.html">
+              Selengkapnya
+              <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </article>
+
+          <!-- SERVICE 3 -->
+
+          <article class="service-card">
+            <div class="service-icon">
+              <i class="fa-solid fa-droplet"></i>
+            </div>
+
+            <h3>Hemodialisa</h3>
+
+            <p>
+              Pelayanan hemodialisa dengan fasilitas yang mendukung kebutuhan
+              perawatan pasien.
+            </p>
+
+            <a href="hemodialisa.html">
+              Selengkapnya
+              <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </article>
+
+          <!-- SERVICE 4 -->
+
+          <article class="service-card">
+            <div class="service-icon">
+              <i class="fa-solid fa-heart-pulse"></i>
+            </div>
+
+            <h3>ICU</h3>
+
+            <p>
+              Pelayanan perawatan intensif dengan mengutamakan kebutuhan dan
+              keselamatan pasien.
+            </p>
+
+            <a href="icu.html">
+              Selengkapnya
+              <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </article>
+
+          <!-- SERVICE 5 -->
+
+          <article class="service-card">
+            <div class="service-icon">
+              <i class="fa-solid fa-hospital-user"></i>
+            </div>
+
+            <h3>Poliklinik</h3>
+
+            <p>
+              Pelayanan poliklinik dengan dukungan dokter dan tenaga kesehatan
+              profesional.
+            </p>
+
+            <a href="poliklinik.html">
+              Selengkapnya
+              <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </article>
+
+          <!-- SERVICE 6 -->
+
+          <article class="service-card">
+            <div class="service-icon">
+              <i class="fa-solid fa-microscope"></i>
+            </div>
+
+            <h3>Laboratorium</h3>
+
+            <p>
+              Pemeriksaan laboratorium untuk membantu proses diagnosis dan
+              pemantauan kesehatan.
+            </p>
+
+            <a href="laboratorium.html">
+              Selengkapnya
+              <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </article>
+
+          <!-- SERVICE 7 -->
+
+          <article class="service-card">
+            <div class="service-icon">
+              <i class="fa-solid fa-baby"></i>
+            </div>
+
+            <h3>NICU</h3>
+
+            <p>
+              Perawatan khusus untuk bayi dengan dukungan tenaga kesehatan yang
+              profesional dan penuh kepedulian.
+            </p>
+
+            <a href="nicu.html">
+              Selengkapnya
+              <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </article>
+
+          <!-- SERVICE 8 -->
+
+          <article class="service-card">
+            <div class="service-icon">
+              <i class="fa-solid fa-person-breastfeeding"></i>
+            </div>
+
+            <h3>Kamar Bersalin</h3>
+
+            <p>
+              Fasilitas persalinan yang nyaman dengan dukungan tenaga kesehatan.
+            </p>
+
+            <a href="kamarbersalin.html">
+              Selengkapnya
+              <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </article>
+
+          <!-- SERVICE 9 -->
+
+          <article class="service-card">
+            <div class="service-icon emergency-icon">
+              <i class="fa-solid fa-truck-medical"></i>
+            </div>
+
+            <h3>IGD</h3>
+
+            <p>
+              Pelayanan medis untuk kondisi yang membutuhkan penanganan segera.
+            </p>
+
+            <a href="igd.html">
+              Selengkapnya
+              <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </article>
+
+          <!-- SERVICE 10 -->
+
+          <article class="service-card">
+            <div class="service-icon">
+              <i class="fa-solid fa-person-circle-plus"></i>
+            </div>
+
+            <h3>Kamar Operasi</h3>
+
+            <p>
+              Fasilitas kamar operasi yang mendukung berbagai tindakan medis dan
+              pembedahan.
+            </p>
+
+            <a href="kamaroperasi.html">
+              Selengkapnya
+              <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </article>
+
+          <!-- SERVICE 11 -->
+
+          <article class="service-card">
+            <div class="service-icon emergency-icon">
+              <i class="fa-solid fa-truck-medical"></i>
+            </div>
+
+            <h3>Trauma Center</h3>
+
+            <p>
+              Penanganan kasus trauma dan kondisi kegawatdaruratan secara cepat
+              dan terpadu.
+            </p>
+
+            <a href="traumacenter.html">
+              Selengkapnya
+              <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </article>
+
+          <!-- SERVICE 12 -->
+
+          <article class="service-card">
+            <div class="service-icon">
+              <i class="fa-solid fa-vial"></i>
+            </div>
+
+            <h3>Fasilitas Penunjang</h3>
+
+            <p>
+              Berbagai fasilitas penunjang untuk membantu kebutuhan pemeriksaan
+              dan pelayanan kesehatan pasien.
+            </p>
+
+            <a href="#contact">
+              Selengkapnya
+              <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         MEDIA TIKTOK
+    ========================================================= -->
+    <section class="tiktok-section" id="tiktok">
+      <div class="container">
+        <div class="tiktok-heading">
+          <div class="tiktok-heading-copy">
+            <span class="tiktok-badge"
+              ><i class="fa-brands fa-tiktok"></i> TikTok Official</span
+            >
+            <h2>Ikuti Kami di TikTok <i class="fa-brands fa-tiktok"></i></h2>
+            <p>
+              Dapatkan informasi kesehatan, layanan, tips kesehatan, dan kabar
+              terbaru RSU Amanda Mitra Keluarga.
+            </p>
+          </div>
+          <a
+            class="tiktok-profile-link"
+            href="https://www.tiktok.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Kunjungi akun TikTok rumah sakit"
+          >
+            <i class="fa-brands fa-tiktok"></i>
+            <span>@rsu_amandamk</span>
+            <i
+              class="fa-solid fa-arrow-up-right-from-square tiktok-external"
+            ></i>
+          </a>
+        </div>
+
+        <div class="tiktok-video-grid" aria-label="Video TikTok rumah sakit">
+          <article class="tiktok-video-card">
+            <div class="tiktok-placeholder">
+              <i class="fa-brands fa-tiktok"></i>
+              <strong>Video TikTok 1</strong>
+              <span>Masukkan URL video resmi</span>
+              <a
+                href="https://www.tiktok.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Buka TikTok
+                <i class="fa-solid fa-arrow-up-right-from-square"></i
+              ></a>
+            </div>
+          </article>
+          <article class="tiktok-video-card">
+            <div class="tiktok-placeholder">
+              <i class="fa-brands fa-tiktok"></i>
+              <strong>Video TikTok 2</strong>
+              <span>Masukkan URL video resmi</span>
+              <a
+                href="https://www.tiktok.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Buka TikTok
+                <i class="fa-solid fa-arrow-up-right-from-square"></i
+              ></a>
+            </div>
+          </article>
+          <article class="tiktok-video-card">
+            <div class="tiktok-placeholder">
+              <i class="fa-brands fa-tiktok"></i>
+              <strong>Video TikTok 3</strong>
+              <span>Masukkan URL video resmi</span>
+              <a
+                href="https://www.tiktok.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Buka TikTok
+                <i class="fa-solid fa-arrow-up-right-from-square"></i
+              ></a>
+            </div>
+          </article>
+          <article class="tiktok-video-card">
+            <div class="tiktok-placeholder">
+              <i class="fa-brands fa-tiktok"></i>
+              <strong>Video TikTok 4</strong>
+              <span>Masukkan URL video resmi</span>
+              <a
+                href="https://www.tiktok.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Buka TikTok
+                <i class="fa-solid fa-arrow-up-right-from-square"></i
+              ></a>
+            </div>
+          </article>
+          <article class="tiktok-video-card">
+            <div class="tiktok-placeholder">
+              <i class="fa-brands fa-tiktok"></i>
+              <strong>Video TikTok 5</strong>
+              <span>Masukkan URL video resmi</span>
+              <a
+                href="https://www.tiktok.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Buka TikTok
+                <i class="fa-solid fa-arrow-up-right-from-square"></i
+              ></a>
+            </div>
+          </article>
+          <article class="tiktok-video-card">
+            <div class="tiktok-placeholder">
+              <i class="fa-brands fa-tiktok"></i>
+              <strong>Video TikTok 6</strong>
+              <span>Masukkan URL video resmi</span>
+              <a
+                href="https://www.tiktok.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Buka TikTok
+                <i class="fa-solid fa-arrow-up-right-from-square"></i
+              ></a>
+            </div>
+          </article>
+        </div>
+        <p class="tiktok-note">
+          Ganti tautan placeholder dengan tautan video TikTok resmi agar video
+          dapat ditampilkan langsung di halaman.
+        </p>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         PARTNERS
+    ========================================================= -->
+
+    <section class="partners" id="partners">
+      <div class="container">
+        <div class="section-title">
+          <span>OUR PARTNER</span>
+
+          <h2>
+            Partner
+            <strong>Kami</strong>
+          </h2>
+
+          <p>
+            Kami bekerja sama dengan berbagai pihak untuk mendukung pelayanan
+            kesehatan yang berkualitas bagi masyarakat.
+          </p>
+        </div>
+
+        <div class="partners-grid">
+          <div class="partner-card">
+            <img src="images/1630627620920.jpg" alt="Partner" />
+          </div>
+
+          <div class="partner-card">
+            <img
+              src="images/admedika-main-logo-full-color0-1779164230.png"
+              alt="Admedika"
+            />
+          </div>
+
+          <div class="partner-card">
+            <img src="images/Asuransi_astra.png" alt="Asuransi Astra" />
+          </div>
+
+          <div class="partner-card">
+            <img
+              src="images/BPJS_Ketenagakerjaan_logo.svg.webp"
+              alt="BPJS Ketenagakerjaan"
+            />
+          </div>
+
+          <div class="partner-card">
+            <img
+              src="images/central_motor_wheel_indonesia_logo.jpg"
+              alt="Central Motor Wheel Indonesia"
+            />
+          </div>
+
+          <div class="partner-card">
+            <img src="images/exedy-e1580718202902.png" alt="Exedy" />
+          </div>
+
+          <div class="partner-card">
+            <img src="images/fujita.png" alt="Fujita" />
+          </div>
+
+          <div class="partner-card">
+            <img src="images/images (1).jpg" alt="Partner" />
+          </div>
+
+          <div class="partner-card">
+            <img src="images/images (1).png" alt="Partner" />
+          </div>
+
+          <div class="partner-card">
+            <img src="images/images (2).jpg" alt="Partner" />
+          </div>
+
+          <div class="partner-card">
+            <img src="images/images.jpg" alt="Partner" />
+          </div>
+
+          <div class="partner-card">
+            <img src="images/images.png" alt="Partner" />
+          </div>
+
+          <div class="partner-card">
+            <img src="images/Logo_Halodoc.png" alt="Halodoc" />
+          </div>
+
+          <div class="partner-card">
+            <img src="images/logo-bpjs-kesehatan.webp" alt="BPJS Kesehatan" />
+          </div>
+
+          <div class="partner-card">
+            <img src="images/logo-pjpk.png" alt="Partner" />
+          </div>
+
+          <div class="partner-card">
+            <img
+              src="images/png-clipart-logo-bridgestone-brand-tire-desktop-design-text-trademark-thumbnail.png"
+              alt="Bridgestone"
+            />
+          </div>
+
+          <div class="partner-card">
+            <img src="images/Rey-Logo-Warna.png" alt="Rey" />
+          </div>
+
+          <div class="partner-card">
+            <img src="images/unnamed.png" alt="Partner" />
+          </div>
+
+          <div class="partner-card">
+            <img
+              src="images/yamaha-logo-png_seeklogo-154906.png"
+              alt="Yamaha"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         CONTACT
+    ========================================================= -->
+
+    <section class="contact" id="contact">
+      <div class="container">
+        <div class="section-title">
+          <span>HUBUNGI KAMI</span>
+
+          <h2>
+            Kami Siap Membantu
+            <strong>Anda & Keluarga</strong>
+          </h2>
+
+          <p>
+            Jangan ragu untuk menghubungi kami untuk mendapatkan informasi lebih
+            lanjut.
+          </p>
+        </div>
+
+        <div class="contact-wrapper">
+          <!-- FORM -->
+
+          <form class="contact-form" id="contactForm">
+            <div class="form-title">
+              <div class="form-title-icon">
+                <i class="fa-solid fa-envelope"></i>
+              </div>
+
+              <div>
+                <h3>Kirim Pesan</h3>
+                <p>Silakan isi formulir berikut.</p>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="nama"> Nama Anda </label>
+
+              <input
+                type="text"
+                id="nama"
+                name="nama"
+                placeholder="Masukkan nama Anda"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="email"> Email Anda </label>
+
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Masukkan email Anda"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="pesan"> Pesan </label>
+
+              <textarea
+                id="pesan"
+                name="pesan"
+                rows="5"
+                placeholder="Tuliskan pesan Anda..."
+                required
+              ></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary form-btn">
+              <i class="fa-solid fa-paper-plane"></i>
+              Kirim Pesan
+            </button>
+          </form>
+
+          <!-- INFO -->
+
+          <div class="contact-info">
+            <div class="contact-card">
+              <div class="contact-icon">
+                <i class="fa-solid fa-location-dot"></i>
+              </div>
+
+              <div>
+                <span>Alamat</span>
+                <h4>RSU Amanda Mitra Keluarga</h4>
+                <p>Karawang, Jawa Barat, Indonesia</p>
+              </div>
+            </div>
+
+            <div class="contact-card">
+              <div class="contact-icon">
+                <i class="fa-solid fa-envelope"></i>
+              </div>
+
+              <div>
+                <span>Email</span>
+                <h4>amandawadasrs2@gmail.com</h4>
+                <p>Silakan hubungi kami melalui email.</p>
+              </div>
+            </div>
+
+            <div class="contact-card">
+              <div class="contact-icon">
+                <i class="fa-solid fa-phone"></i>
+              </div>
+
+              <div>
+                <span>Call Center</span>
+                <h4>(0267) 511321</h4>
+                <p>Hubungi kami untuk informasi pelayanan.</p>
+              </div>
+            </div>
+
+            <div class="contact-card">
+              <div class="contact-icon">
+                <i class="fa-solid fa-truck-medical"></i>
+              </div>
+
+              <div>
+                <span>IGD</span>
+                <h4>0812 8707 5555</h4>
+                <p>Layanan gawat darurat 24 jam.</p>
+              </div>
+            </div>
+
+            <!-- WHATSAPP -->
+
+            <a
+              href="https://wa.me/6281317277229"
+              class="whatsapp-btn"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <i class="fa-brands fa-whatsapp"></i>
+              Hubungi via WhatsApp
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         FOOTER
+    ========================================================= -->
+
+    <footer>
+      <div class="container">
+        <div class="footer-main">
+          <!-- LOGO -->
+
+          <div class="footer-brand">
+            <img
+              src="images/logo-removebg-preview.png"
+              alt="Logo RSU Amanda Mitra Keluarga"
+            />
+
+            <div>
+              <strong>RUMAH SAKIT UMUM AMANDA</strong>
+              <span>Mitra Keluarga</span>
+            </div>
+          </div>
+
+          <!-- LINKS -->
+
+          <div class="footer-links">
+            <a href="#home"> Beranda </a>
+
+            <a href="#about"> Profil </a>
+
+            <a href="#services"> Layanan </a>
+
+            <a href="#partners"> Partner </a>
+
+            <a href="#contact"> Kontak </a>
+          </div>
+
+          <!-- SOCIAL -->
+
+          <div class="social-icons">
+            <a
+              href="https://www.facebook.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Facebook"
+            >
+              <i class="fa-brands fa-facebook-f"></i>
+            </a>
+
+            <a
+              href="https://www.instagram.com/rsu_amandamk"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram"
+            >
+              <i class="fa-brands fa-instagram"></i>
+            </a>
+
+            <a
+              href="https://www.tiktok.com/@rsu_amandamk"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="TikTok"
+            >
+              <i class="fa-brands fa-tiktok"></i>
+            </a>
+
+            <a
+              href="https://wa.me/6281317277229"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="WhatsApp"
+            >
+              <i class="fa-brands fa-whatsapp"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>&copy; 2026 IT RSU Amanda Mitra Keluarga. All Rights Reserved.</p>
+
+          <p>Pelayanan kesehatan profesional dan terpercaya.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- =========================================================
+         FLOATING WHATSAPP
+    ========================================================= -->
+
+    <a
+      href="https://wa.me/6281317277229"
+      class="floating-whatsapp"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Chat WhatsApp"
+    >
+      <i class="fa-brands fa-whatsapp"></i>
+      <span>Tanya Kami</span>
+    </a>
+
+    <!-- =========================================================
+         BACK TO TOP
+    ========================================================= -->
+
+    <button class="back-to-top" id="backToTop" aria-label="Kembali ke atas">
+      <i class="fa-solid fa-chevron-up"></i>
+    </button>
+
+    <!-- =========================================================
+         JAVASCRIPT
+    ========================================================= -->
+
+    <script src="script.js"></script>
+  </body>
+</html>

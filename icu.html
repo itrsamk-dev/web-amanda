@@ -1,0 +1,502 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta
+      name="description"
+      content="Informasi pelayanan ICU Rumah Sakit Umum Amanda Mitra Keluarga."
+    />
+
+    <title>ICU - RSU Amanda Mitra Keluarga</title>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        --primary: #55c85a;
+        --primary-dark: #2f9d35;
+        --dark: #073b0d;
+        --light: #f5f8f6;
+        --text: #333;
+        --gray: #666;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        background: var(--light);
+        color: var(--text);
+        line-height: 1.7;
+      }
+
+      img {
+        display: block;
+        max-width: 100%;
+      }
+
+      a {
+        text-decoration: none;
+      }
+
+      .container {
+        width: min(1150px, 92%);
+        margin: auto;
+      }
+
+      /* NAVBAR */
+
+      .navbar {
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        background: rgba(255, 255, 255, 0.97);
+        backdrop-filter: blur(10px);
+        box-shadow: 0 3px 20px rgba(0, 0, 0, 0.08);
+      }
+
+      .navbar-container {
+        min-height: 78px;
+        display: flex;
+        align-items: center;
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .logo img {
+        width: 58px;
+        height: 58px;
+        object-fit: contain;
+      }
+
+      .logo-text {
+        display: flex;
+        flex-direction: column;
+        line-height: 1.2;
+      }
+
+      .logo-text strong {
+        color: #d71920;
+        font-size: 15px;
+      }
+
+      .logo-text span {
+        color: #55a52d;
+        font-size: 13px;
+        font-weight: 600;
+      }
+
+      /* HERO */
+
+      .page-hero {
+        min-height: 370px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        color: white;
+        padding: 70px 20px;
+
+        background:
+          linear-gradient(rgba(7, 59, 13, 0.78), rgba(7, 59, 13, 0.78)),
+          url("images/ICU.png");
+
+        background-size: cover;
+        background-position: center;
+      }
+
+      .page-hero-content {
+        max-width: 800px;
+      }
+
+      .page-hero-content i {
+        font-size: 58px;
+        color: #7ee582;
+        margin-bottom: 18px;
+      }
+
+      .page-hero h1 {
+        font-size: clamp(2.2rem, 5vw, 3.2rem);
+        line-height: 1.2;
+        margin-bottom: 14px;
+      }
+
+      .page-hero p {
+        max-width: 680px;
+        margin: auto;
+        font-size: 14px;
+        line-height: 1.9;
+        color: rgba(255, 255, 255, 0.94);
+      }
+
+      /* CONTENT */
+
+      .icu-content {
+        padding: 90px 0;
+      }
+
+      .icu-wrapper {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 60px;
+        align-items: center;
+      }
+
+      .icu-image {
+        overflow: hidden;
+        border-radius: 20px;
+        background: white;
+        box-shadow: 0 18px 45px rgba(0, 0, 0, 0.15);
+      }
+
+      .icu-image img {
+        width: 100%;
+        height: 520px;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+      }
+
+      .icu-image:hover img {
+        transform: scale(1.04);
+      }
+
+      .icu-text h2 {
+        color: var(--dark);
+        font-size: clamp(1.8rem, 3vw, 2.3rem);
+        line-height: 1.3;
+        margin-bottom: 20px;
+      }
+
+      .icu-text h2::after {
+        content: "";
+        display: block;
+        width: 55px;
+        height: 4px;
+        margin-top: 12px;
+        border-radius: 10px;
+        background: var(--primary);
+      }
+
+      .icu-text p {
+        color: var(--gray);
+        font-size: 14px;
+        line-height: 1.9;
+        margin-bottom: 18px;
+      }
+
+      /* LIST */
+
+      .icu-list {
+        list-style: none;
+        margin-top: 25px;
+      }
+
+      .icu-list li {
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        margin-bottom: 13px;
+        color: #555;
+        font-size: 13px;
+      }
+
+      .icu-list i {
+        color: var(--primary);
+        margin-top: 4px;
+      }
+
+      /* INFO */
+
+      .icu-info {
+        margin-top: 25px;
+        padding: 20px;
+        background: #eaf9eb;
+        border-left: 4px solid var(--primary);
+        border-radius: 10px;
+      }
+
+      .icu-info h3 {
+        color: var(--dark);
+        font-size: 16px;
+        margin-bottom: 7px;
+      }
+
+      .icu-info p {
+        margin: 0;
+        font-size: 12px;
+      }
+
+      /* BACK BUTTON */
+
+      .back-section {
+        padding: 0 0 80px;
+      }
+
+      .back-button {
+        display: inline-flex;
+        align-items: center;
+        gap: 9px;
+        padding: 12px 22px;
+        background: var(--primary);
+        color: white;
+        border-radius: 8px;
+        font-size: 13px;
+        font-weight: 600;
+        transition: 0.3s;
+      }
+
+      .back-button:hover {
+        background: var(--primary-dark);
+        transform: translateY(-2px);
+      }
+
+      /* FOOTER */
+
+      footer {
+        background: var(--dark);
+        color: white;
+        padding: 35px 0;
+        text-align: center;
+      }
+
+      footer p {
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 12px;
+      }
+
+      /* TABLET */
+
+      @media (max-width: 900px) {
+        .icu-wrapper {
+          grid-template-columns: 1fr;
+          gap: 45px;
+        }
+
+        .icu-image img {
+          height: 450px;
+        }
+      }
+
+      /* MOBILE */
+
+      @media (max-width: 600px) {
+        .navbar-container {
+          min-height: 68px;
+        }
+
+        .logo img {
+          width: 47px;
+          height: 47px;
+        }
+
+        .logo-text strong {
+          font-size: 10px;
+        }
+
+        .logo-text span {
+          font-size: 9px;
+        }
+
+        .page-hero {
+          min-height: 320px;
+          padding: 60px 20px;
+        }
+
+        .page-hero-content i {
+          font-size: 45px;
+        }
+
+        .page-hero h1 {
+          font-size: 2rem;
+        }
+
+        .page-hero p {
+          font-size: 12px;
+        }
+
+        .icu-content {
+          padding: 65px 0;
+        }
+
+        .icu-image img {
+          height: 380px;
+        }
+
+        .icu-text h2 {
+          font-size: 1.7rem;
+        }
+
+        .icu-text p {
+          font-size: 13px;
+        }
+
+        .back-section {
+          padding-bottom: 60px;
+        }
+
+        footer {
+          padding: 28px 0;
+        }
+
+        footer p {
+          font-size: 10px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- NAVBAR -->
+
+    <header class="navbar">
+      <div class="container navbar-container">
+        <a href="index.html" class="logo">
+          <img
+            src="images/logo-removebg-preview.png"
+            alt="Logo Rumah Sakit Umum Amanda Mitra Keluarga"
+          />
+
+          <div class="logo-text">
+            <strong>RUMAH SAKIT UMUM AMANDA</strong>
+            <span>mitra keluarga</span>
+          </div>
+        </a>
+      </div>
+    </header>
+
+    <!-- HERO -->
+
+    <section class="page-hero">
+      <div class="page-hero-content">
+        <i class="fas fa-heart-pulse"></i>
+
+        <h1>ICU</h1>
+
+        <p>
+          Pelayanan Intensive Care Unit yang ditujukan untuk memberikan
+          perawatan dan pemantauan intensif bagi pasien yang membutuhkan
+          perhatian medis khusus.
+        </p>
+      </div>
+    </section>
+
+    <!-- CONTENT -->
+
+    <section class="icu-content">
+      <div class="container">
+        <div class="icu-wrapper">
+          <!-- GAMBAR ICU -->
+
+          <div class="icu-image">
+            <img
+              src="images/ICU.jpg"
+              alt="Fasilitas ICU RSU Amanda Mitra Keluarga"
+            />
+          </div>
+
+          <!-- INFORMASI ICU -->
+
+          <div class="icu-text">
+            <h2>Pelayanan ICU</h2>
+
+            <p>
+              Rumah Sakit Umum Amanda Mitra Keluarga menyediakan fasilitas
+              Intensive Care Unit (ICU) untuk membantu memberikan perawatan
+              intensif kepada pasien yang membutuhkan pemantauan kondisi secara
+              lebih khusus.
+            </p>
+
+            <p>
+              Pelayanan ICU didukung oleh tenaga kesehatan profesional dengan
+              mengutamakan keselamatan, kenyamanan, dan kebutuhan pasien selama
+              menjalani perawatan.
+            </p>
+
+            <ul class="icu-list">
+              <li>
+                <i class="fas fa-check-circle"></i>
+                <span> Pemantauan kondisi pasien secara intensif. </span>
+              </li>
+
+              <li>
+                <i class="fas fa-check-circle"></i>
+                <span> Didukung tenaga kesehatan profesional. </span>
+              </li>
+
+              <li>
+                <i class="fas fa-check-circle"></i>
+                <span>
+                  Fasilitas untuk pasien yang membutuhkan perawatan khusus.
+                </span>
+              </li>
+
+              <li>
+                <i class="fas fa-check-circle"></i>
+                <span> Mengutamakan keselamatan dan kenyamanan pasien. </span>
+              </li>
+            </ul>
+
+            <div class="icu-info">
+              <h3>
+                <i class="fas fa-circle-info"></i>
+                Informasi ICU
+              </h3>
+
+              <p>
+                Informasi mengenai pelayanan dan fasilitas ICU dapat
+                dikonfirmasi kepada pihak Rumah Sakit Umum Amanda Mitra
+                Keluarga.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- KEMBALI -->
+
+    <section class="back-section">
+      <div class="container">
+        <a href="index.html#services" class="back-button">
+          <i class="fas fa-arrow-left"></i>
+
+          Kembali ke Layanan
+        </a>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+
+    <footer>
+      <div class="container">
+        <p>
+          &copy; 2026 Rumah Sakit Umum Amanda Mitra Keluarga. All Rights
+          Reserved.
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,970 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Informasi pelayanan Rawat Inap Rumah Sakit Umum Amanda Mitra Keluarga."
+    />
+    <title>Rawat Inap - RSU Amanda Mitra Keluarga</title>
+    <link rel="icon" href="images/logo-removebg-preview.png" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      :root {
+        --green: #087f49;
+        --light: #f5f9f7;
+        --border: #edf1ee;
+        --dark: #073b0d;
+      }
+      body {
+        font-family: Poppins, sans-serif;
+        background: var(--light);
+        color: #17231c;
+        line-height: 1.7;
+      }
+      img {
+        max-width: 100%;
+        display: block;
+      }
+      a {
+        text-decoration: none;
+      }
+      .container {
+        width: min(1200px, calc(100% - 40px));
+        margin: auto;
+      }
+      .navbar {
+        position: sticky;
+        top: 0;
+        background: #fffffffa;
+        box-shadow: 0 3px 20px #00000012;
+        z-index: 10;
+      }
+      .navbar-container {
+        min-height: 74px;
+        display: flex;
+        align-items: center;
+      }
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .logo img {
+        width: 58px;
+        height: 58px;
+        object-fit: contain;
+      }
+      .logo-text {
+        display: flex;
+        flex-direction: column;
+        line-height: 1.2;
+      }
+      .logo-text strong {
+        color: #d71920;
+        font-size: 15px;
+      }
+      .logo-text span {
+        color: #55a52d;
+        font-size: 13px;
+        font-weight: 600;
+      }
+      .rawat-page {
+        padding: 28px 0 0;
+      }
+      .rawat-summary,
+      .gallery-panel,
+      .panel {
+        background: #fff;
+        border: 1px solid var(--border);
+        border-radius: 22px;
+        box-shadow: 0 1px 2px #0c281818;
+      }
+      .rawat-summary {
+        padding: 27px 24px 20px;
+      }
+      .heading {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding-bottom: 18px;
+        border-bottom: 1px solid var(--border);
+      }
+      .small-icon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        flex: 0 0 38px;
+        width: 38px;
+        height: 38px;
+        border-radius: 12px;
+        background: #eafbf2;
+        color: var(--green);
+      }
+      .eyebrow {
+        display: inline-block;
+        border-radius: 20px;
+        padding: 4px 10px;
+        background: #d4f9e8;
+        color: var(--green);
+        font-size: 9px;
+        font-weight: 600;
+      }
+      .heading h1 {
+        font-size: 16px;
+        color: #0c1724;
+        margin-top: 4px;
+      }
+      .summary-copy {
+        padding: 17px 0 12px;
+      }
+      .summary-copy p {
+        font-size: 11px;
+        line-height: 1.8;
+        color: #344255;
+        margin-bottom: 12px;
+      }
+      .summary-footer {
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+        flex-wrap: wrap;
+        border-top: 1px solid var(--border);
+        padding-top: 13px;
+        color: var(--green);
+        font-size: 10px;
+        font-weight: 600;
+      }
+      .summary-footer a {
+        color: var(--green);
+      }
+      .section {
+        padding-top: 30px;
+      }
+      .section-title {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 15px;
+      }
+      .section-title h2 {
+        font-size: 15px;
+        color: #111c28;
+      }
+      .facility-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 14px;
+      }
+      .facility-card {
+        background: white;
+        border: 1px solid var(--border);
+        border-radius: 18px;
+        padding: 18px;
+        min-height: 160px;
+      }
+      .facility-card .small-icon {
+        margin-bottom: 10px;
+      }
+      .facility-card h3 {
+        font-size: 12px;
+        margin-bottom: 8px;
+      }
+      .facility-card p {
+        font-size: 10px;
+        color: #455266;
+        line-height: 1.7;
+      }
+      .gallery-panel {
+        padding: 22px 24px 24px;
+      }
+      .gallery-heading {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding-bottom: 15px;
+        border-bottom: 1px solid var(--border);
+        margin-bottom: 18px;
+      }
+      .gallery-heading > div {
+        flex: 1;
+      }
+      .gallery-heading h2 {
+        font-size: 13px;
+        color: #101b28;
+      }
+      .gallery-heading p {
+        font-size: 9px;
+        color: #788394;
+      }
+      .photo-count {
+        font-size: 9px;
+        color: var(--green);
+        background: #effdf6;
+        border: 1px solid #c8f5df;
+        border-radius: 20px;
+        padding: 5px 11px;
+      }
+      .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 16px;
+      }
+      .gallery-photo {
+        position: relative;
+        height: 190px;
+        overflow: hidden;
+        border-radius: 11px;
+        background: #edf3ef;
+      }
+      .gallery-photo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: 0.3s;
+      }
+      .gallery-photo:hover img {
+        transform: scale(1.04);
+      }
+      .gallery-photo figcaption {
+        position: absolute;
+        inset: auto 0 0;
+        padding: 20px 12px 10px;
+        color: white;
+        font-size: 11px;
+        font-weight: 600;
+        background: linear-gradient(transparent, #0009);
+      }
+      .crown {
+        position: absolute;
+        right: 12px;
+        top: 12px;
+        background: #dcfbea;
+        color: var(--green);
+        padding: 8px 10px;
+        border-radius: 10px;
+      }
+      .panel {
+        padding: 24px;
+      }
+      .panel-heading {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding-bottom: 16px;
+        margin-bottom: 20px;
+        border-bottom: 1px solid var(--border);
+      }
+      .panel-heading h2 {
+        font-size: 16px;
+        line-height: 1.4;
+        color: #101b28;
+      }
+      .panel-heading p {
+        font-size: 10px;
+        color: #788394;
+      }
+      .room-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 18px;
+      }
+      .room {
+        padding: 17px 18px;
+        border-radius: 15px;
+        border: 1px solid;
+      }
+      .room h3 {
+        font-size: 12px;
+        margin-bottom: 8px;
+      }
+      .room h3 i {
+        font-size: 12px;
+        margin-right: 7px;
+      }
+      .room p {
+        font-size: 10px;
+        line-height: 1.8;
+      }
+      .vip {
+        background: #ecfdf5;
+        border-color: #c8f7df;
+        color: #075c3c;
+      }
+      .kelas12 {
+        background: #eff6ff;
+        border-color: #d4e5ff;
+        color: #173f91;
+      }
+      .kelas3 {
+        background: #fffbeb;
+        border-color: #fde9b0;
+        color: #92400e;
+      }
+      .rules-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 12px;
+      }
+      .rule-card {
+        background: #f9fbfa;
+        border: 1px solid var(--border);
+        border-radius: 15px;
+        overflow: hidden;
+      }
+      .rule-toggle {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        gap: 9px;
+        text-align: left;
+        border: 0;
+        background: transparent;
+        padding: 14px;
+        cursor: pointer;
+        color: #0c1724;
+      }
+      .rule-icon {
+        width: 36px;
+        height: 36px;
+        flex: 0 0 36px;
+        display: grid;
+        place-items: center;
+        border-radius: 50%;
+        background: #d1fae5;
+        color: var(--green);
+      }
+      .rule-card:nth-child(2) .rule-icon {
+        background: #dbeafe;
+        color: #2563eb;
+      }
+      .rule-card:nth-child(3) .rule-icon {
+        background: #fef3c7;
+        color: #b45309;
+      }
+      .rule-card:nth-child(4) .rule-icon {
+        background: #f3e8ff;
+        color: #9333ea;
+      }
+      .rule-label {
+        flex: 1;
+      }
+      .rule-label strong {
+        display: block;
+        font-size: 10px;
+        line-height: 1.4;
+      }
+      .rule-label small {
+        font-size: 8px;
+        color: var(--green);
+        background: #e7fbf0;
+        padding: 2px 8px;
+        border-radius: 20px;
+      }
+      .chevron {
+        font-size: 11px;
+        color: #8a98aa;
+        transition: 0.2s;
+      }
+      .rule-card.open .chevron {
+        transform: rotate(180deg);
+      }
+      .rule-content {
+        display: none;
+        padding: 0 12px 14px 58px;
+        font-size: 10px;
+        line-height: 1.8;
+        color: #536174;
+      }
+      .rule-card.open .rule-content {
+        display: block;
+      }
+      .consult-top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        padding-bottom: 17px;
+        border-bottom: 1px solid var(--border);
+      }
+      .kicker {
+        font-size: 10px;
+        color: var(--green);
+        font-weight: 700;
+      }
+      .consult-top h2 {
+        font-size: 17px;
+        line-height: 1.4;
+        margin: 3px 0;
+      }
+      .consult-top p {
+        font-size: 10px;
+        color: #788394;
+      }
+      .book-button {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: var(--green);
+        color: white;
+        padding: 10px 16px;
+        border-radius: 10px;
+        font-size: 10px;
+        font-weight: 600;
+        white-space: nowrap;
+      }
+      .contact-grid {
+        display: grid;
+        grid-template-columns: repeat(6, minmax(0, 1fr));
+        gap: 10px;
+        padding-top: 18px;
+      }
+      .contact-card {
+        min-width: 0;
+        display: flex;
+        align-items: center;
+        gap: 9px;
+        padding: 11px;
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        background: #f8fafb;
+        color: #102033;
+      }
+      .contact-icon {
+        width: 35px;
+        height: 35px;
+        flex: 0 0 35px;
+        display: grid;
+        place-items: center;
+        border-radius: 10px;
+        background: #d1fae5;
+        color: var(--green);
+      }
+      .contact-card strong {
+        display: block;
+        font-size: 10px;
+      }
+      .contact-card small {
+        display: block;
+        color: #667386;
+        font-size: 8px;
+        overflow-wrap: anywhere;
+      }
+      .back-section {
+        padding: 28px 0 45px;
+      }
+      .back-button {
+        display: inline-flex;
+        align-items: center;
+        gap: 9px;
+        padding: 12px 22px;
+        background: #55c85a;
+        color: white;
+        border-radius: 8px;
+        font-size: 13px;
+        font-weight: 600;
+      }
+      footer {
+        background: var(--dark);
+        color: white;
+        padding: 35px 0;
+        text-align: center;
+      }
+      footer p {
+        color: #ffffffb3;
+        font-size: 12px;
+      }
+      @media (max-width: 900px) {
+        .facility-grid,
+        .rules-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+        .gallery-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+        .contact-grid {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+      }
+      @media (max-width: 600px) {
+        .container {
+          width: calc(100% - 28px);
+        }
+        .rawat-page {
+          padding-top: 16px;
+        }
+        .rawat-summary {
+          padding: 19px 16px;
+        }
+        .summary-footer {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+        .facility-grid {
+          grid-template-columns: 1fr 1fr;
+          gap: 10px;
+        }
+        .facility-card {
+          padding: 14px 12px;
+        }
+        .gallery-panel,
+        .panel {
+          padding: 16px 13px;
+          border-radius: 16px;
+        }
+        .gallery-grid {
+          gap: 10px;
+        }
+        .gallery-photo {
+          height: 145px;
+        }
+        .panel-heading h2 {
+          font-size: 14px;
+        }
+        .room-grid {
+          grid-template-columns: 1fr;
+          gap: 10px;
+        }
+        .rules-grid {
+          grid-template-columns: 1fr 1fr;
+          gap: 9px;
+        }
+        .rule-toggle {
+          padding: 10px 8px;
+          gap: 7px;
+        }
+        .rule-icon {
+          width: 30px;
+          height: 30px;
+          flex-basis: 30px;
+        }
+        .rule-label strong {
+          font-size: 9px;
+        }
+        .rule-content {
+          padding-left: 45px;
+          font-size: 9px;
+        }
+        .consult-top {
+          align-items: flex-start;
+          flex-direction: column;
+        }
+        .consult-top h2 {
+          font-size: 15px;
+        }
+        .book-button {
+          white-space: normal;
+        }
+        .contact-grid {
+          grid-template-columns: 1fr 1fr;
+          gap: 8px;
+        }
+        .contact-card {
+          padding: 8px;
+          gap: 6px;
+        }
+        .contact-card small {
+          font-size: 7px;
+        }
+        footer p {
+          font-size: 10px;
+        }
+      }
+      @media (max-width: 380px) {
+        .facility-grid,
+        .gallery-grid,
+        .rules-grid,
+        .contact-grid {
+          grid-template-columns: 1fr;
+        }
+        .gallery-photo {
+          height: 200px;
+        }
+        .logo img {
+          width: 47px;
+          height: 47px;
+        }
+        .logo-text strong {
+          font-size: 10px;
+        }
+        .logo-text span {
+          font-size: 9px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="container navbar-container">
+        <a href="index.html" class="logo"
+          ><img
+            src="images/logo-removebg-preview.png"
+            alt="Logo Rumah Sakit Umum Amanda Mitra Keluarga"
+          />
+          <div class="logo-text">
+            <strong>RUMAH SAKIT UMUM AMANDA</strong><span>mitra keluarga</span>
+          </div></a
+        >
+      </div>
+    </header>
+    <main class="rawat-page">
+      <section class="container rawat-summary">
+        <div class="heading">
+          <span class="small-icon"><i class="fas fa-bed"></i></span>
+          <div>
+            <span class="eyebrow">Pelayanan Rawat Inap</span>
+            <h1>Instalasi Rawat Inap</h1>
+          </div>
+        </div>
+        <div class="summary-copy">
+          <p>
+            <strong>Instalasi Rawat Inap RSU Amanda Mitra Keluarga</strong>
+            menyediakan fasilitas perawatan rawat inap yang mengutamakan
+            kenyamanan, kebersihan, ketenangan, dan keselamatan pasien. Suasana
+            ruangan didesain ramah untuk menunjang proses pemulihan kesehatan
+            Anda dan keluarga.
+          </p>
+          <p>
+            Didukung oleh tim perawat profesional 24 jam, dokter penanggung
+            jawab pelayanan (DPJP) yang melakukan visite harian, pemantauan
+            tanda vital, serta pengawasan gizi klinis dari Instalasi Gizi.
+          </p>
+        </div>
+        <div class="summary-footer">
+          <span
+            ><i class="fas fa-check-circle"></i> Menerima Pasien BPJS Kesehatan,
+            Asuransi Swasta &amp; Pasien Umum</span
+          ><a
+            href="https://wa.me/6281317277229"
+            target="_blank"
+            rel="noopener noreferrer"
+            ><i class="fab fa-whatsapp"></i> Konsultasi Layanan via WhatsApp</a
+          >
+        </div>
+      </section>
+      <section class="container section">
+        <div class="section-title">
+          <span class="eyebrow">Fasilitas Utama</span>
+          <h2>Fasilitas &amp; Sarana Kamar Rawat Inap</h2>
+        </div>
+        <div class="facility-grid">
+          <article class="facility-card">
+            <span class="small-icon"><i class="fas fa-crown"></i></span>
+            <h3>Kamar VVIP &amp; VIP</h3>
+            <p>
+              Ruang privat eksklusif dengan AC, TV LED, Smart Bed elektrik,
+              kulkas, sofa bed penunggu, dan kamar mandi dalam.
+            </p>
+          </article>
+          <article class="facility-card">
+            <span class="small-icon"><i class="fas fa-bed"></i></span>
+            <h3>Kamar Kelas 1 &amp; Kelas 2</h3>
+            <p>
+              Kamar berkapasitas 2–3 bed dengan AC, TV, tirai sekat medis, dan
+              lingkungan tenang.
+            </p>
+          </article>
+          <article class="facility-card">
+            <span class="small-icon"><i class="fas fa-id-card-alt"></i></span>
+            <h3>Kamar Kelas 3 Standar KRIS</h3>
+            <p>
+              Kamar rawat inap higienis dengan sirkulasi udara optimal sesuai
+              standar KRIS BPJS.
+            </p>
+          </article>
+          <article class="facility-card">
+            <span class="small-icon"><i class="fas fa-bell"></i></span>
+            <h3>Nurse Call Digital 24 Jam</h3>
+            <p>
+              Tombol pemanggil perawat di samping bed dan kamar mandi untuk
+              respons medis cepat.
+            </p>
+          </article>
+        </div>
+      </section>
+      <section class="container section">
+        <div class="gallery-panel">
+          <div class="gallery-heading">
+            <span class="small-icon"><i class="far fa-images"></i></span>
+            <div>
+              <h2>Galeri Fasilitas &amp; Sarana Instalasi Rawat Inap</h2>
+              <p>
+                Visualisasi ruangan medis &amp; sarana pelayanan RSU Amanda
+                Mitra Keluarga
+              </p>
+            </div>
+            <span class="photo-count">5 Foto</span>
+          </div>
+          <div class="gallery-grid">
+            <figure class="gallery-photo">
+              <img
+                src="images/VIP 2.png"
+                alt="Fasilitas kamar VIP"
+                loading="lazy"
+              /><span class="crown"><i class="fas fa-crown"></i></span>
+              <figcaption>Kamar VIP</figcaption>
+            </figure>
+            <figure class="gallery-photo">
+              <img
+                src="images/VVIP 2.png"
+                alt="Fasilitas kamar VVIP"
+                loading="lazy"
+              /><span class="crown"><i class="fas fa-crown"></i></span>
+              <figcaption>Kamar VVIP</figcaption>
+            </figure>
+            <figure class="gallery-photo">
+              <img
+                src="images/Kelas 1.jpeg"
+                alt="Fasilitas kamar Kelas 1"
+                loading="lazy"
+              />
+              <figcaption>Kelas 1</figcaption>
+            </figure>
+            <figure class="gallery-photo">
+              <img
+                src="images/Kelas 2.jpeg"
+                alt="Fasilitas kamar Kelas 2"
+                loading="lazy"
+              />
+              <figcaption>Kelas 2</figcaption>
+            </figure>
+            <figure class="gallery-photo">
+              <img
+                src="images/Kelas 3.jpeg"
+                alt="Fasilitas kamar Kelas 3"
+                loading="lazy"
+              />
+              <figcaption>Kelas 3</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- TAMBAHAN DI BAWAH GALERI KAMAR -->
+      <section class="container section">
+        <div class="panel">
+          <div class="panel-heading">
+            <span class="small-icon"><i class="fas fa-layer-group"></i></span>
+            <div>
+              <h2>Klasifikasi Kamar Rawat Inap RSU Amanda Mitra Keluarga</h2>
+              <p>
+                Pilihan akomodasi rawat inap sesuai kebutuhan kenyamanan dan
+                jaminan pasien
+              </p>
+            </div>
+          </div>
+          <div class="room-grid">
+            <article class="room vip">
+              <h3><i class="fas fa-circle"></i> Kelas VVIP &amp; VIP</h3>
+              <p>
+                1 pasien per kamar, Smart Bed Electric, TV Kabel, kulkas, AC,
+                Water Heater, meja makan pasien, dan ruang tamu keluarga.
+              </p>
+            </article>
+            <article class="room kelas12">
+              <h3><i class="fas fa-circle"></i> Kelas 1 &amp; Kelas 2</h3>
+              <p>
+                2–3 pasien per kamar, Bed Manual/Semi-Elektrik, AC, TV bersama,
+                tirai penyekat antibakteri, dan kamar mandi dalam.
+              </p>
+            </article>
+            <article class="room kelas3">
+              <h3><i class="fas fa-circle"></i> Kelas 3 &amp; Isolasi</h3>
+              <p>
+                Maksimal 4 bed KRIS, AC, sirkulasi udara bertekanan standar
+                Kemenkes, kamar mandi bersih, dan layanan BPJS Kesehatan 100%.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+      <section class="container section">
+        <div class="panel">
+          <div class="panel-heading">
+            <span class="small-icon"
+              ><i class="fas fa-circle-question"></i
+            ></span>
+            <div>
+              <h2>Informasi Penting &amp; Tata Tertib Rawat Inap</h2>
+              <p>
+                Panduan kenyamanan bagi pasien, keluarga penunggu, dan
+                pengunjung
+              </p>
+            </div>
+          </div>
+          <div class="rules-grid">
+            <article class="rule-card">
+              <button class="rule-toggle" aria-expanded="false">
+                <span class="rule-icon"><i class="fas fa-clock"></i></span
+                ><span class="rule-label"
+                  ><strong>Jam Kunjungan Pasien</strong
+                  ><small>Jadwal</small></span
+                ><i class="fas fa-chevron-down chevron"></i>
+              </button>
+              <div class="rule-content">
+                Jam besuk siang: 11.00 - 13.00 WIB | Jam besuk sore: 17.00 -
+                19.00 WIB. Pasien hanya diperkenankan didampingi maksimal 2
+                orang penunggu demi ketenangan istirahat.
+              </div>
+            </article>
+            <article class="rule-card">
+              <button class="rule-toggle" aria-expanded="false">
+                <span class="rule-icon"><i class="fas fa-utensils"></i></span
+                ><span class="rule-label"
+                  ><strong>Layanan Makanan &amp; Gizi</strong
+                  ><small>Nutrisi</small></span
+                ><i class="fas fa-chevron-down chevron"></i>
+              </button>
+              <div class="rule-content">
+                Menu makanan disiapkan khusus oleh ahli gizi klinis sesuai diet
+                penyakit (rendah garam, diabetes, lambung, pasca bedah)
+                disajikan 3x makanan utama dan 2x snack per hari.
+              </div>
+            </article>
+            <article class="rule-card">
+              <button class="rule-toggle" aria-expanded="false">
+                <span class="rule-icon"><i class="fas fa-user-doctor"></i></span
+                ><span class="rule-label"
+                  ><strong>Jadwal Visite Dokter</strong
+                  ><small>Visite</small></span
+                ><i class="fas fa-chevron-down chevron"></i>
+              </button>
+              <div class="rule-content">
+                Dokter penanggung jawab pelayanan (DPJP) melakukan visite harian
+                antara pukul 07.00 s.d 11.00 WIB dan pukul 13.00 s.d 14.00 WIB.
+                Untuk memantau perkembangan klinis dan advis pengobatan.
+              </div>
+            </article>
+            <article class="rule-card">
+              <button class="rule-toggle" aria-expanded="false">
+                <span class="rule-icon"
+                  ><i class="fas fa-shield-halved"></i></span
+                ><span class="rule-label"
+                  ><strong>Kebersihan &amp; Keamanan</strong
+                  ><small>Keamanan</small></span
+                ><i class="fas fa-chevron-down chevron"></i>
+              </button>
+              <div class="rule-content">
+                Pembersihan kamar dan pergantian linen dilakukan secara berkala
+                2x sehari. Dilarang merokok di seluruh area rumah sakit demi
+                kesehatan bersama.
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+      <section class="container section">
+        <div class="panel">
+          <div class="consult-top">
+            <div>
+              <span class="kicker"
+                ><i class="fas fa-handshake-angle"></i> INFORMASI &amp;
+                KONSULTASI PASIEN</span
+              >
+              <h2>Layanan Bantuan &amp; Informasi Instalasi Rawat Inap</h2>
+              <p>
+                Hubungi Customer Care &amp; Tim Informasi RSU Amanda Mitra
+                Keluarga Karawang
+              </p>
+            </div>
+            <a
+              class="book-button"
+              href="https://wa.me/6281317277229"
+              target="_blank"
+              rel="noopener noreferrer"
+              ><i class="fas fa-calendar-plus"></i> Daftar / Buat Janji
+              Pasien</a
+            >
+          </div>
+          <div class="contact-grid">
+            <a
+              class="contact-card"
+              href="https://wa.me/6281316720656"
+              target="_blank"
+              ><span class="contact-icon"><i class="fab fa-whatsapp"></i></span
+              ><span
+                ><strong>Yuli</strong><small>0813-1672-0656</small></span
+              ></a
+            >
+            <a
+              class="contact-card"
+              href="https://wa.me/6285714285901"
+              target="_blank"
+              ><span class="contact-icon"><i class="fab fa-whatsapp"></i></span
+              ><span
+                ><strong>Wulan</strong><small>0857-1428-5901</small></span
+              ></a
+            >
+            <a
+              class="contact-card"
+              href="https://wa.me/6285879121294"
+              target="_blank"
+              ><span class="contact-icon"><i class="fab fa-whatsapp"></i></span
+              ><span
+                ><strong>Lisma</strong><small>0858-7912-1294</small></span
+              ></a
+            >
+            <a
+              class="contact-card"
+              href="https://wa.me/6282123872110"
+              target="_blank"
+              ><span class="contact-icon"><i class="fab fa-whatsapp"></i></span
+              ><span
+                ><strong>Anam</strong><small>0821-2387-2110</small></span
+              ></a
+            >
+            <a
+              class="contact-card"
+              href="https://wa.me/628988965646"
+              target="_blank"
+              ><span class="contact-icon"><i class="fab fa-whatsapp"></i></span
+              ><span><strong>Rina</strong><small>0898-8965-646</small></span></a
+            >
+            <a
+              class="contact-card"
+              href="https://wa.me/6281384656298"
+              target="_blank"
+              ><span class="contact-icon"><i class="fab fa-whatsapp"></i></span
+              ><span><strong>Ai</strong><small>0813-8465-6298</small></span></a
+            >
+          </div>
+        </div>
+      </section>
+      <section class="container back-section">
+        <a href="index.html#services" class="back-button"
+          ><i class="fas fa-arrow-left"></i> Kembali ke Layanan</a
+        >
+      </section>
+    </main>
+    <footer>
+      <div class="container">
+        <p>
+          &copy; 2026 Rumah Sakit Umum Amanda Mitra Keluarga. All Rights
+          Reserved.
+        </p>
+      </div>
+    </footer>
+    <script>
+      document.querySelectorAll(".rule-toggle").forEach(function (button) {
+        button.addEventListener("click", function () {
+          const card = button.closest(".rule-card");
+          const open = card.classList.toggle("open");
+          button.setAttribute("aria-expanded", String(open));
+        });
+      });
+    </script>
+  </body>
+</html>

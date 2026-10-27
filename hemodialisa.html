@@ -1,0 +1,1037 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta
+      name="description"
+      content="Informasi pelayanan Hemodialisa Rumah Sakit Umum Amanda Mitra Keluarga."
+    />
+
+    <title>Hemodialisa - RSU Amanda Mitra Keluarga</title>
+
+    <!-- GOOGLE FONT -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- FONT AWESOME -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <style>
+      /* ================= RESET ================= */
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        --primary-color: #67d86d;
+        --dark-color: #063b0b;
+        --white: #ffffff;
+        --text-color: #333333;
+        --light-bg: #f5f7f6;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        color: var(--text-color);
+        background: var(--light-bg);
+        line-height: 1.7;
+      }
+
+      /* ================= NAVBAR ================= */
+
+      .navbar {
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        background: white;
+        box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1);
+      }
+
+      .navbar-container {
+        max-width: 1100px;
+        margin: auto;
+        padding: 10px 20px;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        text-decoration: none;
+      }
+
+      .logo img {
+        width: 55px;
+        height: 55px;
+        object-fit: contain;
+      }
+
+      .logo-text strong {
+        display: block;
+        color: #d91f26;
+        font-size: 16px;
+        line-height: 1.2;
+      }
+
+      .logo-text span {
+        display: block;
+        color: #63b32e;
+        font-size: 13px;
+        font-weight: 600;
+      }
+
+      /* ================= HERO ================= */
+
+      .page-hero {
+        background:
+          linear-gradient(rgba(6, 59, 11, 0.78), rgba(6, 59, 11, 0.78)),
+          url("images/HEMODIALISA 1.png");
+
+        background-size: cover;
+        background-position: center;
+
+        min-height: 350px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        text-align: center;
+        color: white;
+
+        padding: 60px 20px;
+      }
+
+      .page-hero-content {
+        max-width: 800px;
+      }
+
+      .page-hero i {
+        font-size: 55px;
+        margin-bottom: 15px;
+        color: var(--primary-color);
+      }
+
+      .page-hero h1 {
+        font-size: 2.5rem;
+        margin-bottom: 10px;
+      }
+
+      .page-hero p {
+        font-size: 1rem;
+        opacity: 0.95;
+      }
+
+      /* ================= CONTAINER ================= */
+
+      .container {
+        max-width: 1100px;
+        margin: auto;
+        padding: 0 20px;
+      }
+
+      /* ================= CONTENT ================= */
+
+      .hemodialisa-content {
+        padding: 80px 0;
+      }
+
+      .hemodialisa-wrapper {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 50px;
+        align-items: center;
+      }
+
+      /* ================= SLIDESHOW ================= */
+
+      .hemodialisa-slider {
+        position: relative;
+        width: 100%;
+        height: 500px;
+        overflow: hidden;
+
+        border-radius: 15px;
+
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+
+        background: #ddd;
+      }
+
+      .hd-slide {
+        position: absolute;
+        inset: 0;
+
+        width: 100%;
+        height: 100%;
+
+        opacity: 0;
+        transform: scale(1.03);
+
+        transition:
+          opacity 0.8s ease,
+          transform 1.2s ease;
+
+        pointer-events: none;
+      }
+
+      .hd-slide.active {
+        opacity: 1;
+        transform: scale(1);
+
+        pointer-events: auto;
+      }
+
+      .hd-slide img {
+        width: 100%;
+        height: 100%;
+
+        object-fit: cover;
+
+        display: block;
+
+        user-select: none;
+        -webkit-user-drag: none;
+      }
+
+      /* ================= SLIDER DOT ================= */
+
+      .slider-dots {
+        position: absolute;
+
+        bottom: 18px;
+        left: 0;
+
+        width: 100%;
+
+        display: flex;
+        justify-content: center;
+
+        gap: 8px;
+
+        z-index: 5;
+      }
+
+      .slider-dot {
+        width: 11px;
+        height: 11px;
+
+        border-radius: 50%;
+
+        background: rgba(255, 255, 255, 0.6);
+
+        cursor: pointer;
+
+        transition: 0.3s;
+      }
+
+      .slider-dot.active {
+        width: 28px;
+
+        border-radius: 20px;
+
+        background: var(--primary-color);
+      }
+
+      /* ================= SLIDER ARROWS ================= */
+
+      .slider-btn {
+        position: absolute;
+
+        top: 50%;
+
+        transform: translateY(-50%);
+
+        width: 45px;
+        height: 45px;
+
+        border: none;
+
+        border-radius: 50%;
+
+        background: rgba(0, 0, 0, 0.45);
+
+        color: white;
+
+        font-size: 18px;
+
+        cursor: pointer;
+
+        z-index: 10;
+
+        transition: 0.3s;
+      }
+
+      .slider-btn:hover {
+        background: var(--primary-color);
+      }
+
+      .slider-btn.prev {
+        left: 15px;
+      }
+
+      .slider-btn.next {
+        right: 15px;
+      }
+
+      /* ================= TEXT ================= */
+
+      .hemodialisa-text h2 {
+        color: var(--dark-color);
+
+        font-size: 2rem;
+
+        margin-bottom: 20px;
+      }
+
+      .hemodialisa-text p {
+        margin-bottom: 20px;
+
+        color: #555;
+      }
+
+      /* ================= LIST ================= */
+
+      .hemodialisa-list {
+        margin-top: 20px;
+
+        list-style: none;
+      }
+
+      .hemodialisa-list li {
+        margin-bottom: 12px;
+
+        display: flex;
+        align-items: flex-start;
+
+        gap: 10px;
+      }
+
+      .hemodialisa-list i {
+        color: var(--primary-color);
+
+        margin-top: 5px;
+      }
+
+      /* ================= INFO ================= */
+
+      .info-section {
+        padding: 0 0 80px;
+      }
+
+      .info-grid {
+        display: grid;
+
+        grid-template-columns: repeat(3, 1fr);
+
+        gap: 25px;
+      }
+
+      .info-card {
+        background: white;
+
+        padding: 30px 25px;
+
+        border-radius: 12px;
+
+        text-align: center;
+
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+
+        transition: 0.3s;
+      }
+
+      .info-card:hover {
+        transform: translateY(-5px);
+      }
+
+      .info-card i {
+        font-size: 35px;
+
+        color: var(--primary-color);
+
+        margin-bottom: 15px;
+      }
+
+      .info-card h3 {
+        color: var(--dark-color);
+
+        margin-bottom: 10px;
+      }
+
+      .info-card p {
+        color: #666;
+
+        font-size: 14px;
+      }
+
+      /* ================= JUDUL SECTION ================= */
+
+      .section-title {
+        text-align: center;
+
+        margin-bottom: 35px;
+      }
+
+      .section-title h2 {
+        color: var(--dark-color);
+
+        font-size: 2rem;
+
+        margin-bottom: 8px;
+      }
+
+      .section-title p {
+        color: #666;
+
+        font-size: 15px;
+      }
+
+      /* ================= INFORMASI TAMBAHAN ================= */
+
+      .additional-section {
+        padding: 0 0 80px;
+      }
+
+      .additional-box {
+        background: white;
+
+        padding: 40px;
+
+        border-radius: 15px;
+
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+      }
+
+      .additional-box h3 {
+        color: var(--dark-color);
+
+        margin-bottom: 15px;
+
+        font-size: 1.4rem;
+      }
+
+      .additional-box p {
+        color: #555;
+
+        margin-bottom: 15px;
+      }
+
+      .additional-list {
+        list-style: none;
+
+        margin-top: 15px;
+      }
+
+      .additional-list li {
+        display: flex;
+
+        gap: 10px;
+
+        margin-bottom: 10px;
+
+        color: #555;
+      }
+
+      .additional-list i {
+        color: var(--primary-color);
+
+        margin-top: 5px;
+      }
+
+      /* ================= TOMBOL KEMBALI ================= */
+
+      .back-to-services {
+        margin-top: 50px;
+
+        display: flex;
+
+        justify-content: flex-start;
+      }
+
+      .back-to-services a {
+        display: inline-flex;
+
+        align-items: center;
+
+        gap: 10px;
+
+        padding: 12px 22px;
+
+        background: var(--primary-color);
+
+        color: white;
+
+        border-radius: 7px;
+
+        text-decoration: none;
+
+        font-weight: 600;
+
+        transition: 0.3s;
+      }
+
+      .back-to-services a:hover {
+        background: #43b849;
+
+        transform: translateX(-3px);
+      }
+
+      .back-to-services i {
+        font-size: 14px;
+      }
+
+      /* ================= FOOTER ================= */
+
+      footer {
+        background: var(--dark-color);
+
+        color: white;
+
+        padding: 30px 0;
+
+        text-align: center;
+      }
+
+      footer p {
+        font-size: 14px;
+      }
+
+      /* ================= MOBILE ================= */
+
+      @media (max-width: 768px) {
+        .navbar-container {
+          padding: 8px 15px;
+        }
+
+        .logo img {
+          width: 45px;
+          height: 45px;
+        }
+
+        .logo-text strong {
+          font-size: 13px;
+        }
+
+        .logo-text span {
+          font-size: 11px;
+        }
+
+        .page-hero {
+          min-height: 300px;
+        }
+
+        .page-hero h1 {
+          font-size: 2rem;
+        }
+
+        .hemodialisa-wrapper {
+          grid-template-columns: 1fr;
+        }
+
+        .hemodialisa-slider {
+          height: 350px;
+        }
+
+        .hemodialisa-text h2 {
+          font-size: 1.7rem;
+        }
+
+        .info-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .additional-box {
+          padding: 25px;
+        }
+
+        .slider-btn {
+          width: 40px;
+          height: 40px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .page-hero {
+          min-height: 270px;
+
+          padding: 50px 15px;
+        }
+
+        .page-hero i {
+          font-size: 45px;
+        }
+
+        .page-hero h1 {
+          font-size: 1.8rem;
+        }
+
+        .page-hero p {
+          font-size: 0.9rem;
+        }
+
+        .hemodialisa-content {
+          padding: 55px 0;
+        }
+
+        .hemodialisa-slider {
+          height: 300px;
+        }
+
+        .additional-section {
+          padding-bottom: 55px;
+        }
+
+        .back-to-services {
+          margin-top: 35px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- ================= NAVBAR ================= -->
+
+    <header class="navbar">
+      <div class="navbar-container">
+        <a href="index.html" class="logo">
+          <img
+            src="images/logo-removebg-preview.png"
+            alt="Logo Rumah Sakit Umum Amanda Mitra Keluarga"
+          />
+
+          <div class="logo-text">
+            <strong>RUMAH SAKIT UMUM AMANDA</strong>
+            <span>mitra keluarga</span>
+          </div>
+        </a>
+      </div>
+    </header>
+
+    <!-- ================= HERO ================= -->
+
+    <section class="page-hero">
+      <div class="page-hero-content">
+        <i class="fas fa-droplet"></i>
+
+        <h1>Hemodialisa</h1>
+
+        <p>
+          Pelayanan hemodialisa dengan dukungan tenaga kesehatan dan fasilitas
+          medis untuk membantu memenuhi kebutuhan perawatan pasien.
+        </p>
+      </div>
+    </section>
+
+    <!-- ================= CONTENT ================= -->
+
+    <section class="hemodialisa-content">
+      <div class="container">
+        <div class="hemodialisa-wrapper">
+          <!-- ================= SLIDESHOW ================= -->
+
+          <div class="hemodialisa-slider">
+            <!-- GAMBAR 1 -->
+
+            <div class="hd-slide active">
+              <img
+                src="images/HEMODILISA.png"
+                alt="Pelayanan Hemodialisa Rumah Sakit Umum Amanda Mitra Keluarga"
+                draggable="false"
+              />
+            </div>
+
+            <!-- GAMBAR 2 -->
+
+            <div class="hd-slide">
+              <img
+                src="images/Hemodialis.jpeg"
+                alt="Fasilitas Hemodialisa Rumah Sakit Umum Amanda Mitra Keluarga"
+                draggable="false"
+              />
+            </div>
+
+            <!-- GAMBAR 3 -->
+
+            <div class="hd-slide">
+              <img
+                src="images/Perawat HD.jpeg"
+                alt="Ruang Hemodialisa Rumah Sakit Umum Amanda Mitra Keluarga"
+                draggable="false"
+              />
+            </div>
+
+            <!-- TOMBOL PREVIOUS -->
+
+            <button
+              type="button"
+              class="slider-btn prev"
+              id="prevBtn"
+              aria-label="Gambar sebelumnya"
+            >
+              <i class="fas fa-chevron-left"></i>
+            </button>
+
+            <!-- TOMBOL NEXT -->
+
+            <button
+              type="button"
+              class="slider-btn next"
+              id="nextBtn"
+              aria-label="Gambar berikutnya"
+            >
+              <i class="fas fa-chevron-right"></i>
+            </button>
+
+            <!-- DOT -->
+
+            <div class="slider-dots">
+              <span class="slider-dot active" data-slide="0"></span>
+
+              <span class="slider-dot" data-slide="1"></span>
+
+              <span class="slider-dot" data-slide="2"></span>
+            </div>
+          </div>
+
+          <!-- ================= INFORMASI HEMODIALISA ================= -->
+
+          <div class="hemodialisa-text">
+            <h2>Pelayanan Hemodialisa</h2>
+
+            <p>
+              Hemodialisa merupakan salah satu bentuk terapi pengganti fungsi
+              ginjal yang dilakukan dengan menggunakan mesin dan peralatan medis
+              khusus untuk membantu proses penyaringan darah.
+            </p>
+
+            <p>
+              Pelayanan Hemodialisa di Rumah Sakit Umum Amanda Mitra Keluarga
+              didukung oleh tenaga kesehatan serta fasilitas yang dirancang
+              untuk memberikan pelayanan dengan memperhatikan keamanan,
+              kenyamanan, dan kebutuhan pasien.
+            </p>
+
+            <ul class="hemodialisa-list">
+              <li>
+                <i class="fas fa-check-circle"></i>
+
+                <span>
+                  Pelayanan hemodialisa dengan fasilitas medis yang sesuai
+                  kebutuhan pasien.
+                </span>
+              </li>
+
+              <li>
+                <i class="fas fa-check-circle"></i>
+
+                <span>
+                  Didukung tenaga kesehatan yang kompeten dan profesional.
+                </span>
+              </li>
+
+              <li>
+                <i class="fas fa-check-circle"></i>
+
+                <span>
+                  Pemantauan kondisi pasien selama proses pelayanan.
+                </span>
+              </li>
+
+              <li>
+                <i class="fas fa-check-circle"></i>
+
+                <span> Mengutamakan keselamatan dan kenyamanan pasien. </span>
+              </li>
+
+              <li>
+                <i class="fas fa-check-circle"></i>
+
+                <span>
+                  Pelayanan dilakukan sesuai dengan kebutuhan dan kondisi
+                  pasien.
+                </span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= INFORMASI UTAMA ================= -->
+
+    <section class="info-section">
+      <div class="container">
+        <div class="section-title">
+          <h2>Keunggulan Pelayanan</h2>
+
+          <p>
+            Dukungan pelayanan untuk memberikan pengalaman perawatan yang aman
+            dan nyaman bagi pasien.
+          </p>
+        </div>
+
+        <div class="info-grid">
+          <!-- CARD 1 -->
+
+          <div class="info-card">
+            <i class="fas fa-hospital"></i>
+
+            <h3>Fasilitas Medis</h3>
+
+            <p>
+              Didukung fasilitas dan peralatan medis yang menunjang pelayanan
+              hemodialisa.
+            </p>
+          </div>
+
+          <!-- CARD 2 -->
+
+          <div class="info-card">
+            <i class="fas fa-user-nurse"></i>
+
+            <h3>Tenaga Kesehatan</h3>
+
+            <p>
+              Pelayanan didukung oleh tenaga kesehatan yang profesional dan
+              memperhatikan kebutuhan pasien.
+            </p>
+          </div>
+
+          <!-- CARD 3 -->
+
+          <div class="info-card">
+            <i class="fas fa-heart-pulse"></i>
+
+            <h3>Pemantauan Pasien</h3>
+
+            <p>
+              Kondisi pasien diperhatikan dan dipantau selama proses pelayanan
+              hemodialisa.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= INFORMASI TAMBAHAN ================= -->
+
+    <section class="additional-section">
+      <div class="container">
+        <div class="additional-box">
+          <h3>
+            <i
+              class="fas fa-circle-info"
+              style="color: var(--primary-color); margin-right: 8px"
+            ></i>
+
+            Informasi Pelayanan
+          </h3>
+
+          <p>
+            Pelayanan Hemodialisa ditujukan bagi pasien yang membutuhkan terapi
+            pengganti fungsi ginjal berdasarkan indikasi dan anjuran dokter.
+          </p>
+
+          <p>
+            Sebelum menjalani tindakan, pasien akan mendapatkan pemeriksaan dan
+            penilaian sesuai dengan kondisi kesehatan serta kebutuhan medisnya.
+          </p>
+
+          <ul class="additional-list">
+            <li>
+              <i class="fas fa-check-circle"></i>
+
+              <span> Konsultasikan kebutuhan hemodialisa dengan dokter. </span>
+            </li>
+
+            <li>
+              <i class="fas fa-check-circle"></i>
+
+              <span> Ikuti jadwal pelayanan yang telah ditentukan. </span>
+            </li>
+
+            <li>
+              <i class="fas fa-check-circle"></i>
+
+              <span>
+                Informasikan kondisi kesehatan dan obat yang sedang dikonsumsi
+                kepada tenaga kesehatan.
+              </span>
+            </li>
+
+            <li>
+              <i class="fas fa-check-circle"></i>
+
+              <span>
+                Selalu mengikuti arahan tenaga kesehatan selama proses
+                pelayanan.
+              </span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- ================= TOMBOL KEMBALI ================= -->
+
+        <div class="back-to-services">
+          <a href="index.html#services">
+            <i class="fas fa-arrow-left"></i>
+
+            Kembali ke Layanan
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+      <div class="container">
+        <p>
+          &copy; 2026 Rumah Sakit Umum Amanda Mitra Keluarga. All Rights
+          Reserved.
+        </p>
+      </div>
+    </footer>
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script>
+      const slides = document.querySelectorAll(".hd-slide");
+
+      const dots = document.querySelectorAll(".slider-dot");
+
+      const nextBtn = document.getElementById("nextBtn");
+
+      const prevBtn = document.getElementById("prevBtn");
+
+      let currentSlide = 0;
+
+      let autoSlide;
+
+      /* ================= TAMPILKAN SLIDE ================= */
+
+      function showSlide(index) {
+        if (index >= slides.length) {
+          currentSlide = 0;
+        }
+
+        if (index < 0) {
+          currentSlide = slides.length - 1;
+        }
+
+        slides.forEach(function (slide) {
+          slide.classList.remove("active");
+        });
+
+        dots.forEach(function (dot) {
+          dot.classList.remove("active");
+        });
+
+        slides[currentSlide].classList.add("active");
+
+        if (dots[currentSlide]) {
+          dots[currentSlide].classList.add("active");
+        }
+      }
+
+      /* ================= SLIDE BERIKUTNYA ================= */
+
+      function nextSlide() {
+        currentSlide++;
+
+        if (currentSlide >= slides.length) {
+          currentSlide = 0;
+        }
+
+        showSlide(currentSlide);
+
+        resetAutoSlide();
+      }
+
+      /* ================= SLIDE SEBELUMNYA ================= */
+
+      function previousSlide() {
+        currentSlide--;
+
+        if (currentSlide < 0) {
+          currentSlide = slides.length - 1;
+        }
+
+        showSlide(currentSlide);
+
+        resetAutoSlide();
+      }
+
+      /* ================= TOMBOL NEXT ================= */
+
+      nextBtn.addEventListener("click", function () {
+        nextSlide();
+      });
+
+      /* ================= TOMBOL PREVIOUS ================= */
+
+      prevBtn.addEventListener("click", function () {
+        previousSlide();
+      });
+
+      /* ================= DOT NAVIGATION ================= */
+
+      dots.forEach(function (dot, index) {
+        dot.addEventListener("click", function () {
+          currentSlide = index;
+
+          showSlide(currentSlide);
+
+          resetAutoSlide();
+        });
+      });
+
+      /* ================= AUTO SLIDE ================= */
+
+      function startAutoSlide() {
+        autoSlide = setInterval(function () {
+          currentSlide++;
+
+          if (currentSlide >= slides.length) {
+            currentSlide = 0;
+          }
+
+          showSlide(currentSlide);
+        }, 4000);
+      }
+
+      /* ================= RESET AUTO SLIDE ================= */
+
+      function resetAutoSlide() {
+        clearInterval(autoSlide);
+
+        startAutoSlide();
+      }
+
+      /* ================= MULAI ================= */
+
+      showSlide(currentSlide);
+
+      startAutoSlide();
+    </script>
+  </body>
+</html>

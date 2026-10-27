@@ -1,0 +1,4091 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta
+      name="description"
+      content="Jadwal Dokter RSU Amanda Mitra Keluarga."
+    />
+
+    <title>Jadwal Dokter - RSU Amanda Mitra Keluarga</title>
+    <link rel="icon" href="images/logo-removebg-preview.png" />
+
+    <!-- GOOGLE FONT -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- FONT AWESOME -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        --green: #078347;
+        --green-dark: #056b3a;
+        --green-light: #eafff4;
+        --red: #ed1c24;
+        --dark: #172033;
+        --text: #273142;
+        --gray: #697386;
+        --light: #f6faf8;
+        --border: #dfe7e3;
+        --white: #ffffff;
+      }
+
+      html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 90px;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        background: var(--light);
+        color: var(--text);
+        line-height: 1.6;
+      }
+
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      button,
+      input,
+      select {
+        font-family: inherit;
+      }
+
+      button {
+        -webkit-tap-highlight-color: transparent;
+      }
+
+      .container {
+        width: min(1090px, 92%);
+        margin: auto;
+      }
+
+      /* =====================================================
+       TOP BAR
+    ===================================================== */
+
+      .topbar {
+        background: var(--green);
+        color: white;
+        font-size: 12px;
+      }
+
+      .topbar-inner {
+        min-height: 36px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+      }
+
+      .topbar-left {
+        display: flex;
+        align-items: center;
+        gap: 27px;
+      }
+
+      .topbar-left a {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        white-space: nowrap;
+      }
+
+      .topbar-left i {
+        color: #ffd600;
+      }
+
+      .topbar-right {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        white-space: nowrap;
+      }
+
+      .language-switch {
+        display: flex;
+        background: rgba(0, 0, 0, 0.12);
+        border-radius: 20px;
+        overflow: hidden;
+      }
+
+      .language-switch button {
+        border: none;
+        background: transparent;
+        color: white;
+        padding: 4px 9px;
+        cursor: pointer;
+        font-size: 11px;
+      }
+
+      .language-switch .active {
+        background: #ffd600;
+        color: #222;
+        font-weight: 700;
+      }
+
+      /* =====================================================
+       NAVBAR
+    ===================================================== */
+
+      .navbar {
+        background: white;
+        border-bottom: 1px solid #edf0ee;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+      }
+
+      .navbar-inner {
+        min-height: 66px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 25px;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        flex-shrink: 0;
+      }
+
+      .brand img {
+        width: 190px;
+        max-height: 58px;
+        object-fit: contain;
+      }
+
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 30px;
+        margin-left: auto;
+      }
+
+      .nav-links > a {
+        color: #344054;
+        font-size: 14px;
+        font-weight: 500;
+        padding: 23px 0;
+        position: relative;
+        white-space: nowrap;
+      }
+
+      .nav-links > a:hover,
+      .nav-links > a.active {
+        color: var(--green);
+      }
+
+      .nav-links > a.active::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 2px;
+        background: var(--green);
+      }
+
+      .nav-links > a i {
+        font-size: 10px;
+        margin-left: 3px;
+      }
+
+      .nav-actions {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+      }
+
+      .nav-icon {
+        border: none;
+        background: none;
+        color: var(--green);
+        font-size: 18px;
+        cursor: pointer;
+      }
+
+      .location-icon {
+        color: var(--green);
+        font-size: 18px;
+      }
+
+      .appointment-btn {
+        background: #ed1c24;
+        color: white;
+        padding: 9px 17px;
+        border-radius: 8px;
+        font-size: 12px;
+        font-weight: 600;
+        box-shadow: 0 5px 12px rgba(237, 28, 36, 0.2);
+        white-space: nowrap;
+      }
+
+      .appointment-btn i {
+        margin-right: 5px;
+      }
+
+      /* =====================================================
+       PAGE
+    ===================================================== */
+
+      .page {
+        padding: 48px 0 80px;
+        min-height: 60vh;
+      }
+
+      /* =====================================================
+       FILTER
+    ===================================================== */
+
+      .filter-box {
+        background: white;
+        border: 1px solid #d8eee3;
+        border-radius: 18px;
+        padding: 24px;
+        box-shadow: 0 12px 25px rgba(25, 60, 45, 0.09);
+        margin-bottom: 40px;
+      }
+
+      .filter-grid {
+        display: grid;
+        grid-template-columns: 1.15fr 1fr 1fr;
+        gap: 16px;
+      }
+
+      .filter-item label {
+        display: block;
+        color: #273142;
+        font-size: 13px;
+        font-weight: 600;
+        margin-bottom: 7px;
+      }
+
+      .input-wrapper {
+        position: relative;
+      }
+
+      .input-wrapper i {
+        position: absolute;
+        left: 14px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #8da0b3;
+        font-size: 14px;
+        pointer-events: none;
+      }
+
+      .filter-item input,
+      .filter-item select {
+        width: 100%;
+        height: 43px;
+        border: 1px solid #cfd8e3;
+        border-radius: 10px;
+        padding: 0 14px;
+        outline: none;
+        background: white;
+        color: #667085;
+        font-size: 13px;
+      }
+
+      .filter-item input {
+        padding-left: 39px;
+      }
+
+      .filter-item input:focus,
+      .filter-item select:focus {
+        border-color: var(--green);
+        box-shadow: 0 0 0 3px rgba(7, 131, 71, 0.08);
+      }
+
+      /* =====================================================
+       DOCTOR CARD
+    ===================================================== */
+
+      .doctor-list {
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+      }
+
+      .doctor-card {
+        background: white;
+        border: 1px solid #c7f0dc;
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 8px 20px rgba(25, 60, 45, 0.06);
+        animation: cardFadeIn 0.3s ease;
+      }
+
+      @keyframes cardFadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(8px);
+        }
+
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .doctor-header {
+        min-height: 68px;
+        padding: 15px 24px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        border-bottom: 1px solid #edf0ee;
+      }
+
+      .poly-name {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: var(--green);
+        font-size: 18px;
+        font-weight: 600;
+      }
+
+      .poly-icon {
+        width: 32px;
+        height: 32px;
+        flex-shrink: 0;
+        border-radius: 9px;
+        background: var(--green);
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .hospital-label {
+        border: 1px solid #a4ebc9;
+        color: var(--green);
+        background: #f6fffa;
+        border-radius: 20px;
+        padding: 5px 14px;
+        font-size: 11px;
+        font-weight: 600;
+        text-align: center;
+      }
+
+      .doctor-body {
+        padding: 24px;
+        display: grid;
+        grid-template-columns: 112px minmax(0, 1fr) auto;
+        align-items: center;
+        gap: 24px;
+      }
+
+      .doctor-photo {
+        width: 112px;
+        height: 112px;
+        border-radius: 50%;
+        border: 4px solid #059b65;
+        padding: 4px;
+        overflow: hidden;
+        background: #f3f3f3;
+      }
+
+      .doctor-photo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 50%;
+      }
+
+      .doctor-info {
+        min-width: 0;
+      }
+
+      .doctor-info h2 {
+        color: #101828;
+        font-size: 20px;
+        line-height: 1.35;
+        margin-bottom: 4px;
+      }
+
+      .specialist {
+        font-size: 12px;
+        color: #596579;
+        margin-bottom: 15px;
+      }
+
+      .specialist strong {
+        color: var(--green);
+      }
+
+      .schedule-title {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        color: #344054;
+        font-size: 12px;
+        font-weight: 700;
+        margin-bottom: 7px;
+      }
+
+      .schedule-title i {
+        color: var(--green);
+      }
+
+      /* =====================================================
+       JADWAL PRAKTIK DOKTER
+    ===================================================== */
+
+      .schedule-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 10px;
+        width: 100%;
+      }
+
+      .schedule-item {
+        min-width: 0;
+        min-height: 48px;
+        padding: 8px 14px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+        border: 2px solid #a4ebc9;
+        border-radius: 12px;
+        background: #f6fffa;
+      }
+
+      .schedule-day {
+        display: inline-block;
+        padding: 3px 11px;
+        border-radius: 8px;
+        background: var(--green);
+        color: white;
+        font-size: 11px;
+        font-weight: 700;
+        white-space: nowrap;
+      }
+
+      .schedule-time {
+        display: inline-flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 6px;
+        color: #101828;
+        font-size: 12px;
+        font-weight: 700;
+      }
+
+      .schedule-time i {
+        color: var(--green);
+      }
+
+      .schedule-item.schedule-unavailable {
+        grid-column: 1 / -1;
+        justify-content: flex-start;
+        color: #8a5b00;
+        background: #fffdf2;
+        border-color: #ffd35c;
+        font-size: 12px;
+      }
+
+      .schedule-status {
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+        min-width: 0;
+        max-width: 100%;
+        padding: 6px 13px;
+        border: 1px solid #ffd35c;
+        border-radius: 9px;
+        color: #ed8b00;
+        background: #fffdf2;
+        font-size: 11px;
+        font-weight: 500;
+      }
+
+      .schedule-status i {
+        font-size: 11px;
+        flex-shrink: 0;
+      }
+
+      .doctor-actions {
+        display: flex;
+        align-items: center;
+        gap: 9px;
+      }
+
+      .btn-profile,
+      .btn-appointment {
+        height: 39px;
+        padding: 0 16px;
+        border-radius: 10px;
+        border: none;
+        font-size: 12px;
+        font-weight: 600;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 7px;
+        white-space: nowrap;
+      }
+
+      .btn-profile {
+        background: #f0f4f8;
+        color: #344054;
+      }
+
+      .btn-appointment {
+        background: var(--green);
+        color: white;
+      }
+
+      .btn-whatsapp {
+        width: 39px;
+        height: 39px;
+        flex-shrink: 0;
+        border: 1px solid #9de8c5;
+        color: var(--green);
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 17px;
+      }
+
+      .btn-profile:hover {
+        background: #e5ebf0;
+      }
+
+      .btn-appointment:hover {
+        background: var(--green-dark);
+      }
+
+      .btn-whatsapp:hover {
+        background: #effff7;
+      }
+
+      /* =====================================================
+       PAGINATION / SLIDE HALAMAN DOKTER
+    ===================================================== */
+
+      .pagination {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin: 30px 0 10px;
+      }
+
+      .pagination button {
+        min-width: 40px;
+        height: 40px;
+        padding: 0 13px;
+        border: 1px solid #dfe7e3;
+        border-radius: 9px;
+        background: white;
+        color: var(--green);
+        font-size: 13px;
+        font-weight: 600;
+        cursor: pointer;
+        transition:
+          background 0.2s ease,
+          color 0.2s ease,
+          border-color 0.2s ease;
+      }
+
+      .pagination button:hover:not(:disabled),
+      .pagination button.active {
+        background: var(--green);
+        border-color: var(--green);
+        color: white;
+      }
+
+      .pagination button:disabled {
+        opacity: 0.4;
+        cursor: not-allowed;
+      }
+
+      .pagination button:focus-visible {
+        outline: 3px solid rgba(7, 131, 71, 0.25);
+        outline-offset: 2px;
+      }
+
+      .page-numbers {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .pagination-info {
+        width: 100%;
+        margin-top: 7px;
+        color: var(--gray);
+        text-align: center;
+        font-size: 12px;
+      }
+
+      /* =====================================================
+       EMPTY RESULT
+    ===================================================== */
+
+      .empty-result {
+        display: none;
+        text-align: center;
+        padding: 45px 20px;
+        background: white;
+        border-radius: 16px;
+        border: 1px solid var(--border);
+        color: var(--gray);
+      }
+
+      .empty-result i {
+        display: block;
+        font-size: 35px;
+        color: #aab4c0;
+        margin-bottom: 10px;
+      }
+
+      /* =====================================================
+       FOOTER
+    ===================================================== */
+
+      footer {
+        background: #063d27;
+        color: white;
+        padding: 28px 0;
+        text-align: center;
+      }
+
+      footer p {
+        font-size: 12px;
+        color: rgba(255, 255, 255, 0.75);
+      }
+
+      /* =====================================================
+       RESPONSIVE
+    ===================================================== */
+
+      @media (max-width: 1100px) {
+        .nav-links {
+          gap: 17px;
+        }
+
+        .nav-actions {
+          gap: 10px;
+        }
+
+        .appointment-btn {
+          padding: 8px 11px;
+        }
+
+        .doctor-body {
+          grid-template-columns: 100px minmax(0, 1fr);
+          gap: 20px;
+        }
+
+        .doctor-photo {
+          width: 100px;
+          height: 100px;
+        }
+
+        .doctor-actions {
+          grid-column: 2;
+          flex-wrap: wrap;
+        }
+      }
+
+      @media (max-width: 900px) {
+        .topbar-left {
+          gap: 12px;
+        }
+
+        .topbar-left a:nth-child(4) {
+          display: none;
+        }
+
+        .nav-links {
+          display: none;
+        }
+
+        .filter-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .doctor-body {
+          grid-template-columns: 100px minmax(0, 1fr);
+        }
+
+        .doctor-actions {
+          grid-column: 2;
+        }
+      }
+
+      @media (max-width: 600px) {
+        .topbar {
+          display: none;
+        }
+
+        .navbar-inner {
+          min-height: 65px;
+        }
+
+        .brand img {
+          width: 150px;
+        }
+
+        .nav-actions {
+          gap: 8px;
+        }
+
+        .location-icon,
+        .nav-icon {
+          display: none;
+        }
+
+        .appointment-btn {
+          font-size: 10px;
+          padding: 8px 9px;
+        }
+
+        .page {
+          padding: 25px 0 50px;
+        }
+
+        .filter-box {
+          padding: 16px;
+          border-radius: 14px;
+          margin-bottom: 25px;
+        }
+
+        .doctor-list {
+          gap: 20px;
+        }
+
+        .doctor-header {
+          padding: 13px 15px;
+        }
+
+        .poly-name {
+          font-size: 15px;
+          gap: 8px;
+        }
+
+        .poly-icon {
+          width: 29px;
+          height: 29px;
+        }
+
+        .hospital-label {
+          font-size: 9px;
+          padding: 4px 8px;
+        }
+
+        .doctor-body {
+          grid-template-columns: 80px minmax(0, 1fr);
+          padding: 18px 15px;
+          gap: 15px;
+        }
+
+        .doctor-photo {
+          width: 80px;
+          height: 80px;
+          border-width: 3px;
+        }
+
+        .doctor-info h2 {
+          font-size: 15px;
+        }
+
+        .specialist {
+          font-size: 10px;
+          margin-bottom: 10px;
+        }
+
+        .schedule-title {
+          font-size: 10px;
+        }
+
+        .schedule-status {
+          width: 100%;
+          font-size: 9px;
+          padding: 6px 8px;
+        }
+
+        .doctor-actions {
+          grid-column: 1 / -1;
+          width: 100%;
+          gap: 7px;
+        }
+
+        .btn-profile,
+        .btn-appointment {
+          flex: 1;
+          height: 37px;
+          padding: 0 8px;
+          font-size: 10px;
+        }
+
+        .btn-whatsapp {
+          flex: 0 0 37px;
+          width: 37px;
+          height: 37px;
+        }
+
+        .pagination {
+          gap: 6px;
+          margin-top: 22px;
+        }
+
+        .pagination button {
+          min-width: 35px;
+          height: 36px;
+          padding: 0 10px;
+          font-size: 12px;
+        }
+
+        .page-numbers {
+          gap: 5px;
+        }
+
+        .pagination-info {
+          font-size: 11px;
+        }
+
+        footer {
+          padding: 22px 0;
+        }
+      }
+
+      @media (max-width: 900px) {
+        .schedule-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+
+      @media (max-width: 600px) {
+        .schedule-grid {
+          grid-template-columns: 1fr;
+          gap: 7px;
+        }
+
+        .schedule-item {
+          min-height: 44px;
+          padding: 7px 10px;
+        }
+
+        .schedule-day {
+          font-size: 9px;
+          padding: 3px 7px;
+        }
+
+        .schedule-time {
+          font-size: 10px;
+        }
+      }
+
+      /* MODAL BUAT JANJI DAN KALENDER */
+      .appointment-modal {
+        display: none;
+        position: fixed;
+        inset: 0;
+        z-index: 3000;
+        background: rgba(15, 23, 42, 0.6);
+        padding: 20px;
+        align-items: center;
+        justify-content: center;
+      }
+      .appointment-modal.is-open {
+        display: flex;
+      }
+      .appointment-dialog {
+        width: min(460px, 100%);
+        background: #fff;
+        border-radius: 18px;
+        padding: 26px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+        position: relative;
+      }
+      .appointment-dialog h2 {
+        color: var(--green);
+        font-size: 21px;
+        margin: 0 35px 6px 0;
+      }
+      .appointment-dialog p {
+        color: var(--gray);
+        font-size: 13px;
+        margin-bottom: 18px;
+      }
+      .appointment-close {
+        position: absolute;
+        top: 14px;
+        right: 16px;
+        border: 0;
+        background: transparent;
+        font-size: 25px;
+        color: var(--gray);
+        cursor: pointer;
+      }
+      .appointment-field {
+        margin: 14px 0;
+      }
+      .appointment-field label {
+        display: block;
+        font-size: 13px;
+        font-weight: 600;
+        margin-bottom: 6px;
+      }
+      .appointment-field input,
+      .appointment-field select {
+        width: 100%;
+        min-height: 44px;
+        border: 1px solid #cfd8e3;
+        border-radius: 10px;
+        padding: 9px 12px;
+        background: #fff;
+        color: var(--text);
+        font: inherit;
+      }
+      .appointment-submit {
+        width: 100%;
+        min-height: 45px;
+        margin-top: 8px;
+        border: 0;
+        border-radius: 10px;
+        background: var(--green);
+        color: #fff;
+        font: inherit;
+        font-weight: 600;
+        cursor: pointer;
+      }
+      .appointment-submit:hover {
+        background: var(--green-dark);
+      }
+      body.modal-open {
+        overflow: hidden;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          scroll-behavior: auto !important;
+          animation-duration: 0.01ms !important;
+          transition-duration: 0.01ms !important;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- =====================================================
+       TOP BAR
+  ====================================================== -->
+
+    <div class="topbar">
+      <div class="container topbar-inner">
+        <div class="topbar-left">
+          <a
+            href="https://www.google.com/maps/search/?api=1&query=RSU+Amanda+Mitra+Keluarga+Karawang"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i class="fa-solid fa-location-dot"></i> Lokasi
+          </a>
+
+          <a href="tel:+6281287075555">
+            <i class="fa-solid fa-phone"></i>
+            IGD 24 Jam:
+            <strong>0812 8707 5555</strong>
+          </a>
+
+          <a href="tel:+6282280749999">
+            <i class="fa-solid fa-headset"></i>
+            Call Center:
+            <strong>(0267) 511321</strong>
+          </a>
+
+          <a href="mailto:amandawadasrs2@gmail.com">
+            <i class="fa-solid fa-envelope"></i>
+            amandawadasrs2@gmail.com
+          </a>
+        </div>
+
+        <div class="topbar-right">
+          <span>
+            <i class="fa-regular fa-clock"></i>
+            <span id="currentTime">00.00.00 WIB</span>
+          </span>
+
+          <div class="language-switch">
+            <button type="button" class="active">ID</button>
+            <button type="button">EN</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- =====================================================
+       NAVBAR
+  ====================================================== -->
+
+    <header class="navbar">
+      <div class="container navbar-inner">
+        <a href="index.html" class="brand">
+          <img
+            src="images/logo-removebg-preview.png"
+            alt="Rumah Sakit Umum Amanda Mitra Keluarga"
+          />
+        </a>
+
+        <nav class="nav-links">
+          <a href="index.html">Beranda</a>
+          <a href="index.html#about">Profil</a>
+
+          <a href="index.html#services">
+            Layanan
+            <i class="fa-solid fa-chevron-down"></i>
+          </a>
+
+          <a href="pelayanan.html" class="active">
+            Dokter &amp; Jadwal
+            <i class="fa-solid fa-chevron-down"></i>
+          </a>
+
+          <a href="index.html#contact">
+            Informasi
+            <i class="fa-solid fa-chevron-down"></i>
+          </a>
+
+          <a href="#">Karir</a>
+        </nav>
+
+        <div class="nav-actions">
+          <button
+            type="button"
+            class="nav-icon"
+            aria-label="Cari"
+            onclick="document.getElementById('searchDoctor').focus()"
+          >
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+
+          <a
+            href="https://www.google.com/maps/search/?api=1&query=-6.2839993%2C107.4573344"
+            class="nav-location"
+            aria-label="Lokasi RSU Amanda Mitra Keluarga"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="Lihat lokasi rumah sakit di Google Maps"
+          >
+            <i class="fa-solid fa-location-dot"></i>
+          </a>
+
+          <a href="index.html#contact" class="appointment-btn">
+            <i class="fa-solid fa-heart-pulse"></i>
+            Daftar / Buat Janji
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <!-- =====================================================
+       MAIN
+  ====================================================== -->
+
+    <main class="page">
+      <div class="container">
+        <!-- FILTER -->
+
+        <section class="filter-box" aria-label="Filter dokter">
+          <div class="filter-grid">
+            <!-- CARI DOKTER -->
+
+            <div class="filter-item">
+              <label for="searchDoctor">CARI NAMA DOKTER</label>
+
+              <div class="input-wrapper">
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+                <input
+                  type="text"
+                  id="searchDoctor"
+                  placeholder="Ketik nama dokter..."
+                  autocomplete="off"
+                />
+              </div>
+            </div>
+
+            <!-- POLIKLINIK -->
+
+            <div class="filter-item">
+              <label for="polyFilter">PILIH POLIKLINIK</label>
+
+              <select id="polyFilter">
+                <option value="">-- Semua Poli --</option>
+                <option value="paru">Poli Paru</option>
+                <option value="penyakit-dalam">Poli Penyakit Dalam</option>
+                <option value="kulit-kelamin">Poli Kulit dan Kelamin</option>
+                <option value="radiologi">Radiologi</option>
+                <option value="anak">Poli Anak</option>
+                <option value="bedah">Poli Bedah</option>
+                <option value="tht">Poli THT</option>
+                <option value="kandungan">Poli Kandungan</option>
+                <option value="jantung">Poli Jantung</option>
+                <option value="saraf">Poli Saraf</option>
+                <option value="orthopedi">Orthopedi</option>
+                <option value="gigi">Poli Gigi</option>
+                <option value="rehabilitasi">
+                  Kedokteran Fisik & Rehabilitasi Medik
+                </option>
+              </select>
+            </div>
+
+            <!-- HARI -->
+
+            <div class="filter-item">
+              <label for="dayFilter">PILIH HARI PRAKTIK</label>
+
+              <select id="dayFilter">
+                <option value="">-- Semua Hari --</option>
+                <option value="senin">Senin</option>
+                <option value="selasa">Selasa</option>
+                <option value="rabu">Rabu</option>
+                <option value="kamis">Kamis</option>
+                <option value="jumat">Jumat</option>
+                <option value="sabtu">Sabtu</option>
+              </select>
+            </div>
+          </div>
+        </section>
+
+        <!-- =================================================
+           DOCTOR LIST
+      ================================================== -->
+
+        <section class="doctor-list" id="doctorList" aria-label="Daftar dokter">
+          <!-- DOKTER 1 -->
+
+          <article
+            class="doctor-card"
+            data-name="dr. Ghazali Akhmad P, M.Ked (Pulmo), Sp.P"
+            data-poly="paru"
+            data-day="senin"
+          >
+            <div class="doctor-header">
+              <div class="poly-name">
+                <span class="poly-icon">
+                  <i class="fa-solid fa-lungs"></i>
+                </span>
+                Poli Paru
+              </div>
+
+              <span class="hospital-label">RSU Amanda Mitra Keluarga</span>
+            </div>
+
+            <div class="doctor-body">
+              <div class="doctor-photo">
+                <img
+                  src="images/dokter/dr.Ghazali.png"
+                  alt="dr. Ghazali Akhmad"
+                  onerror="
+                    this.onerror = null;
+                    this.src = 'images/dokter/default.jpg';
+                  "
+                />
+              </div>
+
+              <div class="doctor-info">
+                <h2>dr. Ghazali Akhmad P, M.Ked (Pulmo), Sp.P</h2>
+
+                <p class="specialist">
+                  Spesialisasi:
+                  <strong>Spesialis Paru</strong>
+                </p>
+
+                <div class="schedule-title">
+                  <i class="fa-solid fa-calendar-days"></i>
+                  JADWAL PRAKTIK DOKTER:
+                </div>
+
+                <div class="schedule-grid">
+                  <div class="schedule-item">
+                    <span class="schedule-day">SENIN</span
+                    ><span class="schedule-time"
+                      ><i class="fa-regular fa-clock"></i>13:00 - 15:00</span
+                    >
+                  </div>
+                  <div class="schedule-item">
+                    <span class="schedule-day">SELASA</span
+                    ><span class="schedule-time"
+                      ><i class="fa-regular fa-clock"></i>08:00 - 11:00</span
+                    >
+                  </div>
+                  <div class="schedule-item">
+                    <span class="schedule-day">RABU</span
+                    ><span class="schedule-time"
+                      ><i class="fa-regular fa-clock"></i>13:00 - 15:00</span
+                    >
+                  </div>
+                  <div class="schedule-item">
+                    <span class="schedule-day">KAMIS</span
+                    ><span class="schedule-time"
+                      ><i class="fa-regular fa-clock"></i>08:00 - 11.00</span
+                    >
+                  </div>
+                  <div class="schedule-item">
+                    <span class="schedule-day">JUMAT</span
+                    ><span class="schedule-time"
+                      ><i class="fa-regular fa-clock"></i>08:00 - 11:00</span
+                    >
+                  </div>
+                  <div class="schedule-item">
+                    <span class="schedule-day">SABTU</span
+                    ><span class="schedule-time"
+                      ><i class="fa-regular fa-clock"></i>13:00 - 15:00</span
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <div class="doctor-actions">
+                <a href="#" class="btn-profile">PROFIL</a>
+
+                <a href="index.html#contact" class="btn-appointment">
+                  <i class="fa-solid fa-calendar-check"></i>
+                  BUAT JANJI
+                </a>
+
+                <a
+                  href="https://wa.me/6281317277229"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn-whatsapp"
+                  aria-label="WhatsApp"
+                >
+                  <i class="fa-brands fa-whatsapp"></i>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- DOKTER 2 -->
+
+          <article
+            class="doctor-card"
+            data-name="dr. Muhammad Faiz Tanjung, Sp.P"
+            data-poly="paru"
+            data-day="selasa"
+          >
+            <div class="doctor-header">
+              <div class="poly-name">
+                <span class="poly-icon">
+                  <i class="fa-solid fa-lungs"></i>
+                </span>
+                Poli Paru
+              </div>
+
+              <span class="hospital-label">RSU Amanda Mitra Keluarga</span>
+            </div>
+
+            <div class="doctor-body">
+              <div class="doctor-photo">
+                <img
+                  src="images/dokter/dr.Faiz.png"
+                  alt="dr. Muhammad Faiz Tanjung"
+                  onerror="
+                    this.onerror = null;
+                    this.src = 'images/dokter/default.jpg';
+                  "
+                />
+              </div>
+
+              <div class="doctor-info">
+                <h2>dr. Muhammad Faiz Tanjung, Sp.P</h2>
+
+                <p class="specialist">
+                  Spesialisasi:
+                  <strong>Spesialis Paru</strong>
+                </p>
+
+                <div class="schedule-title">
+                  <i class="fa-solid fa-calendar-days"></i>
+                  JADWAL PRAKTIK DOKTER:
+                </div>
+
+                <div class="schedule-grid">
+                  <div class="schedule-item">
+                    <span class="schedule-day">SENIN</span
+                    ><span class="schedule-time"
+                      ><i class="fa-regular fa-clock"></i>08:00 - 11:00</span
+                    >
+                  </div>
+                  <div class="schedule-item">
+                    <span class="schedule-day">SELASA</span
+                    ><span class="schedule-time"
+                      ><i class="fa-regular fa-clock"></i>13:00 - 16:00</span
+                    >
+                  </div>
+                  <div class="schedule-item">
+                    <span class="schedule-day">RABU</span
+                    ><span class="schedule-time"
+                      ><i class="fa-regular fa-clock"></i>08:00 - 11:00</span
+                    >
+                  </div>
+                  <div class="schedule-item">
+                    <span class="schedule-day">KAMIS</span
+                    ><span class="schedule-time"
+                      ><i class="fa-regular fa-clock"></i>13:00 - 16:00</span
+                    >
+                  </div>
+                  <div class="schedule-item">
+                    <span class="schedule-day">JUMAT</span
+                    ><span class="schedule-time"
+                      ><i class="fa-regular fa-clock"></i>13:00 - 16:00</span
+                    >
+                  </div>
+                  <div class="schedule-item">
+                    <span class="schedule-day">SABTU</span
+                    ><span class="schedule-time"
+                      ><i class="fa-regular fa-clock"></i>08:00 - 11:00</span
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <div class="doctor-actions">
+                <a href="#" class="btn-profile">PROFIL</a>
+
+                <a href="index.html#contact" class="btn-appointment">
+                  <i class="fa-solid fa-calendar-check"></i>
+                  BUAT JANJI
+                </a>
+
+                <a
+                  href="https://wa.me/6281317277229"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn-whatsapp"
+                  aria-label="WhatsApp"
+                >
+                  <i class="fa-brands fa-whatsapp"></i>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- DOKTER 3 -->
+
+          <article
+            class="doctor-card"
+            data-name="dr. Andra Naufal Pramanda, Sp.Jp"
+            data-poly="jantung"
+            data-day="rabu"
+          >
+            <div class="doctor-header">
+              <div class="poly-name">
+                <span class="poly-icon">
+                  <i class="fa-solid fa-heart-pulse"></i>
+                </span>
+                Poli Jantung
+              </div>
+
+              <span class="hospital-label">RSU Amanda Mitra Keluarga</span>
+            </div>
+
+            <div class="doctor-body">
+              <div class="doctor-photo">
+                <img
+                  src="images/dokter/dr.Andra.jpg"
+                  alt="dr. Andra Naufal Pramanda"
+                  onerror="
+                    this.onerror = null;
+                    this.src = 'images/dokter/default.jpg';
+                  "
+                />
+              </div>
+
+              <div class="doctor-info">
+                <h2>dr. Andra Naufal Pramanda, Sp.Jp</h2>
+
+                <p class="specialist">
+                  Spesialisasi:
+                  <strong>Spesialis Jantung</strong>
+                </p>
+
+                <div class="schedule-title">
+                  <i class="fa-solid fa-calendar-days"></i>
+                  JADWAL PRAKTIK DOKTER:
+                </div>
+
+                <div class="schedule-grid">
+                  <div class="schedule-item">
+                    <span class="schedule-day">SENIN</span
+                    ><span class="schedule-time"
+                      ><i class="fa-regular fa-clock"></i>12:00 - 15:00</span
+                    >
+                  </div>
+                  <div class="schedule-item">
+                    <span class="schedule-day">SELASA</span
+                    ><span class="schedule-time"
+                      ><i class="fa-regular fa-clock"></i>12:00 - 15:00</span
+                    >
+                  </div>
+                  <div class="schedule-item">
+                    <span class="schedule-day">RABU</span
+                    ><span class="schedule-time"
+                      ><i class="fa-regular fa-clock"></i>12:00 - 16:00</span
+                    >
+                  </div>
+                  <div class="schedule-item">
+                    <span class="schedule-day">KAMIS</span
+                    ><span class="schedule-time"
+                      ><i class="fa-regular fa-clock"></i>12:00 - 15:00</span
+                    >
+                  </div>
+                  <div class="schedule-item">
+                    <span class="schedule-day">JUMAT</span
+                    ><span class="schedule-time"
+                      ><i class="fa-regular fa-clock"></i>12:00 - 15:00</span
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <div class="doctor-actions">
+                <a href="#" class="btn-profile">PROFIL</a>
+
+                <a href="index.html#contact" class="btn-appointment">
+                  <i class="fa-solid fa-calendar-check"></i>
+                  BUAT JANJI
+                </a>
+
+                <a
+                  href="https://wa.me/6281317277229"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn-whatsapp"
+                  aria-label="WhatsApp"
+                >
+                  <i class="fa-brands fa-whatsapp"></i>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- DOKTER 4 -->
+
+          <article
+            class="doctor-card"
+            data-name="dr. Agi Budinuransyah, Sp.B-ET, FINACS"
+            data-poly="bedah"
+            data-day="senin"
+          >
+            <div class="doctor-header">
+              <div class="poly-name">
+                <span class="poly-icon">
+                  <i class="fa-solid fa-user-doctor"></i>
+                </span>
+                Poli Bedah
+              </div>
+
+              <span class="hospital-label">RSU Amanda Mitra Keluarga</span>
+            </div>
+
+            <div class="doctor-body">
+              <div class="doctor-photo">
+                <img
+                  src="images/dokter/dr. Agi.jpg"
+                  alt="dr. Agi Budinuransyah"
+                  onerror="
+                    this.onerror = null;
+                    this.src = 'images/dokter/default.jpg';
+                  "
+                />
+              </div>
+
+              <div class="doctor-info">
+                <h2>dr. Agi Budinuransyah, Sp.B-ET, FINACS</h2>
+
+                <p class="specialist">
+                  Spesialisasi:
+                  <strong>Spesialis Bedah</strong>
+                </p>
+
+                <div class="schedule-title">
+                  <i class="fa-solid fa-calendar-days"></i>
+                  JADWAL PRAKTIK DOKTER:
+                </div>
+
+                <div class="schedule-grid">
+                  <div class="schedule-item">
+                    <span class="schedule-day">SENIN</span
+                    ><span class="schedule-time"
+                      ><i class="fa-regular fa-clock"></i>17:00 - 20:00</span
+                    >
+                  </div>
+                  <div class="schedule-item">
+                    <span class="schedule-day">SELASA</span
+                    ><span class="schedule-time"
+                      ><i class="fa-regular fa-clock"></i>13:00 - 16:00</span
+                    >
+                  </div>
+                  <div class="schedule-item">
+                    <span class="schedule-day">RABU</span
+                    ><span class="schedule-time"
+                      ><i class="fa-regular fa-clock"></i>17:00 - 20:00</span
+                    >
+                  </div>
+                  <div class="schedule-item">
+                    <span class="schedule-day">KAMIS</span
+                    ><span class="schedule-time"
+                      ><i class="fa-regular fa-clock"></i>13:00 - 16:00</span
+                    >
+                  </div>
+                  <div class="schedule-item">
+                    <span class="schedule-day">JUMAT</span
+                    ><span class="schedule-time"
+                      ><i class="fa-regular fa-clock"></i>17:00 - 20:00</span
+                    >
+                  </div>
+                  <div class="schedule-item">
+                    <span class="schedule-day">SABTU</span
+                    ><span class="schedule-time"
+                      ><i class="fa-regular fa-clock"></i>08:00 - 11:00</span
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <div class="doctor-actions">
+                <a href="#" class="btn-profile">PROFIL</a>
+
+                <a href="index.html#contact" class="btn-appointment">
+                  <i class="fa-solid fa-calendar-check"></i>
+                  BUAT JANJI
+                </a>
+
+                <a
+                  href="https://wa.me/6281317277229"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn-whatsapp"
+                  aria-label="WhatsApp"
+                >
+                  <i class="fa-brands fa-whatsapp"></i>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- DOKTER 5 -->
+
+          <article
+            class="doctor-card"
+            data-name="dr. Ferdi Stefiyan, Sp.B-ET, FINACS"
+            data-poly="bedah"
+            data-day="senin"
+          >
+            <div class="doctor-header">
+              <div class="poly-name">
+                <span class="poly-icon">
+                  <i class="fa-solid fa-user-doctor"></i>
+                </span>
+                Poli Bedah
+              </div>
+
+              <span class="hospital-label">RSU Amanda Mitra Keluarga</span>
+            </div>
+
+            <div class="doctor-body">
+              <div class="doctor-photo">
+                <img
+                  src="images/dokter/dr.Ferdi.png"
+                  alt="dr. Ferdi Stefiyan"
+                  onerror="
+                    this.onerror = null;
+                    this.src = 'images/dokter/default.jpg';
+                  "
+                />
+              </div>
+
+              <div class="doctor-info">
+                <h2>dr. Ferdi Stefiyan, Sp.B-ET, FINACS</h2>
+
+                <p class="specialist">
+                  Spesialisasi:
+                  <strong>Spesialis Bedah</strong>
+                </p>
+
+                <div class="schedule-title">
+                  <i class="fa-solid fa-calendar-days"></i>
+                  JADWAL PRAKTIK DOKTER:
+                </div>
+
+                <div class="schedule-grid">
+                  <div class="schedule-item">
+                    <span class="schedule-day">SENIN</span
+                    ><span class="schedule-time"
+                      ><i class="fa-regular fa-clock"></i>12:00 - 15:00</span
+                    >
+                  </div>
+                  <div class="schedule-item">
+                    <span class="schedule-day">SELASA</span
+                    ><span class="schedule-time"
+                      ><i class="fa-regular fa-clock"></i>08:00 - 11:00</span
+                    >
+                  </div>
+                  <div class="schedule-item">
+                    <span class="schedule-day">RABU</span
+                    ><span class="schedule-time"
+                      ><i class="fa-regular fa-clock"></i>12:00 - 15:00</span
+                    >
+                  </div>
+                  <div class="schedule-item">
+                    <span class="schedule-day">KAMIS</span
+                    ><span class="schedule-time"
+                      ><i class="fa-regular fa-clock"></i>08:00 - 11:00</span
+                    >
+                  </div>
+                  <div class="schedule-item">
+                    <span class="schedule-day">JUMAT</span
+                    ><span class="schedule-time"
+                      ><i class="fa-regular fa-clock"></i>12:00 - 15:00</span
+                    >
+                  </div>
+                  <div class="schedule-item">
+                    <span class="schedule-day">SABTU</span
+                    ><span class="schedule-time"
+                      ><i class="fa-regular fa-clock"></i>12:00 - 16:00</span
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <div class="doctor-actions">
+                <a href="#" class="btn-profile">PROFIL</a>
+
+                <a href="index.html#contact" class="btn-appointment">
+                  <i class="fa-solid fa-calendar-check"></i>
+                  BUAT JANJI
+                </a>
+
+                <a
+                  href="https://wa.me/6281317277229"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn-whatsapp"
+                  aria-label="WhatsApp"
+                >
+                  <i class="fa-brands fa-whatsapp"></i>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- DOKTER 6 -->
+
+          <article
+            class="doctor-card"
+            data-name="dr. Ahmad Jazmi Basyiruddin, Sp.PD "
+            data-poly="penyakit-dalam"
+            data-day="senin"
+          >
+            <div class="doctor-header">
+              <div class="poly-name">
+                <span class="poly-icon">
+                  <i class="fa-solid fa-lungs"></i>
+                </span>
+                Poli Penyakit Dalam
+              </div>
+
+              <span class="hospital-label">RSU Amanda Mitra Keluarga</span>
+            </div>
+
+            <div class="doctor-body">
+              <div class="doctor-photo">
+                <img
+                  src="images/dokter/dr.Ahmad Jazmi.png"
+                  alt="dr. Ahmad Jazmi Basyiruddin, Sp.PD"
+                  onerror="
+                    this.onerror = null;
+                    this.src = 'images/dokter/default.jpg';
+                  "
+                />
+              </div>
+
+              <div class="doctor-info">
+                <h2>dr. Ahmad Jazmi Basyiruddin, Sp.PD</h2>
+
+                <p class="specialist">
+                  Spesialisasi:
+                  <strong>Spesialis Penyakit Dalam</strong>
+                </p>
+
+                <div class="schedule-title">
+                  <i class="fa-solid fa-calendar-days"></i>
+                  JADWAL PRAKTIK DOKTER:
+                </div>
+
+                <div class="schedule-grid">
+                  <div class="schedule-item">
+                    <span class="schedule-day">SENIN</span
+                    ><span class="schedule-time"
+                      ><i class="fa-regular fa-clock"></i>08:00 - 12:00</span
+                    >
+                  </div>
+                  <div class="schedule-item">
+                    <span class="schedule-day">SELASA</span
+                    ><span class="schedule-time"
+                      ><i class="fa-regular fa-clock"></i>08:00 - 12:00</span
+                    >
+                  </div>
+                  <div class="schedule-item">
+                    <span class="schedule-day">RABU</span
+                    ><span class="schedule-time"
+                      ><i class="fa-regular fa-clock"></i>08:00 - 12:00</span
+                    >
+                  </div>
+                  <div class="schedule-item">
+                    <span class="schedule-day">KAMIS</span
+                    ><span class="schedule-time"
+                      ><i class="fa-regular fa-clock"></i>08:00 - 12:00</span
+                    >
+                  </div>
+                  <div class="schedule-item">
+                    <span class="schedule-day">JUMAT</span
+                    ><span class="schedule-time"
+                      ><i class="fa-regular fa-clock"></i>08:00 - 12:00</span
+                    >
+                  </div>
+                  <div class="schedule-item">
+                    <span class="schedule-day">SABTU</span
+                    ><span class="schedule-time"
+                      ><i class="fa-regular fa-clock"></i>08:00 - 12:00</span
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <div class="doctor-actions">
+                <a href="#" class="btn-profile">PROFIL</a>
+
+                <a href="index.html#contact" class="btn-appointment">
+                  <i class="fa-solid fa-calendar-check"></i>
+                  BUAT JANJI
+                </a>
+
+                <a
+                  href="https://wa.me/6281317277229"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn-whatsapp"
+                  aria-label="WhatsApp"
+                >
+                  <i class="fa-brands fa-whatsapp"></i>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- DOKTER 7 -->
+
+          <article
+            class="doctor-card"
+            data-name="dr. Cecep Suryani Sobur Sp.PD"
+            data-poly="penyakit-dalam"
+            data-day="senin"
+          >
+            <div class="doctor-header">
+              <div class="poly-name">
+                <span class="poly-icon">
+                  <i class="fa-solid fa-lungs"></i>
+                </span>
+                Poli Penyakit Dalam
+              </div>
+
+              <span class="hospital-label">RSU Amanda Mitra Keluarga</span>
+            </div>
+
+            <div class="doctor-body">
+              <div class="doctor-photo">
+                <img
+                  src="images/dokter/dr.Cecep.png"
+                  alt="dr. Cecep Suryani Sobur Sp.PD"
+                  onerror="
+                    this.onerror = null;
+                    this.src = 'images/dokter/default.jpg';
+                  "
+                />
+              </div>
+
+              <div class="doctor-info">
+                <h2>dr. Cecep Suryani Sobur Sp.PD</h2>
+
+                <p class="specialist">
+                  Spesialisasi:
+                  <strong>Spesialis Penyakit Dalam</strong>
+                </p>
+
+                <div class="schedule-title">
+                  <i class="fa-solid fa-calendar-days"></i>
+                  JADWAL PRAKTIK DOKTER:
+                </div>
+
+                <div class="schedule-grid">
+                  <div class="schedule-item">
+                    <span class="schedule-day">SENIN</span
+                    ><span class="schedule-time"
+                      ><i class="fa-regular fa-clock"></i>13:00 - 16:00</span
+                    >
+                  </div>
+                  <div class="schedule-item">
+                    <span class="schedule-day">SELASA</span
+                    ><span class="schedule-time"
+                      ><i class="fa-regular fa-clock"></i>13:00 - 16:00</span
+                    >
+                  </div>
+                  <div class="schedule-item">
+                    <span class="schedule-day">RABU</span
+                    ><span class="schedule-time"
+                      ><i class="fa-regular fa-clock"></i>13:00 - 16:00</span
+                    >
+                  </div>
+                  <div class="schedule-item">
+                    <span class="schedule-day">KAMIS</span
+                    ><span class="schedule-time"
+                      ><i class="fa-regular fa-clock"></i>13:00 - 16:00</span
+                    >
+                  </div>
+                  <div class="schedule-item">
+                    <span class="schedule-day">JUMAT</span
+                    ><span class="schedule-time"
+                      ><i class="fa-regular fa-clock"></i>14:30 - 16:30</span
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <div class="doctor-actions">
+                <a href="#" class="btn-profile">PROFIL</a>
+
+                <a href="index.html#contact" class="btn-appointment">
+                  <i class="fa-solid fa-calendar-check"></i>
+                  BUAT JANJI
+                </a>
+
+                <a
+                  href="https://wa.me/6281317277229"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn-whatsapp"
+                  aria-label="WhatsApp"
+                >
+                  <i class="fa-brands fa-whatsapp"></i>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- DOKTER 8 -->
+
+          <article
+            class="doctor-card"
+            data-name="dr. Hadiyat Mahdi, Sp.PD "
+            data-poly="penyakit-dalam"
+            data-day="senin"
+          >
+            <div class="doctor-header">
+              <div class="poly-name">
+                <span class="poly-icon">
+                  <i class="fa-solid fa-lungs"></i>
+                </span>
+                Poli Penyakit Dalam
+              </div>
+
+              <span class="hospital-label">RSU Amanda Mitra Keluarga</span>
+            </div>
+
+            <div class="doctor-body">
+              <div class="doctor-photo">
+                <img
+                  src="images/dokter/dr.Yaya.jpg"
+                  alt="dr. Hadiyat Mahdi, Sp.PD "
+                  onerror="
+                    this.onerror = null;
+                    this.src = 'images/dokter/default.jpg';
+                  "
+                />
+              </div>
+
+              <div class="doctor-info">
+                <h2>dr. Hadiyat Mahdi, Sp.PD</h2>
+
+                <p class="specialist">
+                  Spesialisasi:
+                  <strong>Spesialis Penyakit Dalam</strong>
+                </p>
+
+                <div class="schedule-title">
+                  <i class="fa-solid fa-calendar-days"></i>
+                  JADWAL PRAKTIK DOKTER:
+                </div>
+
+                <div class="schedule-grid">
+                  <div class="schedule-item">
+                    <span class="schedule-day">SELASA</span
+                    ><span class="schedule-time"
+                      ><i class="fa-regular fa-clock"></i>17:00 - 20:00</span
+                    >
+                  </div>
+                  <div class="schedule-item">
+                    <span class="schedule-day">RABU</span
+                    ><span class="schedule-time"
+                      ><i class="fa-regular fa-clock"></i>16:00 - 19:00</span
+                    >
+                  </div>
+                  <div class="schedule-item">
+                    <span class="schedule-day">KAMIS</span
+                    ><span class="schedule-time"
+                      ><i class="fa-regular fa-clock"></i>17:00 - 20:00</span
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <div class="doctor-actions">
+                <a href="#" class="btn-profile">PROFIL</a>
+
+                <a href="index.html#contact" class="btn-appointment">
+                  <i class="fa-solid fa-calendar-check"></i>
+                  BUAT JANJI
+                </a>
+
+                <a
+                  href="https://wa.me/6281317277229"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn-whatsapp"
+                  aria-label="WhatsApp"
+                >
+                  <i class="fa-brands fa-whatsapp"></i>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- DOKTER 9 -->
+
+          <article
+            class="doctor-card"
+            data-name="dr. Sugih Primas Adjie, Sp.KK"
+            data-poly="kulit-kelamin"
+            data-day="senin"
+          >
+            <div class="doctor-header">
+              <div class="poly-name">
+                <span class="poly-icon">
+                  <i class="fa-solid fa-lungs"></i>
+                </span>
+                Poli Kulit dan Kelamin
+              </div>
+
+              <span class="hospital-label">RSU Amanda Mitra Keluarga</span>
+            </div>
+
+            <div class="doctor-body">
+              <div class="doctor-photo">
+                <img
+                  src="images/dokter/dr.Sugih.png"
+                  alt="dr. Sugih Primas Adjie, Sp.KK"
+                  onerror="
+                    this.onerror = null;
+                    this.src = 'images/dokter/default.jpg';
+                  "
+                />
+              </div>
+
+              <div class="doctor-info">
+                <h2>dr. Sugih Primas Adjie, Sp.KK</h2>
+
+                <p class="specialist">
+                  Spesialisasi:
+                  <strong>Spesialis Kulit dan Kelamin</strong>
+                </p>
+
+                <div class="schedule-title">
+                  <i class="fa-solid fa-calendar-days"></i>
+                  JADWAL PRAKTIK DOKTER:
+                </div>
+
+                <div class="schedule-grid">
+                  <div class="schedule-item">
+                    <span class="schedule-day">SENIN</span
+                    ><span class="schedule-time"
+                      ><i class="fa-regular fa-clock"></i>08:00 - 11:00</span
+                    >
+                  </div>
+                  <div class="schedule-item">
+                    <span class="schedule-day">SELASA</span
+                    ><span class="schedule-time"
+                      ><i class="fa-regular fa-clock"></i>08:00 - 11:00</span
+                    >
+                  </div>
+                  <div class="schedule-item">
+                    <span class="schedule-day">RABU</span
+                    ><span class="schedule-time"
+                      ><i class="fa-regular fa-clock"></i>08:00 - 11:00</span
+                    >
+                  </div>
+                  <div class="schedule-item">
+                    <span class="schedule-day">JUMAT</span
+                    ><span class="schedule-time"
+                      ><i class="fa-regular fa-clock"></i>08:00 - 11:00</span
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <div class="doctor-actions">
+                <a href="#" class="btn-profile">PROFIL</a>
+
+                <a href="index.html#contact" class="btn-appointment">
+                  <i class="fa-solid fa-calendar-check"></i>
+                  BUAT JANJI
+                </a>
+
+                <a
+                  href="https://wa.me/6281317277229"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn-whatsapp"
+                  aria-label="WhatsApp"
+                >
+                  <i class="fa-brands fa-whatsapp"></i>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- DOKTER 10 -->
+
+          <article
+            class="doctor-card"
+            data-name="dr. Sammy Raspati Sofardi, S.E.,M.Med.Sc., Sp.Rad"
+            data-poly="radiologi"
+            data-day="senin"
+          >
+            <div class="doctor-header">
+              <div class="poly-name">
+                <span class="poly-icon">
+                  <i class="fa-solid fa-lungs"></i>
+                </span>
+                Radiologi
+              </div>
+
+              <span class="hospital-label">RSU Amanda Mitra Keluarga</span>
+            </div>
+
+            <div class="doctor-body">
+              <div class="doctor-photo">
+                <img
+                  src="images/dokter/dr. Sammy.jpg"
+                  alt="dr. Sammy Raspati Sofardi, S.E.,M.Med.Sc., Sp.Rad "
+                  onerror="
+                    this.onerror = null;
+                    this.src = 'images/dokter/default.jpg';
+                  "
+                />
+              </div>
+
+              <div class="doctor-info">
+                <h2>dr. Sammy Raspati Sofardi, S.E.,M.Med.Sc., Sp.Rad</h2>
+
+                <p class="specialist">
+                  Spesialisasi:
+                  <strong>Spesialis Radiologi</strong>
+                </p>
+
+                <div class="schedule-title">
+                  <i class="fa-solid fa-calendar-days"></i>
+                  JADWAL PRAKTIK DOKTER:
+                </div>
+
+                <div class="schedule-grid">
+                  <div class="schedule-item">
+                    <span class="schedule-day">SENIN</span
+                    ><span class="schedule-time"
+                      ><i class="fa-regular fa-clock"></i>08:00 - 12:00</span
+                    >
+                  </div>
+                  <div class="schedule-item">
+                    <span class="schedule-day">SELASA</span
+                    ><span class="schedule-time"
+                      ><i class="fa-regular fa-clock"></i>13:00 - 17:00</span
+                    >
+                  </div>
+                  <div class="schedule-item">
+                    <span class="schedule-day">RABU</span
+                    ><span class="schedule-time"
+                      ><i class="fa-regular fa-clock"></i>08:00 - 12:00</span
+                    >
+                  </div>
+                  <div class="schedule-item">
+                    <span class="schedule-day">KAMIS</span
+                    ><span class="schedule-time"
+                      ><i class="fa-regular fa-clock"></i>13:00 - 17:00</span
+                    >
+                  </div>
+                  <div class="schedule-item">
+                    <span class="schedule-day">JUMAT</span
+                    ><span class="schedule-time"
+                      ><i class="fa-regular fa-clock"></i>08:00 - 12:00</span
+                    >
+                  </div>
+                  <div class="schedule-item">
+                    <span class="schedule-day">SABTU</span
+                    ><span class="schedule-time"
+                      ><i class="fa-regular fa-clock"></i>13:00 - 17:00</span
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <div class="doctor-actions">
+                <a href="#" class="btn-profile">PROFIL</a>
+
+                <a href="index.html#contact" class="btn-appointment">
+                  <i class="fa-solid fa-calendar-check"></i>
+                  BUAT JANJI
+                </a>
+
+                <a
+                  href="https://wa.me/6281317277229"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn-whatsapp"
+                  aria-label="WhatsApp"
+                >
+                  <i class="fa-brands fa-whatsapp"></i>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- DOKTER 11 -->
+
+          <article
+            class="doctor-card"
+            data-name="dr. Naman Khalid, Sp.A"
+            data-poly="anak"
+            data-day="senin"
+          >
+            <div class="doctor-header">
+              <div class="poly-name">
+                <span class="poly-icon">
+                  <i class="fa-solid fa-lungs"></i>
+                </span>
+                Poli Anak
+              </div>
+
+              <span class="hospital-label">RSU Amanda Mitra Keluarga</span>
+            </div>
+
+            <div class="doctor-body">
+              <div class="doctor-photo">
+                <img
+                  src="images/dokter/dr.Naman.png"
+                  alt="dr. Naman Khalid, Sp.A"
+                  onerror="
+                    this.onerror = null;
+                    this.src = 'images/dokter/default.jpg';
+                  "
+                />
+              </div>
+
+              <div class="doctor-info">
+                <h2>dr. Naman Khalid, Sp.A</h2>
+
+                <p class="specialist">
+                  Spesialisasi:
+                  <strong>Spesialis Anak</strong>
+                </p>
+
+                <div class="schedule-title">
+                  <i class="fa-solid fa-calendar-days"></i>
+                  JADWAL PRAKTIK DOKTER:
+                </div>
+
+                <div class="schedule-grid">
+                  <div class="schedule-item">
+                    <span class="schedule-day">SENIN</span
+                    ><span class="schedule-time"
+                      ><i class="fa-regular fa-clock"></i>09:00 - 12:00</span
+                    >
+                  </div>
+                  <div class="schedule-item">
+                    <span class="schedule-day">SELASA</span
+                    ><span class="schedule-time"
+                      ><i class="fa-regular fa-clock"></i>09:00 - 12:00</span
+                    >
+                  </div>
+                  <div class="schedule-item">
+                    <span class="schedule-day">RABU</span
+                    ><span class="schedule-time"
+                      ><i class="fa-regular fa-clock"></i>09:00 - 12:00</span
+                    >
+                  </div>
+                  <div class="schedule-item">
+                    <span class="schedule-day">KAMIS</span
+                    ><span class="schedule-time"
+                      ><i class="fa-regular fa-clock"></i>09:00 - 12:00</span
+                    >
+                  </div>
+                  <div class="schedule-item">
+                    <span class="schedule-day">JUMAT</span
+                    ><span class="schedule-time"
+                      ><i class="fa-regular fa-clock"></i>09:00 - 12:00</span
+                    >
+                  </div>
+                  <div class="schedule-item">
+                    <span class="schedule-day">SABTU</span
+                    ><span class="schedule-time"
+                      ><i class="fa-regular fa-clock"></i>12:00 - 15:00</span
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <div class="doctor-actions">
+                <a href="#" class="btn-profile">PROFIL</a>
+
+                <a href="index.html#contact" class="btn-appointment">
+                  <i class="fa-solid fa-calendar-check"></i>
+                  BUAT JANJI
+                </a>
+
+                <a
+                  href="https://wa.me/6281317277229"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn-whatsapp"
+                  aria-label="WhatsApp"
+                >
+                  <i class="fa-brands fa-whatsapp"></i>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- DOKTER 12 -->
+
+          <article
+            class="doctor-card"
+            data-name="dr. Andyan Yugatama, Sp.A"
+            data-poly="anak"
+            data-day="senin"
+          >
+            <div class="doctor-header">
+              <div class="poly-name">
+                <span class="poly-icon">
+                  <i class="fa-solid fa-lungs"></i>
+                </span>
+                Poli Anak
+              </div>
+
+              <span class="hospital-label">RSU Amanda Mitra Keluarga</span>
+            </div>
+
+            <div class="doctor-body">
+              <div class="doctor-photo">
+                <img
+                  src="images/dokter/dr.Yugatama.png"
+                  alt="dr. Andyan Yugatama, Sp.A"
+                  onerror="
+                    this.onerror = null;
+                    this.src = 'images/dokter/default.jpg';
+                  "
+                />
+              </div>
+
+              <div class="doctor-info">
+                <h2>dr. Andyan Yugatama, Sp.A</h2>
+
+                <p class="specialist">
+                  Spesialisasi:
+                  <strong>Spesialis Anak</strong>
+                </p>
+
+                <div class="schedule-title">
+                  <i class="fa-solid fa-calendar-days"></i>
+                  JADWAL PRAKTIK DOKTER:
+                </div>
+
+                <div class="schedule-grid">
+                  <div class="schedule-item">
+                    <span class="schedule-day">SENIN</span
+                    ><span class="schedule-time"
+                      ><i class="fa-regular fa-clock"></i>13:00 - 16:00</span
+                    >
+                  </div>
+                  <div class="schedule-item">
+                    <span class="schedule-day">SELASA</span
+                    ><span class="schedule-time"
+                      ><i class="fa-regular fa-clock"></i>15:00 - 19:00</span
+                    >
+                  </div>
+                  <div class="schedule-item">
+                    <span class="schedule-day">RABU</span
+                    ><span class="schedule-time"
+                      ><i class="fa-regular fa-clock"></i>15:00 - 17:00</span
+                    >
+                  </div>
+                  <div class="schedule-item">
+                    <span class="schedule-day">JUMAT</span
+                    ><span class="schedule-time"
+                      ><i class="fa-regular fa-clock"></i>12:00 - 15:00</span
+                    >
+                  </div>
+                  <div class="schedule-item">
+                    <span class="schedule-day">SABTU</span
+                    ><span class="schedule-time"
+                      ><i class="fa-regular fa-clock"></i>15:00 - 19:00</span
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <div class="doctor-actions">
+                <a href="#" class="btn-profile">PROFIL</a>
+
+                <a href="index.html#contact" class="btn-appointment">
+                  <i class="fa-solid fa-calendar-check"></i>
+                  BUAT JANJI
+                </a>
+
+                <a
+                  href="https://wa.me/6281317277229"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn-whatsapp"
+                  aria-label="WhatsApp"
+                >
+                  <i class="fa-brands fa-whatsapp"></i>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- DOKTER 13 -->
+
+          <article
+            class="doctor-card"
+            data-name="dr. Arif Sangjaya, Sp.OG.,M.Kes"
+            data-poly="kandungan"
+            data-day="senin"
+          >
+            <div class="doctor-header">
+              <div class="poly-name">
+                <span class="poly-icon">
+                  <i class="fa-solid fa-lungs"></i>
+                </span>
+                Poli Kandungan
+              </div>
+
+              <span class="hospital-label">RSU Amanda Mitra Keluarga</span>
+            </div>
+
+            <div class="doctor-body">
+              <div class="doctor-photo">
+                <img
+                  src="images/dokter/dr.Arif.png"
+                  alt="dr. Arif Sangjaya, Sp.OG.,M.Kes"
+                  onerror="
+                    this.onerror = null;
+                    this.src = 'images/dokter/default.jpg';
+                  "
+                />
+              </div>
+
+              <div class="doctor-info">
+                <h2>dr. Arif Sangjaya, Sp.OG.,M.Kes</h2>
+
+                <p class="specialist">
+                  Spesialisasi:
+                  <strong>Spesialis Kandungan</strong>
+                </p>
+
+                <div class="schedule-title">
+                  <i class="fa-solid fa-calendar-days"></i>
+                  JADWAL PRAKTIK DOKTER:
+                </div>
+
+                <div class="schedule-grid">
+                  <div class="schedule-item">
+                    <span class="schedule-day">SENIN</span
+                    ><span class="schedule-time"
+                      ><i class="fa-regular fa-clock"></i>11:00 - 14:00</span
+                    >
+                  </div>
+                  <div class="schedule-item">
+                    <span class="schedule-day">SELASA</span
+                    ><span class="schedule-time"
+                      ><i class="fa-regular fa-clock"></i>17:00 - 21:00</span
+                    >
+                  </div>
+                  <div class="schedule-item">
+                    <span class="schedule-day">RABU</span
+                    ><span class="schedule-time"
+                      ><i class="fa-regular fa-clock"></i>11:00 - 14:00</span
+                    >
+                  </div>
+                  <div class="schedule-item">
+                    <span class="schedule-day">KAMIS</span
+                    ><span class="schedule-time"
+                      ><i class="fa-regular fa-clock"></i>17:00 - 21:00</span
+                    >
+                  </div>
+                  <div class="schedule-item">
+                    <span class="schedule-day">JUMAT</span
+                    ><span class="schedule-time"
+                      ><i class="fa-regular fa-clock"></i>07:00 - 10:00</span
+                    >
+                  </div>
+                  <div class="schedule-item">
+                    <span class="schedule-day">SABTU</span
+                    ><span class="schedule-time"
+                      ><i class="fa-regular fa-clock"></i>11:00 - 14:00</span
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <div class="doctor-actions">
+                <a href="#" class="btn-profile">PROFIL</a>
+
+                <a href="index.html#contact" class="btn-appointment">
+                  <i class="fa-solid fa-calendar-check"></i>
+                  BUAT JANJI
+                </a>
+
+                <a
+                  href="https://wa.me/6281317277229"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn-whatsapp"
+                  aria-label="WhatsApp"
+                >
+                  <i class="fa-brands fa-whatsapp"></i>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- DOKTER 14 -->
+
+          <article
+            class="doctor-card"
+            data-name="dr. Elva Feria Sondari, Sp.OG"
+            data-poly="kandungan"
+            data-day="senin"
+          >
+            <div class="doctor-header">
+              <div class="poly-name">
+                <span class="poly-icon">
+                  <i class="fa-solid fa-lungs"></i>
+                </span>
+                Poli Kandungan
+              </div>
+
+              <span class="hospital-label">RSU Amanda Mitra Keluarga</span>
+            </div>
+
+            <div class="doctor-body">
+              <div class="doctor-photo">
+                <img
+                  src="images/dokter/dr.Elva.jpg"
+                  alt="dr. Elva Feria Sondari, Sp.OG"
+                  onerror="
+                    this.onerror = null;
+                    this.src = 'images/dokter/default.jpg';
+                  "
+                />
+              </div>
+
+              <div class="doctor-info">
+                <h2>dr. Elva Feria Sondari, Sp.OG</h2>
+
+                <p class="specialist">
+                  Spesialisasi:
+                  <strong>Spesialis Kandungan</strong>
+                </p>
+
+                <div class="schedule-title">
+                  <i class="fa-solid fa-calendar-days"></i>
+                  JADWAL PRAKTIK DOKTER:
+                </div>
+
+                <div class="schedule-grid">
+                  <div class="schedule-item">
+                    <span class="schedule-day">SENIN</span
+                    ><span class="schedule-time"
+                      ><i class="fa-regular fa-clock"></i>14:00 - 17:00</span
+                    >
+                  </div>
+                  <div class="schedule-item">
+                    <span class="schedule-day">SELASA</span
+                    ><span class="schedule-time"
+                      ><i class="fa-regular fa-clock"></i>15:00 - 17:00</span
+                    >
+                  </div>
+                  <div class="schedule-item">
+                    <span class="schedule-day">RABU</span
+                    ><span class="schedule-time"
+                      ><i class="fa-regular fa-clock"></i>14:00 - 17:00</span
+                    >
+                  </div>
+                  <div class="schedule-item">
+                    <span class="schedule-day">KAMIS</span
+                    ><span class="schedule-time"
+                      ><i class="fa-regular fa-clock"></i>15:00 - 17:00</span
+                    >
+                  </div>
+                  <div class="schedule-item">
+                    <span class="schedule-day">JUMAT</span
+                    ><span class="schedule-time"
+                      ><i class="fa-regular fa-clock"></i>16:00 - 18:00</span
+                    >
+                  </div>
+                  <div class="schedule-item">
+                    <span class="schedule-day">SABTU</span
+                    ><span class="schedule-time"
+                      ><i class="fa-regular fa-clock"></i>17:00 - 20:00</span
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <div class="doctor-actions">
+                <a href="#" class="btn-profile">PROFIL</a>
+
+                <a href="index.html#contact" class="btn-appointment">
+                  <i class="fa-solid fa-calendar-check"></i>
+                  BUAT JANJI
+                </a>
+
+                <a
+                  href="https://wa.me/6281317277229"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn-whatsapp"
+                  aria-label="WhatsApp"
+                >
+                  <i class="fa-brands fa-whatsapp"></i>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- DOKTER 15 -->
+
+          <article
+            class="doctor-card"
+            data-name="dr. Jeffri Syaputra, M.Ked (OG). Sp.OG"
+            data-poly="kandungan"
+            data-day="senin"
+          >
+            <div class="doctor-header">
+              <div class="poly-name">
+                <span class="poly-icon">
+                  <i class="fa-solid fa-lungs"></i>
+                </span>
+                Poli Kandungan
+              </div>
+
+              <span class="hospital-label">RSU Amanda Mitra Keluarga</span>
+            </div>
+
+            <div class="doctor-body">
+              <div class="doctor-photo">
+                <img
+                  src="images/dokter/dr.Jefry.jpg"
+                  alt="dr. Jeffri Syaputra, M.Ked (OG). Sp.OG"
+                  onerror="
+                    this.onerror = null;
+                    this.src = 'images/dokter/default.jpg';
+                  "
+                />
+              </div>
+
+              <div class="doctor-info">
+                <h2>dr. Jeffri Syaputra, M.Ked (OG). Sp.OG</h2>
+
+                <p class="specialist">
+                  Spesialisasi:
+                  <strong>Spesialis Kandungan</strong>
+                </p>
+
+                <div class="schedule-title">
+                  <i class="fa-solid fa-calendar-days"></i>
+                  JADWAL PRAKTIK DOKTER:
+                </div>
+
+                <div class="schedule-grid">
+                  <div class="schedule-item">
+                    <span class="schedule-day">SENIN</span
+                    ><span class="schedule-time"
+                      ><i class="fa-regular fa-clock"></i>08:00 - 11:00</span
+                    >
+                  </div>
+                  <div class="schedule-item">
+                    <span class="schedule-day">SELASA</span
+                    ><span class="schedule-time"
+                      ><i class="fa-regular fa-clock"></i>08:00 - 11:00</span
+                    >
+                  </div>
+                  <div class="schedule-item">
+                    <span class="schedule-day">RABU</span
+                    ><span class="schedule-time"
+                      ><i class="fa-regular fa-clock"></i>08:00 - 11:00</span
+                    >
+                  </div>
+                  <div class="schedule-item">
+                    <span class="schedule-day">KAMIS</span
+                    ><span class="schedule-time"
+                      ><i class="fa-regular fa-clock"></i>08:00 - 11:00</span
+                    >
+                  </div>
+                  <div class="schedule-item">
+                    <span class="schedule-day">JUMAT</span
+                    ><span class="schedule-time"
+                      ><i class="fa-regular fa-clock"></i>14:00 - 16:00</span
+                    >
+                  </div>
+                  <div class="schedule-item">
+                    <span class="schedule-day">SABTU</span
+                    ><span class="schedule-time"
+                      ><i class="fa-regular fa-clock"></i>08:00 - 11:00</span
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <div class="doctor-actions">
+                <a href="#" class="btn-profile">PROFIL</a>
+
+                <a href="index.html#contact" class="btn-appointment">
+                  <i class="fa-solid fa-calendar-check"></i>
+                  BUAT JANJI
+                </a>
+
+                <a
+                  href="https://wa.me/6281317277229"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn-whatsapp"
+                  aria-label="WhatsApp"
+                >
+                  <i class="fa-brands fa-whatsapp"></i>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- DOKTER 16 -->
+
+          <article
+            class="doctor-card"
+            data-name="	dr. Riki Nofiandi, Sp.OG"
+            data-poly="kandungan"
+            data-day="senin"
+          >
+            <div class="doctor-header">
+              <div class="poly-name">
+                <span class="poly-icon">
+                  <i class="fa-solid fa-lungs"></i>
+                </span>
+                Poli Kandungan
+              </div>
+
+              <span class="hospital-label">RSU Amanda Mitra Keluarga</span>
+            </div>
+
+            <div class="doctor-body">
+              <div class="doctor-photo">
+                <img
+                  src="images/dokter/dr.Riki.jpg"
+                  alt="	dr. Riki Nofiandi, Sp.OG"
+                  onerror="
+                    this.onerror = null;
+                    this.src = 'images/dokter/default.jpg';
+                  "
+                />
+              </div>
+
+              <div class="doctor-info">
+                <h2>dr. Riki Nofiandi, Sp.OG</h2>
+
+                <p class="specialist">
+                  Spesialisasi:
+                  <strong>Spesialis Kandungan</strong>
+                </p>
+
+                <div class="schedule-title">
+                  <i class="fa-solid fa-calendar-days"></i>
+                  JADWAL PRAKTIK DOKTER:
+                </div>
+
+                <div class="schedule-grid">
+                  <div class="schedule-item">
+                    <span class="schedule-day">SENIN</span
+                    ><span class="schedule-time"
+                      ><i class="fa-regular fa-clock"></i>17:00 - 20:00</span
+                    >
+                  </div>
+                  <div class="schedule-item">
+                    <span class="schedule-day">SELASA</span
+                    ><span class="schedule-time"
+                      ><i class="fa-regular fa-clock"></i>12:00 - 15:00</span
+                    >
+                  </div>
+                  <div class="schedule-item">
+                    <span class="schedule-day">RABU</span
+                    ><span class="schedule-time"
+                      ><i class="fa-regular fa-clock"></i>17:00 - 20:00</span
+                    >
+                  </div>
+                  <div class="schedule-item">
+                    <span class="schedule-day">KAMIS</span
+                    ><span class="schedule-time"
+                      ><i class="fa-regular fa-clock"></i>12:00 - 15:00</span
+                    >
+                  </div>
+                  <div class="schedule-item">
+                    <span class="schedule-day">JUMAT</span
+                    ><span class="schedule-time"
+                      ><i class="fa-regular fa-clock"></i>18:00 - 21:00</span
+                    >
+                  </div>
+                  <div class="schedule-item">
+                    <span class="schedule-day">SABTU</span
+                    ><span class="schedule-time"
+                      ><i class="fa-regular fa-clock"></i>14:00 - 17:00</span
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <div class="doctor-actions">
+                <a href="#" class="btn-profile">PROFIL</a>
+
+                <a href="index.html#contact" class="btn-appointment">
+                  <i class="fa-solid fa-calendar-check"></i>
+                  BUAT JANJI
+                </a>
+
+                <a
+                  href="https://wa.me/6281317277229"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn-whatsapp"
+                  aria-label="WhatsApp"
+                >
+                  <i class="fa-brands fa-whatsapp"></i>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- DOKTER 17 -->
+
+          <article
+            class="doctor-card"
+            data-name="dr. Amanda Carissa Wardhani, Sp.T.H.T.B.K.L"
+            data-poly="tht"
+            data-day="senin"
+          >
+            <div class="doctor-header">
+              <div class="poly-name">
+                <span class="poly-icon">
+                  <i class="fa-solid fa-lungs"></i>
+                </span>
+                Poli THT
+              </div>
+
+              <span class="hospital-label">RSU Amanda Mitra Keluarga</span>
+            </div>
+
+            <div class="doctor-body">
+              <div class="doctor-photo">
+                <img
+                  src="images/dokter/dr. Amanda.png"
+                  alt="dr. Amanda Carissa Wardhani, Sp.T.H.T.B.K.L"
+                  onerror="
+                    this.onerror = null;
+                    this.src = 'images/dokter/default.jpg';
+                  "
+                />
+              </div>
+
+              <div class="doctor-info">
+                <h2>dr. Amanda Carissa Wardhani, Sp.T.H.T.B.K.L</h2>
+
+                <p class="specialist">
+                  Spesialisasi:
+                  <strong>Spesialis THT</strong>
+                </p>
+
+                <div class="schedule-title">
+                  <i class="fa-solid fa-calendar-days"></i>
+                  JADWAL PRAKTIK DOKTER:
+                </div>
+
+                <div class="schedule-grid">
+                  <div class="schedule-item">
+                    <span class="schedule-day">SENIN</span
+                    ><span class="schedule-time"
+                      ><i class="fa-regular fa-clock"></i>15:30 - 19:00</span
+                    >
+                  </div>
+                  <div class="schedule-item">
+                    <span class="schedule-day">SELASA</span
+                    ><span class="schedule-time"
+                      ><i class="fa-regular fa-clock"></i>15:30 - 19:00</span
+                    >
+                  </div>
+                  <div class="schedule-item">
+                    <span class="schedule-day">RABU</span
+                    ><span class="schedule-time"
+                      ><i class="fa-regular fa-clock"></i>15:30 - 19:00</span
+                    >
+                  </div>
+                  <div class="schedule-item">
+                    <span class="schedule-day">KAMIS</span
+                    ><span class="schedule-time"
+                      ><i class="fa-regular fa-clock"></i>15:30 - 19:00</span
+                    >
+                  </div>
+                  <div class="schedule-item">
+                    <span class="schedule-day">JUMAT</span
+                    ><span class="schedule-time"
+                      ><i class="fa-regular fa-clock"></i>15:30 - 19:00</span
+                    >
+                  </div>
+                  <div class="schedule-item">
+                    <span class="schedule-day">SABTU</span
+                    ><span class="schedule-time"
+                      ><i class="fa-regular fa-clock"></i>13:30 - 16:00</span
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <div class="doctor-actions">
+                <a href="#" class="btn-profile">PROFIL</a>
+
+                <a href="index.html#contact" class="btn-appointment">
+                  <i class="fa-solid fa-calendar-check"></i>
+                  BUAT JANJI
+                </a>
+
+                <a
+                  href="https://wa.me/6281317277229"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn-whatsapp"
+                  aria-label="WhatsApp"
+                >
+                  <i class="fa-brands fa-whatsapp"></i>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- DOKTER 18 -->
+
+          <article
+            class="doctor-card"
+            data-name="dr. Aldi Maulana Putra, Sp.THT-BKL"
+            data-poly="tht"
+            data-day="senin"
+          >
+            <div class="doctor-header">
+              <div class="poly-name">
+                <span class="poly-icon">
+                  <i class="fa-solid fa-lungs"></i>
+                </span>
+                Poli THT
+              </div>
+
+              <span class="hospital-label">RSU Amanda Mitra Keluarga</span>
+            </div>
+
+            <div class="doctor-body">
+              <div class="doctor-photo">
+                <img
+                  src="images/dokter/dr.Aldi.png"
+                  alt="dr. Aldi Maulana Putra, Sp.THT-BKL"
+                  onerror="
+                    this.onerror = null;
+                    this.src = 'images/dokter/default.jpg';
+                  "
+                />
+              </div>
+
+              <div class="doctor-info">
+                <h2>dr. Aldi Maulana Putra, Sp.THT-BKL</h2>
+
+                <p class="specialist">
+                  Spesialisasi:
+                  <strong>Spesialis THT</strong>
+                </p>
+
+                <div class="schedule-title">
+                  <i class="fa-solid fa-calendar-days"></i>
+                  JADWAL PRAKTIK DOKTER:
+                </div>
+
+                <div class="schedule-grid">
+                  <div class="schedule-item">
+                    <span class="schedule-day">SENIN</span
+                    ><span class="schedule-time"
+                      ><i class="fa-regular fa-clock"></i>15:30 - 19:00</span
+                    >
+                  </div>
+                  <div class="schedule-item">
+                    <span class="schedule-day">SELASA</span
+                    ><span class="schedule-time"
+                      ><i class="fa-regular fa-clock"></i>15:30 - 19:00</span
+                    >
+                  </div>
+                  <div class="schedule-item">
+                    <span class="schedule-day">RABU</span
+                    ><span class="schedule-time"
+                      ><i class="fa-regular fa-clock"></i>15:30 - 19:00</span
+                    >
+                  </div>
+                  <div class="schedule-item">
+                    <span class="schedule-day">KAMIS</span
+                    ><span class="schedule-time"
+                      ><i class="fa-regular fa-clock"></i>15:30 - 19:00</span
+                    >
+                  </div>
+                  <div class="schedule-item">
+                    <span class="schedule-day">JUMAT</span
+                    ><span class="schedule-time"
+                      ><i class="fa-regular fa-clock"></i>15:30 - 19:00</span
+                    >
+                  </div>
+                  <div class="schedule-item">
+                    <span class="schedule-day">SABTU</span
+                    ><span class="schedule-time"
+                      ><i class="fa-regular fa-clock"></i>13:30 - 16:00</span
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <div class="doctor-actions">
+                <a href="#" class="btn-profile">PROFIL</a>
+
+                <a href="index.html#contact" class="btn-appointment">
+                  <i class="fa-solid fa-calendar-check"></i>
+                  BUAT JANJI
+                </a>
+
+                <a
+                  href="https://wa.me/6281317277229"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn-whatsapp"
+                  aria-label="WhatsApp"
+                >
+                  <i class="fa-brands fa-whatsapp"></i>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- DOKTER 19 -->
+
+          <article
+            class="doctor-card"
+            data-name="dr. Firstiafina Tiffany, Sp.N"
+            data-poly="saraf"
+            data-day="senin"
+          >
+            <div class="doctor-header">
+              <div class="poly-name">
+                <span class="poly-icon">
+                  <i class="fa-solid fa-lungs"></i>
+                </span>
+                Poli Saraf
+              </div>
+
+              <span class="hospital-label">RSU Amanda Mitra Keluarga</span>
+            </div>
+
+            <div class="doctor-body">
+              <div class="doctor-photo">
+                <img
+                  src="images/dokter/dr.Tifany.png"
+                  alt="dr. Firstiafina Tiffany, Sp.N"
+                  onerror="
+                    this.onerror = null;
+                    this.src = 'images/dokter/default.jpg';
+                  "
+                />
+              </div>
+
+              <div class="doctor-info">
+                <h2>dr. Firstiafina Tiffany, Sp.N</h2>
+
+                <p class="specialist">
+                  Spesialisasi:
+                  <strong>Spesialis Saraf</strong>
+                </p>
+
+                <div class="schedule-title">
+                  <i class="fa-solid fa-calendar-days"></i>
+                  JADWAL PRAKTIK DOKTER:
+                </div>
+
+                <div class="schedule-grid">
+                  <div class="schedule-item">
+                    <span class="schedule-day">SENIN</span
+                    ><span class="schedule-time"
+                      ><i class="fa-regular fa-clock"></i>15:30 - 19:00</span
+                    >
+                  </div>
+                  <div class="schedule-item">
+                    <span class="schedule-day">SELASA</span
+                    ><span class="schedule-time"
+                      ><i class="fa-regular fa-clock"></i>15:30 - 19:00</span
+                    >
+                  </div>
+                  <div class="schedule-item">
+                    <span class="schedule-day">RABU</span
+                    ><span class="schedule-time"
+                      ><i class="fa-regular fa-clock"></i>15:30 - 19:00</span
+                    >
+                  </div>
+                  <div class="schedule-item">
+                    <span class="schedule-day">KAMIS</span
+                    ><span class="schedule-time"
+                      ><i class="fa-regular fa-clock"></i>15:30 - 19:00</span
+                    >
+                  </div>
+                  <div class="schedule-item">
+                    <span class="schedule-day">JUMAT</span
+                    ><span class="schedule-time"
+                      ><i class="fa-regular fa-clock"></i>15:30 - 19:00</span
+                    >
+                  </div>
+                  <div class="schedule-item">
+                    <span class="schedule-day">SABTU</span
+                    ><span class="schedule-time"
+                      ><i class="fa-regular fa-clock"></i>13:30 - 16:00</span
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <div class="doctor-actions">
+                <a href="#" class="btn-profile">PROFIL</a>
+
+                <a href="index.html#contact" class="btn-appointment">
+                  <i class="fa-solid fa-calendar-check"></i>
+                  BUAT JANJI
+                </a>
+
+                <a
+                  href="https://wa.me/6281317277229"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn-whatsapp"
+                  aria-label="WhatsApp"
+                >
+                  <i class="fa-brands fa-whatsapp"></i>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- DOKTER 20 -->
+
+          <article
+            class="doctor-card"
+            data-name="dr. Ronald Susanto Budhy, Sp. N"
+            data-poly="saraf"
+            data-day="senin"
+          >
+            <div class="doctor-header">
+              <div class="poly-name">
+                <span class="poly-icon">
+                  <i class="fa-solid fa-lungs"></i>
+                </span>
+                Poli Saraf
+              </div>
+
+              <span class="hospital-label">RSU Amanda Mitra Keluarga</span>
+            </div>
+
+            <div class="doctor-body">
+              <div class="doctor-photo">
+                <img
+                  src="images/dokter/dr. Ronald.jpg"
+                  alt="dr. Ronald Susanto Budhy, Sp. N"
+                  onerror="
+                    this.onerror = null;
+                    this.src = 'images/dokter/default.jpg';
+                  "
+                />
+              </div>
+
+              <div class="doctor-info">
+                <h2>dr. Ronald Susanto Budhy, Sp. N</h2>
+
+                <p class="specialist">
+                  Spesialisasi:
+                  <strong>Spesialis Saraf</strong>
+                </p>
+
+                <div class="schedule-title">
+                  <i class="fa-solid fa-calendar-days"></i>
+                  JADWAL PRAKTIK DOKTER:
+                </div>
+
+                <div class="schedule-grid">
+                  <div class="schedule-item">
+                    <span class="schedule-day">SENIN</span
+                    ><span class="schedule-time"
+                      ><i class="fa-regular fa-clock"></i>15:30 - 19:00</span
+                    >
+                  </div>
+                  <div class="schedule-item">
+                    <span class="schedule-day">SELASA</span
+                    ><span class="schedule-time"
+                      ><i class="fa-regular fa-clock"></i>15:30 - 19:00</span
+                    >
+                  </div>
+                  <div class="schedule-item">
+                    <span class="schedule-day">RABU</span
+                    ><span class="schedule-time"
+                      ><i class="fa-regular fa-clock"></i>15:30 - 19:00</span
+                    >
+                  </div>
+                  <div class="schedule-item">
+                    <span class="schedule-day">KAMIS</span
+                    ><span class="schedule-time"
+                      ><i class="fa-regular fa-clock"></i>15:30 - 19:00</span
+                    >
+                  </div>
+                  <div class="schedule-item">
+                    <span class="schedule-day">JUMAT</span
+                    ><span class="schedule-time"
+                      ><i class="fa-regular fa-clock"></i>15:30 - 19:00</span
+                    >
+                  </div>
+                  <div class="schedule-item">
+                    <span class="schedule-day">SABTU</span
+                    ><span class="schedule-time"
+                      ><i class="fa-regular fa-clock"></i>13:30 - 16:00</span
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <div class="doctor-actions">
+                <a href="#" class="btn-profile">PROFIL</a>
+
+                <a href="index.html#contact" class="btn-appointment">
+                  <i class="fa-solid fa-calendar-check"></i>
+                  BUAT JANJI
+                </a>
+
+                <a
+                  href="https://wa.me/6281317277229"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn-whatsapp"
+                  aria-label="WhatsApp"
+                >
+                  <i class="fa-brands fa-whatsapp"></i>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- DOKTER 21 -->
+
+          <article
+            class="doctor-card"
+            data-name="dr. Harry Supratama Azis, Sp.OT"
+            data-poly="orthopedi"
+            data-day="sabtu"
+          >
+            <div class="doctor-header">
+              <div class="poly-name">
+                <span class="poly-icon">
+                  <i class="fa-solid fa-lungs"></i>
+                </span>
+                Othopedi
+              </div>
+
+              <span class="hospital-label">RSU Amanda Mitra Keluarga</span>
+            </div>
+
+            <div class="doctor-body">
+              <div class="doctor-photo">
+                <img
+                  src="images/dokter/dr. Ronald.jpg"
+                  alt="dr. Ronald Susanto Budhy, Sp. N"
+                  onerror="
+                    this.onerror = null;
+                    this.src = 'images/dokter/default.jpg';
+                  "
+                />
+              </div>
+
+              <div class="doctor-info">
+                <h2>dr. Harry Supratama Azis, Sp.OT</h2>
+
+                <p class="specialist">
+                  Spesialisasi:
+                  <strong>Spesialis Orthopedi</strong>
+                </p>
+
+                <div class="schedule-title">
+                  <i class="fa-solid fa-calendar-days"></i>
+                  JADWAL PRAKTIK DOKTER:
+                </div>
+
+                <div class="schedule-grid">
+                  <div class="schedule-item">
+                    <span class="schedule-day">SABTU</span
+                    ><span class="schedule-time"
+                      ><i class="fa-regular fa-clock"></i>07:00 - 10:00</span
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <div class="doctor-actions">
+                <a href="#" class="btn-profile">PROFIL</a>
+
+                <a href="index.html#contact" class="btn-appointment">
+                  <i class="fa-solid fa-calendar-check"></i>
+                  BUAT JANJI
+                </a>
+
+                <a
+                  href="https://wa.me/6281317277229"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn-whatsapp"
+                  aria-label="WhatsApp"
+                >
+                  <i class="fa-brands fa-whatsapp"></i>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- DOKTER 22 -->
+
+          <article
+            class="doctor-card"
+            data-name="drg. Muhammad Firli Pratama., MM.,Sp.Perio"
+            data-poly="gigi"
+            data-day="senin"
+          >
+            <div class="doctor-header">
+              <div class="poly-name">
+                <span class="poly-icon">
+                  <i class="fa-solid fa-lungs"></i>
+                </span>
+                Poli Gigi Spesialis Periodonsia
+              </div>
+
+              <span class="hospital-label">RSU Amanda Mitra Keluarga</span>
+            </div>
+
+            <div class="doctor-body">
+              <div class="doctor-photo">
+                <img
+                  src="images/dokter/dr Firli.jpeg"
+                  alt="drg. Muhammad Firli Pratama., MM.,Sp.Perio"
+                  onerror="
+                    this.onerror = null;
+                    this.src = 'images/dokter/default.jpg';
+                  "
+                />
+              </div>
+
+              <div class="doctor-info">
+                <h2>drg. Muhammad Firli Pratama., MM.,Sp.Perio</h2>
+
+                <p class="specialist">
+                  Spesialisasi:
+                  <strong>Spesialis Gigi Periodonsia</strong>
+                </p>
+
+                <div class="schedule-title">
+                  <i class="fa-solid fa-calendar-days"></i>
+                  JADWAL PRAKTIK DOKTER:
+                </div>
+
+                <div class="schedule-grid">
+                  <div class="schedule-item">
+                    <span class="schedule-day">SENIN</span
+                    ><span class="schedule-time"
+                      ><i class="fa-regular fa-clock"></i>15:30 - 19:00</span
+                    >
+                  </div>
+                  <div class="schedule-item">
+                    <span class="schedule-day">SELASA</span
+                    ><span class="schedule-time"
+                      ><i class="fa-regular fa-clock"></i>15:30 - 19:00</span
+                    >
+                  </div>
+                  <div class="schedule-item">
+                    <span class="schedule-day">RABU</span
+                    ><span class="schedule-time"
+                      ><i class="fa-regular fa-clock"></i>15:30 - 19:00</span
+                    >
+                  </div>
+                  <div class="schedule-item">
+                    <span class="schedule-day">KAMIS</span
+                    ><span class="schedule-time"
+                      ><i class="fa-regular fa-clock"></i>15:30 - 19:00</span
+                    >
+                  </div>
+                  <div class="schedule-item">
+                    <span class="schedule-day">JUMAT</span
+                    ><span class="schedule-time"
+                      ><i class="fa-regular fa-clock"></i>15:30 - 19:00</span
+                    >
+                  </div>
+                  <div class="schedule-item">
+                    <span class="schedule-day">SABTU</span
+                    ><span class="schedule-time"
+                      ><i class="fa-regular fa-clock"></i>13:30 - 16:00</span
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <div class="doctor-actions">
+                <a href="#" class="btn-profile">PROFIL</a>
+
+                <a href="index.html#contact" class="btn-appointment">
+                  <i class="fa-solid fa-calendar-check"></i>
+                  BUAT JANJI
+                </a>
+
+                <a
+                  href="https://wa.me/6281317277229"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn-whatsapp"
+                  aria-label="WhatsApp"
+                >
+                  <i class="fa-brands fa-whatsapp"></i>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- DOKTER 23 -->
+
+          <article
+            class="doctor-card"
+            data-name="drg. Indah Dewi Haryanti"
+            data-poly="gigi"
+            data-day="senin"
+          >
+            <div class="doctor-header">
+              <div class="poly-name">
+                <span class="poly-icon">
+                  <i class="fa-solid fa-lungs"></i>
+                </span>
+                Poli Gigi
+              </div>
+
+              <span class="hospital-label">RSU Amanda Mitra Keluarga</span>
+            </div>
+
+            <div class="doctor-body">
+              <div class="doctor-photo">
+                <img
+                  src="images/dokter/drg,.Indah.png"
+                  alt="drg. Indah Dewi Haryanti"
+                  onerror="
+                    this.onerror = null;
+                    this.src = 'images/dokter/default.jpg';
+                  "
+                />
+              </div>
+
+              <div class="doctor-info">
+                <h2>drg. Indah Dewi Haryanti</h2>
+
+                <p class="specialist">
+                  Spesialisasi:
+                  <strong>Spesialis Gigi</strong>
+                </p>
+
+                <div class="schedule-title">
+                  <i class="fa-solid fa-calendar-days"></i>
+                  JADWAL PRAKTIK DOKTER:
+                </div>
+
+                <div class="schedule-grid">
+                  <div class="schedule-item">
+                    <span class="schedule-day">SENIN</span
+                    ><span class="schedule-time"
+                      ><i class="fa-regular fa-clock"></i>15:30 - 19:00</span
+                    >
+                  </div>
+                  <div class="schedule-item">
+                    <span class="schedule-day">SELASA</span
+                    ><span class="schedule-time"
+                      ><i class="fa-regular fa-clock"></i>15:30 - 19:00</span
+                    >
+                  </div>
+                  <div class="schedule-item">
+                    <span class="schedule-day">RABU</span
+                    ><span class="schedule-time"
+                      ><i class="fa-regular fa-clock"></i>15:30 - 19:00</span
+                    >
+                  </div>
+                  <div class="schedule-item">
+                    <span class="schedule-day">KAMIS</span
+                    ><span class="schedule-time"
+                      ><i class="fa-regular fa-clock"></i>15:30 - 19:00</span
+                    >
+                  </div>
+                  <div class="schedule-item">
+                    <span class="schedule-day">JUMAT</span
+                    ><span class="schedule-time"
+                      ><i class="fa-regular fa-clock"></i>15:30 - 19:00</span
+                    >
+                  </div>
+                  <div class="schedule-item">
+                    <span class="schedule-day">SABTU</span
+                    ><span class="schedule-time"
+                      ><i class="fa-regular fa-clock"></i>13:30 - 16:00</span
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <div class="doctor-actions">
+                <a href="#" class="btn-profile">PROFIL</a>
+
+                <a href="index.html#contact" class="btn-appointment">
+                  <i class="fa-solid fa-calendar-check"></i>
+                  BUAT JANJI
+                </a>
+
+                <a
+                  href="https://wa.me/6281317277229"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn-whatsapp"
+                  aria-label="WhatsApp"
+                >
+                  <i class="fa-brands fa-whatsapp"></i>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- DOKTER 24 -->
+
+          <article
+            class="doctor-card"
+            data-name="dr. Maria Agustina Sulistyo Wulandari, Sp.KFR"
+            data-poly="rehabilitasi"
+            data-day="senin"
+          >
+            <div class="doctor-header">
+              <div class="poly-name">
+                <span class="poly-icon">
+                  <i class="fa-solid fa-lungs"></i>
+                </span>
+                Kedokteran Fisik & Rehabilitasi Medik
+              </div>
+
+              <span class="hospital-label">RSU Amanda Mitra Keluarga</span>
+            </div>
+
+            <div class="doctor-body">
+              <div class="doctor-photo">
+                <img
+                  src="images/dokter/dr Maria.jpeg"
+                  alt="dr. Maria Agustina Sulistyo Wulandari, Sp.KFR"
+                  onerror="
+                    this.onerror = null;
+                    this.src = 'images/dokter/default.jpg';
+                  "
+                />
+              </div>
+
+              <div class="doctor-info">
+                <h2>dr. Maria Agustina Sulistyo Wulandari, Sp.KFR</h2>
+
+                <p class="specialist">
+                  Spesialisasi:
+                  <strong>Kedokteran Fisik & Rehabilitasi Medik</strong>
+                </p>
+
+                <div class="schedule-title">
+                  <i class="fa-solid fa-calendar-days"></i>
+                  JADWAL PRAKTIK DOKTER:
+                </div>
+
+                <div class="schedule-grid">
+                  <div class="schedule-item">
+                    <span class="schedule-day">SENIN</span
+                    ><span class="schedule-time"
+                      ><i class="fa-regular fa-clock"></i>15:30 - 19:00</span
+                    >
+                  </div>
+                  <div class="schedule-item">
+                    <span class="schedule-day">SELASA</span
+                    ><span class="schedule-time"
+                      ><i class="fa-regular fa-clock"></i>15:30 - 19:00</span
+                    >
+                  </div>
+                  <div class="schedule-item">
+                    <span class="schedule-day">RABU</span
+                    ><span class="schedule-time"
+                      ><i class="fa-regular fa-clock"></i>15:30 - 19:00</span
+                    >
+                  </div>
+                  <div class="schedule-item">
+                    <span class="schedule-day">KAMIS</span
+                    ><span class="schedule-time"
+                      ><i class="fa-regular fa-clock"></i>15:30 - 19:00</span
+                    >
+                  </div>
+                  <div class="schedule-item">
+                    <span class="schedule-day">JUMAT</span
+                    ><span class="schedule-time"
+                      ><i class="fa-regular fa-clock"></i>15:30 - 19:00</span
+                    >
+                  </div>
+                  <div class="schedule-item">
+                    <span class="schedule-day">SABTU</span
+                    ><span class="schedule-time"
+                      ><i class="fa-regular fa-clock"></i>13:30 - 16:00</span
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <div class="doctor-actions">
+                <a href="#" class="btn-profile">PROFIL</a>
+
+                <a href="index.html#contact" class="btn-appointment">
+                  <i class="fa-solid fa-calendar-check"></i>
+                  BUAT JANJI
+                </a>
+
+                <a
+                  href="https://wa.me/6281317277229"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn-whatsapp"
+                  aria-label="WhatsApp"
+                >
+                  <i class="fa-brands fa-whatsapp"></i>
+                </a>
+              </div>
+            </div>
+          </article>
+        </section>
+
+        <!-- =================================================
+           PAGINATION: SEBELUMNYA / NOMOR / BERIKUTNYA
+      ================================================== -->
+
+        <nav
+          class="pagination"
+          id="pagination"
+          aria-label="Navigasi halaman dokter"
+        >
+          <button type="button" id="prevPage" aria-label="Halaman sebelumnya">
+            <i class="fa-solid fa-chevron-left"></i>
+            Sebelumnya
+          </button>
+
+          <div class="page-numbers" id="pageNumbers"></div>
+
+          <button type="button" id="nextPage" aria-label="Halaman berikutnya">
+            Berikutnya
+            <i class="fa-solid fa-chevron-right"></i>
+          </button>
+
+          <div
+            class="pagination-info"
+            id="paginationInfo"
+            aria-live="polite"
+          ></div>
+        </nav>
+
+        <!-- TIDAK DITEMUKAN -->
+
+        <div class="empty-result" id="emptyResult" role="status">
+          <i class="fa-solid fa-user-doctor"></i>
+          <p>Dokter yang Anda cari tidak ditemukan.</p>
+        </div>
+      </div>
+    </main>
+
+    <!-- MODAL KALENDER BUAT JANJI -->
+    <div class="appointment-modal" id="appointmentModal" aria-hidden="true">
+      <section
+        class="appointment-dialog"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="appointmentTitle"
+      >
+        <button
+          type="button"
+          class="appointment-close"
+          id="closeAppointment"
+          aria-label="Tutup kalender"
+        >
+          &times;
+        </button>
+        <h2 id="appointmentTitle">Buat Janji Dokter</h2>
+        <p>Pilih tanggal kunjungan yang sesuai dengan jadwal praktik dokter.</p>
+        <form id="appointmentForm">
+          <div class="appointment-field">
+            <label for="appointmentDoctor">Dokter</label>
+            <input
+              id="appointmentDoctor"
+              name="doctor"
+              type="text"
+              readonly
+              required
+            />
+          </div>
+          <div class="appointment-field">
+            <label for="appointmentDate">Pilih tanggal kunjungan</label>
+            <input id="appointmentDate" name="date" type="date" required />
+          </div>
+          <div class="appointment-field">
+            <label for="appointmentTime">Jadwal praktik</label>
+            <select id="appointmentTime" name="time" required>
+              <option value="">Pilih tanggal terlebih dahulu</option>
+            </select>
+          </div>
+          <button class="appointment-submit" type="submit">
+            Lanjutkan melalui WhatsApp
+          </button>
+        </form>
+      </section>
+    </div>
+
+    <!-- =====================================================
+       FOOTER
+  ====================================================== -->
+
+    <footer>
+      <div class="container">
+        <p>&copy; 2026 RSU Amanda Mitra Keluarga. All Rights Reserved.</p>
+      </div>
+    </footer>
+
+    <!-- =====================================================
+       JAVASCRIPT
+  ====================================================== -->
+
+    <script>
+      /* =========================
+       JAM DIGITAL
+    ========================= */
+
+      function updateTime() {
+        const now = new Date();
+
+        const hours = String(now.getHours()).padStart(2, "0");
+        const minutes = String(now.getMinutes()).padStart(2, "0");
+        const seconds = String(now.getSeconds()).padStart(2, "0");
+
+        document.getElementById("currentTime").textContent =
+          `${hours}.${minutes}.${seconds} WIB`;
+      }
+
+      updateTime();
+      setInterval(updateTime, 1000);
+
+      /* =========================
+       FILTER DAN PAGINATION
+    ========================= */
+
+      const searchDoctor = document.getElementById("searchDoctor");
+      const polyFilter = document.getElementById("polyFilter");
+      const dayFilter = document.getElementById("dayFilter");
+
+      const doctorList = document.getElementById("doctorList");
+      const doctorCards = Array.from(document.querySelectorAll(".doctor-card"));
+
+      const emptyResult = document.getElementById("emptyResult");
+      const pagination = document.getElementById("pagination");
+      const pageNumbers = document.getElementById("pageNumbers");
+      const prevPage = document.getElementById("prevPage");
+      const nextPage = document.getElementById("nextPage");
+      const paginationInfo = document.getElementById("paginationInfo");
+
+      // Jumlah kartu dokter dalam satu halaman.
+      // Ubah angka 3 jika ingin menampilkan lebih banyak dokter.
+      const doctorsPerPage = 3;
+
+      let currentPage = 1;
+
+      /*
+      Mengambil kartu dokter yang sesuai dengan
+      pencarian nama, pilihan poliklinik, dan hari praktik.
+    */
+      function getFilteredDoctors() {
+        const searchValue = searchDoctor.value.toLowerCase().trim();
+
+        const polyValue = polyFilter.value;
+        const dayValue = dayFilter.value;
+
+        return doctorCards.filter((card) => {
+          const name = (
+            card.dataset.name ||
+            card.querySelector(".doctor-info h2")?.textContent ||
+            ""
+          ).toLowerCase();
+
+          const poly = card.dataset.poly || "";
+          const day = card.dataset.day || "";
+
+          const matchName = name.includes(searchValue);
+          const matchPoly = !polyValue || poly === polyValue;
+          const matchDay = !dayValue || day === dayValue;
+
+          return matchName && matchPoly && matchDay;
+        });
+      }
+
+      /*
+      Membuat tombol nomor halaman.
+      Nomor halaman dibuat ulang setiap kali filter berubah.
+    */
+      function renderPageNumbers(totalPages) {
+        pageNumbers.innerHTML = "";
+
+        for (let page = 1; page <= totalPages; page++) {
+          const button = document.createElement("button");
+
+          button.type = "button";
+          button.textContent = page;
+          button.setAttribute("aria-label", `Halaman ${page}`);
+
+          if (page === currentPage) {
+            button.classList.add("active");
+            button.setAttribute("aria-current", "page");
+          }
+
+          button.addEventListener("click", () => {
+            currentPage = page;
+            renderDoctors();
+            scrollToDoctorList();
+          });
+
+          pageNumbers.appendChild(button);
+        }
+      }
+
+      /*
+      Menampilkan kartu dokter sesuai halaman aktif.
+    */
+      function renderDoctors() {
+        const filteredDoctors = getFilteredDoctors();
+
+        const totalDoctors = filteredDoctors.length;
+        const totalPages = Math.ceil(totalDoctors / doctorsPerPage);
+
+        // Pastikan halaman aktif selalu valid.
+        if (totalPages === 0) {
+          currentPage = 1;
+        } else if (currentPage > totalPages) {
+          currentPage = totalPages;
+        }
+
+        const startIndex = (currentPage - 1) * doctorsPerPage;
+        const endIndex = startIndex + doctorsPerPage;
+
+        const visibleDoctors = filteredDoctors.slice(startIndex, endIndex);
+
+        // Sembunyikan semua kartu sebelum menampilkan halaman aktif.
+        doctorCards.forEach((card) => {
+          card.style.display = "none";
+        });
+
+        // Tampilkan hanya kartu yang berada di halaman aktif.
+        visibleDoctors.forEach((card) => {
+          card.style.display = "";
+        });
+
+        // Tampilkan pesan jika tidak ada hasil pencarian.
+        emptyResult.style.display = totalDoctors === 0 ? "block" : "none";
+
+        // Pagination hanya muncul jika terdapat lebih dari satu halaman.
+        pagination.style.display = totalPages > 1 ? "flex" : "none";
+
+        // Buat tombol halaman.
+        renderPageNumbers(totalPages);
+
+        // Atur status tombol Sebelumnya dan Berikutnya.
+        prevPage.disabled = currentPage <= 1;
+        nextPage.disabled = totalPages === 0 || currentPage >= totalPages;
+
+        // Informasi jumlah dokter yang sedang ditampilkan.
+        if (totalDoctors > 0) {
+          paginationInfo.textContent = `Menampilkan ${startIndex + 1}–${Math.min(
+            endIndex,
+            totalDoctors,
+          )} dari ${totalDoctors} dokter`;
+        } else {
+          paginationInfo.textContent = "";
+        }
+      }
+
+      /*
+      Menggulir kembali ke bagian daftar dokter
+      ketika pengguna berpindah halaman.
+    */
+      function scrollToDoctorList() {
+        doctorList.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      }
+
+      // Tombol halaman sebelumnya.
+      prevPage.addEventListener("click", () => {
+        if (currentPage > 1) {
+          currentPage--;
+          renderDoctors();
+          scrollToDoctorList();
+        }
+      });
+
+      // Tombol halaman berikutnya.
+      nextPage.addEventListener("click", () => {
+        const totalPages = Math.ceil(
+          getFilteredDoctors().length / doctorsPerPage,
+        );
+
+        if (currentPage < totalPages) {
+          currentPage++;
+          renderDoctors();
+          scrollToDoctorList();
+        }
+      });
+
+      /*
+      Setiap perubahan pencarian atau filter
+      mengembalikan pengguna ke halaman pertama.
+    */
+      function filterDoctors() {
+        currentPage = 1;
+        renderDoctors();
+      }
+
+      searchDoctor.addEventListener("input", filterDoctors);
+      polyFilter.addEventListener("change", filterDoctors);
+      dayFilter.addEventListener("change", filterDoctors);
+
+      /* =========================
+       MODAL KALENDER BUAT JANJI
+      ========================= */
+      const appointmentModal = document.getElementById("appointmentModal");
+      const appointmentDoctor = document.getElementById("appointmentDoctor");
+      const appointmentDate = document.getElementById("appointmentDate");
+      const appointmentTime = document.getElementById("appointmentTime");
+      const appointmentForm = document.getElementById("appointmentForm");
+      const closeAppointment = document.getElementById("closeAppointment");
+      let activeDoctorCard = null;
+
+      // Tanggal paling awal adalah hari ini.
+      const today = new Date();
+      const localToday = [
+        today.getFullYear(),
+        String(today.getMonth() + 1).padStart(2, "0"),
+        String(today.getDate()).padStart(2, "0"),
+      ].join("-");
+      appointmentDate.min = localToday;
+
+      function getDoctorScheduleForDate(card, dateValue) {
+        if (!dateValue) return [];
+        const selectedDate = new Date(dateValue + "T12:00:00");
+        const dayNames = [
+          "MINGGU",
+          "SENIN",
+          "SELASA",
+          "RABU",
+          "KAMIS",
+          "JUMAT",
+          "SABTU",
+        ];
+        const selectedDay = dayNames[selectedDate.getDay()];
+
+        return Array.from(card.querySelectorAll(".schedule-item"))
+          .filter((item) => {
+            const day = item
+              .querySelector(".schedule-day")
+              ?.textContent.trim()
+              .toUpperCase();
+            return (
+              day === selectedDay &&
+              !item.classList.contains("schedule-unavailable")
+            );
+          })
+          .map((item) =>
+            item.querySelector(".schedule-time")?.textContent.trim(),
+          )
+          .filter(Boolean);
+      }
+
+      function refreshAppointmentTimes() {
+        appointmentTime.innerHTML = "";
+        const dateValue = appointmentDate.value;
+        const schedules = getDoctorScheduleForDate(activeDoctorCard, dateValue);
+
+        if (!dateValue) {
+          appointmentTime.add(new Option("Pilih tanggal terlebih dahulu", ""));
+          return;
+        }
+        if (!schedules.length) {
+          appointmentTime.add(
+            new Option("Dokter tidak praktik pada tanggal ini", ""),
+          );
+          return;
+        }
+        appointmentTime.add(new Option("Pilih jam praktik", ""));
+        schedules.forEach((time) =>
+          appointmentTime.add(new Option(time, time)),
+        );
+      }
+
+      function openAppointmentCalendar(button) {
+        activeDoctorCard = button.closest(".doctor-card");
+        const doctorName =
+          activeDoctorCard
+            ?.querySelector(".doctor-info h2")
+            ?.textContent.trim() || "";
+        appointmentDoctor.value = doctorName;
+        appointmentDate.value = "";
+        appointmentTime.innerHTML = "";
+        appointmentTime.add(new Option("Pilih tanggal terlebih dahulu", ""));
+        appointmentModal.classList.add("is-open");
+        appointmentModal.setAttribute("aria-hidden", "false");
+        document.body.classList.add("modal-open");
+
+        // Memunculkan kalender tanggal langsung setelah tombol diklik.
+        appointmentDate.focus();
+        if (typeof appointmentDate.showPicker === "function") {
+          try {
+            appointmentDate.showPicker();
+          } catch (error) {
+            /* kalender tetap bisa dibuka manual */
+          }
+        }
+      }
+
+      document.querySelectorAll(".btn-appointment").forEach((button) => {
+        button.addEventListener("click", (event) => {
+          event.preventDefault();
+          openAppointmentCalendar(button);
+        });
+      });
+
+      appointmentDate.addEventListener("change", refreshAppointmentTimes);
+
+      function closeAppointmentCalendar() {
+        appointmentModal.classList.remove("is-open");
+        appointmentModal.setAttribute("aria-hidden", "true");
+        document.body.classList.remove("modal-open");
+      }
+
+      closeAppointment.addEventListener("click", closeAppointmentCalendar);
+      appointmentModal.addEventListener("click", (event) => {
+        if (event.target === appointmentModal) closeAppointmentCalendar();
+      });
+      document.addEventListener("keydown", (event) => {
+        if (
+          event.key === "Escape" &&
+          appointmentModal.classList.contains("is-open")
+        ) {
+          closeAppointmentCalendar();
+        }
+      });
+
+      appointmentForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+        if (
+          !activeDoctorCard ||
+          !appointmentDate.value ||
+          !appointmentTime.value
+        ) {
+          alert(
+            "Silakan pilih tanggal dan jam praktik dokter terlebih dahulu.",
+          );
+          return;
+        }
+
+        const date = new Date(appointmentDate.value + "T12:00:00");
+        const formattedDate = date.toLocaleDateString("id-ID", {
+          weekday: "long",
+          day: "numeric",
+          month: "long",
+          year: "numeric",
+        });
+        const message = [
+          "Halo RSU Amanda Mitra Keluarga, saya ingin membuat janji konsultasi.",
+          "Dokter: " + appointmentDoctor.value,
+          "Tanggal: " + formattedDate,
+          "Jam praktik: " + appointmentTime.value,
+        ].join("\\n");
+        window.open(
+          "https://wa.me/6281317277229?text=" + encodeURIComponent(message),
+          "_blank",
+          "noopener,noreferrer",
+        );
+        closeAppointmentCalendar();
+      });
+
+      // Tampilkan halaman pertama saat halaman web dibuka.
+      renderDoctors();
+    </script>
+  </body>
+</html>
