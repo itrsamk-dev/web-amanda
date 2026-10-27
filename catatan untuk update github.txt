@@ -1,0 +1,13 @@
+update github
+
+login ke github pke email it.rsamk@gmail.com
+pilih yg all repository
+pilih yg web-amanda
+
+untuk update masukkan command ini menggunakan gitbash
+- git add .
+- git commit -m "catatan updatenya apa"
+- git push
+
+klo mau cek file apa ajj yang ke ubah, bisa pke comman ini dlu sebelum di commit
+- git status
