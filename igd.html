@@ -6,10 +6,12 @@
 
     <meta
       name="description"
-      content="Informasi pelayanan Instalasi Gawat Darurat Rumah Sakit Umum Amanda Mitra Keluarga."
+      content="Informasi pelayanan Instalasi Gawat Darurat RSU Amanda Mitra Keluarga, sistem triage medis, kondisi darurat, dan pertolongan pertama."
     />
 
     <title>IGD - RSU Amanda Mitra Keluarga</title>
+
+    <link rel="icon" href="images/logo-removebg-preview.png" />
 
     <!-- GOOGLE FONT -->
     <link
@@ -24,678 +26,1216 @@
     />
 
     <style>
-      /* ================= RESET ================= */
-
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
+      :root {
+        --green: #087c4a;
+        --green-dark: #075d39;
+        --green-soft: #e8fbf2;
+        --page-bg: #f5f9f7;
+        --text: #182b40;
+        --muted: #526174;
+        --border: #e8eeeb;
+        --white: #ffffff;
+        --red: #e60018;
+        --yellow: #ff9800;
+        --shadow:
+          0 2px 5px rgba(15, 45, 32, 0.08), 0 1px 2px rgba(15, 45, 32, 0.06);
       }
 
-      :root {
-        --primary-color: #67d86d;
-        --dark-color: #063b0b;
-        --white: #ffffff;
-        --text-color: #333333;
-        --light-bg: #f5f7f6;
-        --danger-color: #e53935;
-        --phone-color: #43b849;
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
       }
 
       html {
         scroll-behavior: smooth;
+        scroll-padding-top: 100px;
       }
 
       body {
         font-family: "Poppins", sans-serif;
-        color: var(--text-color);
-        background: var(--light-bg);
-        line-height: 1.7;
+        color: var(--text);
+        background: var(--page-bg);
+        line-height: 1.65;
+        font-size: 14px;
       }
 
-      /* ================= NAVBAR ================= */
+      button,
+      a {
+        font-family: inherit;
+      }
+
+      button {
+        -webkit-tap-highlight-color: transparent;
+      }
+
+      img {
+        max-width: 100%;
+      }
+
+      a {
+        -webkit-tap-highlight-color: transparent;
+      }
+
+      /* ================= INFORMASI ATAS ================= */
+
+      .contact-bar {
+        background: var(--green);
+        color: #ffffff;
+        font-size: 11px;
+      }
+
+      .contact-inner {
+        max-width: 1240px;
+        min-height: 32px;
+        margin: auto;
+        padding: 5px 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+      }
+
+      .contact-left,
+      .contact-right {
+        display: flex;
+        align-items: center;
+        gap: 22px;
+      }
+
+      .contact-inner a {
+        color: inherit;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        white-space: nowrap;
+        cursor: pointer;
+        transition: opacity 0.2s;
+      }
+
+      .contact-inner a i {
+        color: #ffe36a;
+        margin-right: 5px;
+      }
+
+      .contact-inner a:hover {
+        opacity: 0.82;
+        text-decoration: underline;
+      }
+
+      .contact-time {
+        white-space: nowrap;
+      }
+
+      .language-switch {
+        display: inline-flex;
+        align-items: center;
+        border: 1px solid #ffffff80;
+        border-radius: 3px;
+        overflow: hidden;
+      }
+
+      .language-switch button {
+        border: 0;
+        padding: 3px 9px;
+        background: transparent;
+        color: #ffffff;
+        font-size: 10px;
+        cursor: pointer;
+      }
+
+      .language-switch button.active {
+        background: #ffffff;
+        color: var(--green);
+        font-weight: 700;
+      }
+
+      /* ================= NAVIGASI ================= */
 
       .navbar {
         position: sticky;
         top: 0;
         z-index: 1000;
-        background: white;
-        box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1);
+        background: rgba(255, 255, 255, 0.98);
+        box-shadow: 0 2px 7px rgba(0, 0, 0, 0.08);
       }
 
       .navbar-container {
         max-width: 1100px;
+        min-height: 76px;
         margin: auto;
-        padding: 10px 20px;
-
+        padding: 8px 20px;
         display: flex;
         align-items: center;
         justify-content: space-between;
+        gap: 24px;
       }
 
       .logo {
         display: flex;
         align-items: center;
-        gap: 12px;
+        gap: 10px;
         text-decoration: none;
+        flex-shrink: 0;
       }
 
       .logo img {
-        width: 55px;
-        height: 55px;
+        width: 52px;
+        height: 52px;
         object-fit: contain;
       }
 
       .logo-text strong {
         display: block;
         color: #d91f26;
-        font-size: 16px;
-        line-height: 1.2;
+        font-size: 13px;
+        line-height: 1.4;
       }
 
       .logo-text span {
         display: block;
-        color: #63b32e;
-        font-size: 13px;
+        color: #63a92e;
+        font-size: 11px;
         font-weight: 600;
       }
 
-      /* ================= HERO ================= */
-
-      .page-hero {
-        background:
-          linear-gradient(rgba(6, 59, 11, 0.78), rgba(6, 59, 11, 0.78)),
-          url("images/IGD 1.png");
-
-        background-size: cover;
-        background-position: center;
-
-        min-height: 350px;
-
+      .main-nav {
         display: flex;
         align-items: center;
-        justify-content: center;
-
-        text-align: center;
-        color: white;
-
-        padding: 60px 20px;
+        justify-content: flex-end;
+        gap: 23px;
       }
 
-      .page-hero-content {
-        max-width: 800px;
+      .main-nav a {
+        position: relative;
+        color: #344054;
+        text-decoration: none;
+        font-size: 12px;
+        font-weight: 500;
+        white-space: nowrap;
+        transition: color 0.2s;
       }
 
-      .page-hero i {
-        font-size: 55px;
-        margin-bottom: 15px;
-        color: var(--primary-color);
+      .main-nav a:hover,
+      .main-nav a.active {
+        color: var(--green);
       }
 
-      .page-hero h1 {
-        font-size: 2.5rem;
-        margin-bottom: 10px;
+      .main-nav .nav-dropdown i {
+        font-size: 10px;
+        margin-left: 3px;
       }
 
-      .page-hero p {
-        font-size: 1rem;
-        opacity: 0.95;
+      .main-nav .appointment {
+        background: #e91e2b;
+        color: #ffffff;
+        padding: 9px 14px;
+        border-radius: 8px;
+        font-weight: 600;
+        box-shadow: 0 2px 5px #e91e2b30;
+      }
+
+      .main-nav .appointment:hover {
+        background: #c81723;
+        color: #ffffff;
       }
 
       /* ================= CONTAINER ================= */
 
       .container {
-        max-width: 1100px;
-        margin: auto;
-        padding: 0 20px;
+        width: min(1100px, calc(100% - 40px));
+        margin-inline: auto;
       }
-
-      /* ================= CONTENT ================= */
 
       .igd-content {
-        padding: 80px 0;
+        padding: 28px 0 35px;
       }
 
-      .igd-wrapper {
+      /* ================= KARTU UMUM ================= */
+
+      .intro-card,
+      .triage-section,
+      .emergency-section,
+      .details-card,
+      .additional-box {
+        background: var(--white);
+        border: 1px solid #edf1ef;
+        border-radius: 23px;
+        padding: 28px;
+        box-shadow: var(--shadow);
+        margin-bottom: 34px;
+      }
+
+      .intro-heading {
+        display: flex;
+        align-items: center;
+        gap: 13px;
+        padding-bottom: 17px;
+        border-bottom: 1px solid #edf1ef;
+        margin-bottom: 20px;
+      }
+
+      .heading-icon,
+      .facility-icon {
+        width: 44px;
+        height: 44px;
+        flex: 0 0 44px;
         display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 50px;
+        place-items: center;
+        border-radius: 14px;
+        color: var(--green);
+        background: var(--green-soft);
+        font-size: 18px;
+      }
+
+      .heading-icon.red {
+        color: #e60018;
+        background: #fff0f1;
+      }
+
+      .eyebrow {
+        display: inline-block;
+        padding: 3px 12px;
+        border-radius: 99px;
+        background: #d4f8e7;
+        color: var(--green);
+        font-size: 10px;
+        font-weight: 600;
+        line-height: 1.5;
+        margin-bottom: 5px;
+      }
+
+      .intro-heading h1 {
+        font-size: 18px;
+        line-height: 1.5;
+        font-weight: 600;
+        color: #101828;
+      }
+
+      .intro-heading p {
+        color: var(--muted);
+        font-size: 11px;
+      }
+
+      .intro-card > p {
+        font-size: 12px;
+        color: #344054;
+        line-height: 1.9;
+        margin-bottom: 13px;
+      }
+
+      .intro-foot {
+        border-top: 1px solid #edf1ef;
+        padding-top: 13px;
+        color: var(--green);
+        font-size: 11px;
+        font-weight: 600;
+      }
+
+      .intro-foot i {
+        margin-right: 6px;
+      }
+
+      /* ================= HEADING BAGIAN ================= */
+
+      .section-heading {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 20px;
+      }
+
+      .section-heading .eyebrow {
+        margin: 0;
+      }
+
+      .section-heading h2 {
+        font-size: 18px;
+        color: #101828;
+        font-weight: 600;
+        line-height: 1.5;
+      }
+
+      .section-subtitle {
+        font-size: 11px;
+        color: var(--muted);
+        margin-top: 2px;
+      }
+
+      /* ================= TRIAGE MEDIS ================= */
+
+      .triage-section {
+        padding: 28px;
+      }
+
+      .triage-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 18px;
+      }
+
+      .triage-card {
+        min-height: 116px;
+        padding: 17px 18px;
+        border-radius: 15px;
+        border: 1px solid transparent;
+      }
+
+      .triage-card.red {
+        background: #fff2f2;
+        border-color: #ffdada;
+      }
+
+      .triage-card.yellow {
+        background: #fffbec;
+        border-color: #ffedb0;
+      }
+
+      .triage-card.green {
+        background: #ecfdf5;
+        border-color: #c4f7dc;
+      }
+
+      .triage-title {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 9px;
+      }
+
+      .triage-title h3 {
+        font-size: 12px;
+        font-weight: 700;
+      }
+
+      .triage-card.red .triage-title {
+        color: #a80717;
+      }
+
+      .triage-card.yellow .triage-title {
+        color: #854d0e;
+      }
+
+      .triage-card.green .triage-title {
+        color: #065f46;
+      }
+
+      .triage-dot {
+        width: 13px;
+        height: 13px;
+        border-radius: 50%;
+        flex-shrink: 0;
+      }
+
+      .red .triage-dot {
+        background: #e60018;
+      }
+
+      .yellow .triage-dot {
+        background: #ff9800;
+      }
+
+      .green .triage-dot {
+        background: #009b70;
+      }
+
+      .triage-card p {
+        font-size: 10px;
+        line-height: 1.85;
+        color: #344054;
+      }
+
+      /* ================= KONDISI DARURAT ================= */
+
+      .emergency-section {
+        padding: 28px;
+      }
+
+      .emergency-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 13px;
+      }
+
+      .emergency-card {
+        width: 100%;
+        min-height: 75px;
+        display: flex;
+        align-items: center;
+        gap: 11px;
+        text-align: left;
+        padding: 13px;
+        background: #f9fafb;
+        border: 1px solid transparent;
+        border-radius: 16px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+        cursor: pointer;
+        transition:
+          background 0.2s,
+          border-color 0.2s,
+          transform 0.2s,
+          box-shadow 0.2s;
+      }
+
+      .emergency-card:hover {
+        background: #ffffff;
+        border-color: #dce9e2;
+        transform: translateY(-2px);
+        box-shadow: 0 5px 14px rgba(0, 0, 0, 0.07);
+      }
+
+      .emergency-card[aria-expanded="true"] {
+        background: #ffffff;
+        border-color: #a8ddc1;
+        box-shadow: 0 0 0 2px #e8fbf2;
+      }
+
+      .emergency-icon {
+        width: 37px;
+        height: 37px;
+        flex: 0 0 37px;
+        display: grid;
+        place-items: center;
+        border-radius: 50%;
+        background: #ffe3e5;
+        color: #e60038;
+        font-size: 15px;
+      }
+
+      .emergency-icon.yellow {
+        background: #fff2c4;
+        color: #e69500;
+      }
+
+      .emergency-info {
+        flex: 1;
+        min-width: 0;
+      }
+
+      .emergency-info h3 {
+        color: #101828;
+        font-size: 10px;
+        font-weight: 700;
+        line-height: 1.6;
+        margin-bottom: 4px;
+      }
+
+      .severity {
+        display: inline-block;
+        font-size: 9px;
+        padding: 2px 8px;
+        border-radius: 99px;
+        line-height: 1.5;
+      }
+
+      .severity.critical {
+        color: #e60018;
+        background: #fff0f1;
+      }
+
+      .severity.danger {
+        color: #e65c00;
+        background: #fff4e5;
+      }
+
+      .emergency-chevron {
+        color: #8b9bb0;
+        font-size: 11px;
+        flex-shrink: 0;
+        transition: transform 0.2s;
+      }
+
+      .emergency-card[aria-expanded="true"] .emergency-chevron {
+        transform: rotate(180deg);
+      }
+
+      /* ================= DETAIL KONDISI DARURAT ================= */
+
+      .emergency-detail {
+        margin-top: 17px;
+        padding: 21px;
+        background: #ffffff;
+        border: 1px solid #e5eee9;
+        border-radius: 15px;
+        animation: reveal 0.25s ease;
+      }
+
+      .emergency-detail[hidden] {
+        display: none;
+      }
+
+      @keyframes reveal {
+        from {
+          opacity: 0;
+          transform: translateY(-5px);
+        }
+
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .detail-heading {
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        margin-bottom: 15px;
+      }
+
+      .detail-heading > i {
+        width: 39px;
+        height: 39px;
+        flex: 0 0 39px;
+        display: grid;
+        place-items: center;
+        border-radius: 12px;
+        color: #e60018;
+        background: #fff0f1;
+        font-size: 17px;
+      }
+
+      .detail-heading h3 {
+        font-size: 15px;
+        color: #101828;
+        line-height: 1.5;
+      }
+
+      .detail-heading p {
+        color: var(--muted);
+        font-size: 11px;
+      }
+
+      .detail-columns {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 24px;
+      }
+
+      .detail-columns h4 {
+        font-size: 12px;
+        color: #101828;
+        margin-bottom: 9px;
+      }
+
+      .detail-columns ul {
+        list-style: none;
+      }
+
+      .detail-columns li {
+        position: relative;
+        padding-left: 20px;
+        margin-bottom: 8px;
+        color: #526174;
+        font-size: 11px;
+        line-height: 1.8;
+      }
+
+      .detail-columns li::before {
+        content: "\f00c";
+        font-family: "Font Awesome 6 Free";
+        font-weight: 900;
+        position: absolute;
+        left: 0;
+        top: 4px;
+        color: var(--green);
+        font-size: 10px;
+      }
+
+      .detail-warning {
+        margin-top: 17px;
+        padding: 12px 14px;
+        border-radius: 10px;
+        background: #fff5f4;
+        border-left: 4px solid #e53935;
+        color: #8f1d18;
+        font-size: 11px;
+      }
+
+      .detail-warning i {
+        margin-right: 6px;
+      }
+
+      /* ================= FASILITAS ================= */
+
+      .facility-section {
+        margin-bottom: 35px;
+      }
+
+      .facility-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 17px;
+      }
+
+      .facility-card {
+        min-height: 195px;
+        background: #ffffff;
+        border: 1px solid #edf1ef;
+        border-radius: 20px;
+        padding: 22px;
+        box-shadow: var(--shadow);
+        transition:
+          transform 0.2s,
+          box-shadow 0.2s;
+      }
+
+      .facility-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 20px rgba(15, 45, 32, 0.1);
+      }
+
+      .facility-icon {
+        margin-bottom: 13px;
+      }
+
+      .facility-card h3 {
+        font-size: 12px;
+        line-height: 1.6;
+        color: #101828;
+        margin-bottom: 9px;
+        font-weight: 600;
+      }
+
+      .facility-card p {
+        font-size: 10px;
+        line-height: 1.8;
+        color: #526174;
+      }
+
+      /* ================= DETAIL PELAYANAN ================= */
+
+      .details-grid {
+        display: grid;
+        grid-template-columns: 0.95fr 1.05fr;
+        gap: 32px;
         align-items: center;
       }
 
-      /* ================= SLIDESHOW ================= */
-
       .igd-slider {
         position: relative;
-        width: 100%;
-        height: 500px;
-
+        height: 330px;
         overflow: hidden;
-
-        border-radius: 15px;
-
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-
-        background: #ddd;
+        border-radius: 16px;
+        background: #e8eeeb;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
       }
 
       .igd-slide {
         position: absolute;
         inset: 0;
-
-        width: 100%;
-        height: 100%;
-
         opacity: 0;
-
-        transform: scale(1.03);
-
-        transition:
-          opacity 0.8s ease,
-          transform 1.2s ease;
-
+        transition: opacity 0.6s ease;
         pointer-events: none;
       }
 
       .igd-slide.active {
         opacity: 1;
-
-        transform: scale(1);
-
         pointer-events: auto;
       }
 
       .igd-slide img {
+        display: block;
         width: 100%;
         height: 100%;
-
         object-fit: cover;
-
-        display: block;
-
-        user-select: none;
-
-        -webkit-user-drag: none;
       }
-
-      /* ================= SLIDER DOT ================= */
 
       .slider-dots {
         position: absolute;
-
-        bottom: 18px;
+        bottom: 13px;
         left: 0;
-
         width: 100%;
-
         display: flex;
         justify-content: center;
-
         gap: 8px;
-
         z-index: 5;
       }
 
       .slider-dot {
-        width: 11px;
-        height: 11px;
-
+        width: 9px;
+        height: 9px;
         border-radius: 50%;
-
-        background: rgba(255, 255, 255, 0.6);
-
+        background: #ffffffa8;
         cursor: pointer;
-
-        transition: 0.3s;
+        border: 0;
       }
 
       .slider-dot.active {
-        width: 28px;
-
+        width: 23px;
         border-radius: 20px;
-
-        background: var(--primary-color);
+        background: var(--green);
       }
-
-      /* ================= SLIDER ARROWS ================= */
 
       .slider-btn {
         position: absolute;
-
         top: 50%;
-
         transform: translateY(-50%);
-
-        width: 45px;
-        height: 45px;
-
-        border: none;
-
+        width: 38px;
+        height: 38px;
+        border: 0;
         border-radius: 50%;
-
-        background: rgba(0, 0, 0, 0.45);
-
-        color: white;
-
-        font-size: 18px;
-
+        background: #0007;
+        color: #ffffff;
         cursor: pointer;
-
-        z-index: 10;
-
-        transition: 0.3s;
+        z-index: 6;
       }
 
       .slider-btn:hover {
-        background: var(--primary-color);
+        background: var(--green);
       }
 
       .slider-btn.prev {
-        left: 15px;
+        left: 12px;
       }
 
       .slider-btn.next {
-        right: 15px;
+        right: 12px;
       }
 
-      /* ================= TEXT ================= */
-
       .igd-text h2 {
-        color: var(--dark-color);
-
-        font-size: 2rem;
-
-        margin-bottom: 20px;
+        color: #101828;
+        font-size: 22px;
+        line-height: 1.5;
+        margin-bottom: 14px;
       }
 
       .igd-text p {
-        margin-bottom: 20px;
-
-        color: #555;
-      }
-
-      /* ================= LIST ================= */
-
-      .igd-list {
-        margin-top: 20px;
-
-        list-style: none;
-      }
-
-      .igd-list li {
+        font-size: 11px;
+        color: #526174;
         margin-bottom: 12px;
-
-        display: flex;
-
-        align-items: flex-start;
-
-        gap: 10px;
+        line-height: 1.9;
       }
 
-      .igd-list i {
-        color: var(--primary-color);
+      .igd-list,
+      .additional-list {
+        list-style: none;
+        margin-top: 16px;
+      }
 
+      .igd-list li,
+      .additional-list li {
+        display: flex;
+        align-items: flex-start;
+        gap: 9px;
+        margin-bottom: 10px;
+        font-size: 11px;
+        color: #526174;
+      }
+
+      .igd-list i,
+      .additional-list i {
+        color: #38c879;
         margin-top: 5px;
       }
 
-      /* ================= EMERGENCY BOX ================= */
+      /* ================= KONTAK DARURAT ================= */
 
       .emergency-box {
         display: flex;
-
-        align-items: flex-start;
-
-        gap: 15px;
-
-        margin-top: 25px;
-
-        padding: 18px 20px;
-
-        border-radius: 10px;
-
-        background: #fff1f1;
-
-        border-left: 5px solid var(--danger-color);
+        gap: 13px;
+        margin-top: 22px;
+        padding: 16px;
+        border-radius: 12px;
+        background: #fff5f4;
+        border-left: 4px solid #e53935;
       }
 
       .emergency-box > i {
-        color: var(--danger-color);
-
-        font-size: 28px;
-
+        color: #e53935;
+        font-size: 23px;
         margin-top: 3px;
       }
 
       .emergency-box strong {
         display: block;
-
-        color: #b71c1c;
-
-        margin-bottom: 3px;
+        color: #b42318;
+        font-size: 12px;
+        margin-bottom: 4px;
       }
 
       .emergency-box span {
         display: block;
-
-        color: #666;
-
-        font-size: 14px;
+        color: #667085;
+        font-size: 10px;
       }
-
-      /* ================= NOMOR TELEPON ================= */
 
       .emergency-phone {
         display: inline-flex;
-
+        gap: 7px;
         align-items: center;
-
-        gap: 8px;
-
-        margin-top: 8px;
-
-        color: var(--phone-color);
-
-        font-size: 16px;
-
+        margin-top: 7px;
+        color: var(--green);
+        font-size: 12px;
         font-weight: 700;
-
         text-decoration: none;
-
-        transition: 0.3s;
-      }
-
-      .emergency-phone i {
-        color: var(--phone-color);
-
-        font-size: 15px;
       }
 
       .emergency-phone:hover {
-        color: #2f9e35;
-
-        transform: translateX(3px);
-      }
-
-      .emergency-phone:hover i {
-        color: #2f9e35;
-      }
-
-      /* ================= INFO ================= */
-
-      .info-section {
-        padding: 0 0 80px;
-      }
-
-      .section-title {
-        text-align: center;
-
-        margin-bottom: 35px;
-      }
-
-      .section-title h2 {
-        color: var(--dark-color);
-
-        font-size: 2rem;
-
-        margin-bottom: 8px;
-      }
-
-      .section-title p {
-        color: #666;
-
-        font-size: 15px;
-      }
-
-      .info-grid {
-        display: grid;
-
-        grid-template-columns: repeat(3, 1fr);
-
-        gap: 25px;
-      }
-
-      .info-card {
-        background: white;
-
-        padding: 30px 25px;
-
-        border-radius: 12px;
-
-        text-align: center;
-
-        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-
-        transition: 0.3s;
-      }
-
-      .info-card:hover {
-        transform: translateY(-5px);
-      }
-
-      .info-card i {
-        font-size: 35px;
-
-        color: var(--primary-color);
-
-        margin-bottom: 15px;
-      }
-
-      .info-card h3 {
-        color: var(--dark-color);
-
-        margin-bottom: 10px;
-      }
-
-      .info-card p {
-        color: #666;
-
-        font-size: 14px;
+        text-decoration: underline;
       }
 
       /* ================= INFORMASI TAMBAHAN ================= */
 
-      .additional-section {
-        padding: 0 0 80px;
-      }
-
-      .additional-box {
-        background: white;
-
-        padding: 40px;
-
-        border-radius: 15px;
-
-        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-      }
-
       .additional-box h3 {
-        color: var(--dark-color);
-
-        font-size: 1.4rem;
-
-        margin-bottom: 15px;
+        color: #101828;
+        font-size: 17px;
+        margin-bottom: 13px;
       }
 
       .additional-box p {
-        color: #555;
-
-        margin-bottom: 15px;
+        font-size: 11px;
+        color: #526174;
+        margin-bottom: 12px;
+        line-height: 1.9;
       }
 
       .additional-list {
-        list-style: none;
-
-        margin-top: 15px;
-      }
-
-      .additional-list li {
-        display: flex;
-
-        gap: 10px;
-
-        margin-bottom: 10px;
-
-        color: #555;
-      }
-
-      .additional-list i {
-        color: var(--primary-color);
-
-        margin-top: 5px;
+        margin-top: 12px;
       }
 
       /* ================= TOMBOL KEMBALI ================= */
 
       .back-to-services {
-        margin-top: 50px;
-
+        margin: 25px 0 40px;
         display: flex;
-
-        justify-content: flex-start;
+        flex-wrap: wrap;
+        gap: 12px;
       }
 
       .back-to-services a {
         display: inline-flex;
-
         align-items: center;
-
-        gap: 10px;
-
-        padding: 12px 22px;
-
-        background: var(--primary-color);
-
-        color: white;
-
-        border-radius: 7px;
-
+        justify-content: center;
+        gap: 9px;
+        padding: 11px 17px;
+        background: var(--green);
+        color: #ffffff;
+        border-radius: 8px;
         text-decoration: none;
-
         font-weight: 600;
-
-        transition: 0.3s;
+        font-size: 12px;
+        transition: background 0.2s;
       }
 
       .back-to-services a:hover {
-        background: #43b849;
+        background: var(--green-dark);
+      }
 
-        transform: translateX(-3px);
+      .back-to-services a.secondary {
+        background: #ffffff;
+        color: var(--green);
+        border: 1px solid #cce8d8;
+      }
+
+      .back-to-services a.secondary:hover {
+        background: var(--green-soft);
       }
 
       /* ================= FOOTER ================= */
 
       footer {
-        background: var(--dark-color);
-
-        color: white;
-
-        padding: 30px 0;
-
+        background: var(--green-dark);
+        color: #ffffff;
+        padding: 24px 0;
         text-align: center;
+        font-size: 11px;
       }
 
       footer p {
-        font-size: 14px;
+        line-height: 1.8;
       }
 
-      /* ================= MOBILE ================= */
+      /* ================= RESPONSIVE TABLET ================= */
 
-      @media (max-width: 768px) {
+      @media (max-width: 1000px) {
+        .contact-inner {
+          flex-wrap: wrap;
+        }
+
+        .contact-left {
+          flex-wrap: wrap;
+          gap: 8px 16px;
+        }
+
         .navbar-container {
-          padding: 8px 15px;
+          gap: 15px;
         }
 
-        .logo img {
-          width: 45px;
-          height: 45px;
+        .main-nav {
+          gap: 13px;
+          flex-wrap: wrap;
         }
 
-        .logo-text strong {
-          font-size: 13px;
-        }
-
-        .logo-text span {
+        .main-nav a {
           font-size: 11px;
         }
 
-        .page-hero {
-          min-height: 300px;
+        .logo-text strong {
+          font-size: 11px;
         }
 
-        .page-hero h1 {
-          font-size: 2rem;
+        .emergency-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
         }
 
-        .igd-wrapper {
+        .facility-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .details-grid {
           grid-template-columns: 1fr;
         }
 
         .igd-slider {
-          height: 350px;
-        }
-
-        .igd-text h2 {
-          font-size: 1.7rem;
-        }
-
-        .info-grid {
-          grid-template-columns: 1fr;
-        }
-
-        .additional-box {
-          padding: 25px;
-        }
-
-        .slider-btn {
-          width: 40px;
-          height: 40px;
+          height: 360px;
         }
       }
 
-      @media (max-width: 480px) {
-        .page-hero {
-          min-height: 270px;
+      /* ================= RESPONSIVE HP ================= */
 
-          padding: 50px 15px;
+      @media (max-width: 600px) {
+        html {
+          scroll-padding-top: 150px;
         }
 
-        .page-hero i {
-          font-size: 45px;
+        .contact-inner {
+          padding: 7px 14px;
+          gap: 9px;
+          font-size: 10px;
         }
 
-        .page-hero h1 {
-          font-size: 1.8rem;
+        .contact-left {
+          gap: 7px 13px;
         }
 
-        .page-hero p {
-          font-size: 0.9rem;
+        .contact-right {
+          justify-content: space-between;
+          width: 100%;
+        }
+
+        .navbar-container {
+          padding: 10px 14px;
+          align-items: flex-start;
+          flex-direction: column;
+          gap: 12px;
+        }
+
+        .logo img {
+          width: 43px;
+          height: 43px;
+        }
+
+        .logo-text strong {
+          font-size: 11px;
+        }
+
+        .logo-text span {
+          font-size: 10px;
+        }
+
+        .main-nav {
+          width: 100%;
+          justify-content: flex-start;
+          gap: 12px 16px;
+        }
+
+        .main-nav a {
+          font-size: 11px;
+        }
+
+        .main-nav .appointment {
+          padding: 7px 10px;
+        }
+
+        .container {
+          width: calc(100% - 26px);
         }
 
         .igd-content {
-          padding: 55px 0;
+          padding-top: 20px;
         }
 
-        .igd-slider {
-          height: 300px;
+        .intro-card,
+        .triage-section,
+        .emergency-section,
+        .details-card,
+        .additional-box {
+          padding: 19px;
+          border-radius: 17px;
+          margin-bottom: 23px;
         }
 
-        .additional-section {
-          padding-bottom: 55px;
+        .intro-heading {
+          gap: 10px;
         }
 
-        .emergency-box {
+        .heading-icon {
+          width: 39px;
+          height: 39px;
+          flex-basis: 39px;
+          border-radius: 12px;
+        }
+
+        .intro-heading h1 {
+          font-size: 15px;
+        }
+
+        .intro-heading p {
+          font-size: 10px;
+        }
+
+        .section-heading {
+          align-items: flex-start;
+        }
+
+        .section-heading h2 {
+          font-size: 15px;
+        }
+
+        .triage-grid {
+          grid-template-columns: 1fr;
+          gap: 12px;
+        }
+
+        .triage-card {
+          min-height: auto;
           padding: 16px;
         }
 
-        .emergency-phone {
-          font-size: 15px;
+        .emergency-grid {
+          grid-template-columns: 1fr;
+          gap: 10px;
+        }
+
+        .emergency-card {
+          min-height: 70px;
+        }
+
+        .emergency-info h3 {
+          font-size: 11px;
+        }
+
+        .emergency-detail {
+          padding: 15px;
+        }
+
+        .detail-columns {
+          grid-template-columns: 1fr;
+          gap: 17px;
+        }
+
+        .facility-grid {
+          grid-template-columns: 1fr;
+          gap: 12px;
+        }
+
+        .facility-card {
+          min-height: auto;
+          padding: 19px;
+        }
+
+        .igd-slider {
+          height: 250px;
+        }
+
+        .igd-text h2 {
+          font-size: 19px;
+        }
+
+        .emergency-box {
+          padding: 13px;
+        }
+
+        .back-to-services {
+          flex-direction: column;
+        }
+
+        .back-to-services a {
+          width: 100%;
+        }
+      }
+
+      /* ================= AKSESIBILITAS ================= */
+
+      a:focus-visible,
+      button:focus-visible {
+        outline: 3px solid #78bfa0;
+        outline-offset: 3px;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          scroll-behavior: auto !important;
+          animation-duration: 0.01ms !important;
+          transition-duration: 0.01ms !important;
         }
       }
     </style>
   </head>
 
   <body>
-    <!-- ================= NAVBAR ================= -->
+    <!-- ================= INFORMASI ATAS ================= -->
+
+    <div class="contact-bar">
+      <div class="contact-inner">
+        <div class="contact-left">
+          <a
+            href="https://www.google.com/maps/search/?api=1&query=RSU+Amanda+Mitra+Keluarga"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Buka lokasi rumah sakit di Google Maps"
+          >
+            <i class="fas fa-location-dot"></i>
+            Lokasi
+          </a>
+
+          <a href="tel:+6281287075555" aria-label="Telepon IGD 24 jam">
+            <i class="fas fa-phone-volume"></i>
+            IGD 24 Jam: <strong>&nbsp;0812 8707 5555</strong>
+          </a>
+
+          <a href="tel:0267511321" aria-label="Telepon call center">
+            <i class="fas fa-headset"></i>
+            Call Center: <strong>&nbsp;(0267) 511321</strong>
+          </a>
+
+          <a href="mailto:amandawadasrs2@gmail.com">
+            <i class="fas fa-envelope"></i>
+            amandawadasrs2@gmail.com
+          </a>
+        </div>
+
+        <div class="contact-right">
+          <span class="contact-time">
+            <i
+              class="far fa-clock"
+              style="color: #ffe36a; margin-right: 5px"
+            ></i>
+            <span id="live-time">00.00.00 WIB</span>
+          </span>
+
+          <div class="language-switch" aria-label="Pilihan bahasa">
+            <button
+              type="button"
+              class="active"
+              data-lang="id"
+              aria-pressed="true"
+            >
+              ID
+            </button>
+
+            <button type="button" data-lang="en" aria-pressed="false">
+              EN
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ================= NAVIGASI ================= -->
 
     <header class="navbar">
       <div class="navbar-container">
@@ -710,307 +1250,677 @@
             <span>mitra keluarga</span>
           </div>
         </a>
+
+        <nav class="main-nav" aria-label="Navigasi utama">
+          <a href="index.html">Beranda</a>
+
+          <a href="profil.html">Profil</a>
+
+          <a href="index.html#services" class="active nav-dropdown">
+            Layanan <i class="fas fa-chevron-down"></i>
+          </a>
+
+          <!-- MENU DOKTER & JADWAL MENUJU pelayanan.html -->
+          <a href="pelayanan.html" id="doctorScheduleLink">
+            Dokter &amp; Jadwal
+          </a>
+
+          <a href="informasi.html">Informasi</a>
+
+          <a href="karir.html">Karir</a>
+
+          <a href="index.html#appointment" class="appointment">
+            <i class="fas fa-heart-pulse"></i>
+            Daftar / Buat Janji
+          </a>
+        </nav>
       </div>
     </header>
 
-    <!-- ================= HERO ================= -->
+    <!-- ================= KONTEN UTAMA ================= -->
 
-    <section class="page-hero">
-      <div class="page-hero-content">
-        <i class="fas fa-truck-medical"></i>
-
-        <h1>Instalasi Gawat Darurat</h1>
-
-        <p>
-          Pelayanan medis untuk kondisi kegawatdaruratan yang membutuhkan
-          penanganan dan pertolongan segera.
-        </p>
-      </div>
-    </section>
-
-    <!-- ================= CONTENT ================= -->
-
-    <section class="igd-content">
-      <div class="container">
-        <div class="igd-wrapper">
-          <!-- ================= SLIDESHOW ================= -->
-
-          <div class="igd-slider">
-            <!-- GAMBAR 1 -->
-
-            <div class="igd-slide active">
-              <img
-                src="images/IGD 1.png"
-                alt="Instalasi Gawat Darurat Rumah Sakit Umum Amanda Mitra Keluarga"
-                draggable="false"
-              />
-            </div>
-
-            <!-- GAMBAR 2 -->
-
-            <div class="igd-slide">
-              <img
-                src="images/IGD 2.jpeg"
-                alt="Fasilitas IGD Rumah Sakit Umum Amanda Mitra Keluarga"
-                draggable="false"
-              />
-            </div>
-
-            <!-- GAMBAR 3 -->
-
-            <div class="igd-slide">
-              <img
-                src="images/IGD 3.jpeg"
-                alt="Ruang IGD Rumah Sakit Umum Amanda Mitra Keluarga"
-                draggable="false"
-              />
-            </div>
-
-            <!-- TOMBOL SEBELUMNYA -->
-
-            <button
-              type="button"
-              class="slider-btn prev"
-              id="prevBtn"
-              aria-label="Gambar sebelumnya"
-            >
-              <i class="fas fa-chevron-left"></i>
-            </button>
-
-            <!-- TOMBOL BERIKUTNYA -->
-
-            <button
-              type="button"
-              class="slider-btn next"
-              id="nextBtn"
-              aria-label="Gambar berikutnya"
-            >
-              <i class="fas fa-chevron-right"></i>
-            </button>
-
-            <!-- DOT -->
-
-            <div class="slider-dots">
-              <span class="slider-dot active" data-slide="0"></span>
-
-              <span class="slider-dot" data-slide="1"></span>
-
-              <span class="slider-dot" data-slide="2"></span>
-            </div>
-          </div>
-
+    <main>
+      <section class="igd-content">
+        <div class="container">
           <!-- ================= INFORMASI IGD ================= -->
 
-          <div class="igd-text">
-            <h2>Pelayanan Instalasi Gawat Darurat</h2>
-
-            <p>
-              Instalasi Gawat Darurat (IGD) merupakan layanan rumah sakit yang
-              memberikan penanganan medis bagi pasien dengan kondisi yang
-              membutuhkan pertolongan segera.
-            </p>
-
-            <p>
-              Pelayanan IGD Rumah Sakit Umum Amanda Mitra Keluarga didukung oleh
-              tenaga kesehatan dan fasilitas medis untuk membantu memberikan
-              penanganan sesuai dengan kondisi dan kebutuhan pasien.
-            </p>
-
-            <ul class="igd-list">
-              <li>
-                <i class="fas fa-check-circle"></i>
-
-                <span>
-                  Penanganan pasien dengan kondisi yang membutuhkan pertolongan
-                  segera.
-                </span>
-              </li>
-
-              <li>
-                <i class="fas fa-check-circle"></i>
-
-                <span>
-                  Didukung tenaga kesehatan yang profesional dan kompeten.
-                </span>
-              </li>
-
-              <li>
-                <i class="fas fa-check-circle"></i>
-
-                <span> Pemeriksaan awal dan penilaian kondisi pasien. </span>
-              </li>
-
-              <li>
-                <i class="fas fa-check-circle"></i>
-
-                <span> Dukungan fasilitas dan peralatan medis. </span>
-              </li>
-
-              <li>
-                <i class="fas fa-check-circle"></i>
-
-                <span> Mengutamakan keselamatan dan kebutuhan pasien. </span>
-              </li>
-            </ul>
-
-            <!-- ================= EMERGENCY BOX ================= -->
-
-            <div class="emergency-box">
-              <i class="fas fa-truck-medical"></i>
+          <article class="intro-card">
+            <div class="intro-heading">
+              <div class="heading-icon">
+                <i class="fas fa-notes-medical"></i>
+              </div>
 
               <div>
-                <strong>Pelayanan Kegawatdaruratan</strong>
+                <span class="eyebrow">Pelayanan Utama Emergency</span>
 
-                <span>
-                  Segera menuju IGD apabila membutuhkan pertolongan medis dalam
-                  kondisi darurat.
-                </span>
+                <h1>Tentang Instalasi Gawat Darurat</h1>
 
-                <!-- NOMOR TELEPON -->
-
-                <a
-                  href="tel:+6281299403697"
-                  class="emergency-phone"
-                  aria-label="Telepon IGD"
-                >
-                  <i class="fas fa-phone"></i>
-
-                  +62812-9940-3697
-                </a>
+                <p>
+                  Informasi pelayanan Instalasi Gawat Darurat RSU Amanda Mitra
+                  Keluarga.
+                </p>
               </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ================= INFORMASI ================= -->
-
-    <section class="info-section">
-      <div class="container">
-        <div class="section-title">
-          <h2>Pelayanan IGD</h2>
-
-          <p>
-            Dukungan pelayanan untuk membantu menangani kondisi yang membutuhkan
-            pertolongan medis segera.
-          </p>
-        </div>
-
-        <div class="info-grid">
-          <!-- CARD 1 -->
-
-          <div class="info-card">
-            <i class="fas fa-user-doctor"></i>
-
-            <h3>Tenaga Kesehatan</h3>
 
             <p>
-              Pelayanan didukung oleh tenaga kesehatan yang profesional dan
-              kompeten dalam memberikan penanganan pasien.
+              <strong>
+                Instalasi Gawat Darurat (IGD) RSU Amanda Mitra Keluarga
+              </strong>
+              merupakan layanan rumah sakit untuk menangani pasien dengan
+              kondisi darurat yang membutuhkan pertolongan medis segera.
             </p>
-          </div>
-
-          <!-- CARD 2 -->
-
-          <div class="info-card">
-            <i class="fas fa-stethoscope"></i>
-
-            <h3>Pemeriksaan Awal</h3>
 
             <p>
-              Pasien mendapatkan pemeriksaan dan penilaian kondisi sesuai
-              kebutuhan medis.
+              Pelayanan IGD didukung oleh tenaga kesehatan dan fasilitas medis
+              untuk membantu memberikan penanganan sesuai kondisi serta
+              kebutuhan pasien.
             </p>
-          </div>
 
-          <!-- CARD 3 -->
+            <div class="intro-foot">
+              <i class="fas fa-check-circle"></i>
+              Mengutamakan keselamatan pasien dan penanganan medis segera.
+            </div>
+          </article>
 
-          <div class="info-card">
-            <i class="fas fa-heart-pulse"></i>
+          <!-- ================= TRIAGE MEDIS ================= -->
 
-            <h3>Penanganan Segera</h3>
+          <section class="triage-section" aria-labelledby="triage-title">
+            <div class="intro-heading">
+              <div class="heading-icon">
+                <i class="fas fa-layer-group"></i>
+              </div>
+
+              <div>
+                <h2 id="triage-title" style="font-size: 16px">
+                  Alur Sistem Triage Medis IGD
+                </h2>
+
+                <p>
+                  Prioritas penanganan medis berdasarkan tingkat kegawatan
+                  pasien.
+                </p>
+              </div>
+            </div>
+
+            <div class="triage-grid">
+              <!-- PRIORITAS MERAH -->
+
+              <article class="triage-card red">
+                <div class="triage-title">
+                  <span class="triage-dot"></span>
+                  <h3>Prioritas 1 (Merah)</h3>
+                </div>
+
+                <p>
+                  <strong>Kondisi Kritis / Resusitasi:</strong>
+                  penanganan segera tanpa penundaan, misalnya gangguan
+                  pernapasan berat, tidak sadar, atau perdarahan hebat.
+                </p>
+              </article>
+
+              <!-- PRIORITAS KUNING -->
+
+              <article class="triage-card yellow">
+                <div class="triage-title">
+                  <span class="triage-dot"></span>
+                  <h3>Prioritas 2 (Kuning)</h3>
+                </div>
+
+                <p>
+                  <strong>Kondisi Gawat Tidak Darurat:</strong>
+                  membutuhkan penilaian dan penanganan cepat, misalnya nyeri
+                  hebat atau cedera yang memerlukan evaluasi segera.
+                </p>
+              </article>
+
+              <!-- PRIORITAS HIJAU -->
+
+              <article class="triage-card green">
+                <div class="triage-title">
+                  <span class="triage-dot"></span>
+                  <h3>Prioritas 3 (Hijau)</h3>
+                </div>
+
+                <p>
+                  <strong>Kondisi Non-Urgent:</strong>
+                  keluhan relatif ringan dan kondisi stabil. Tetap memerlukan
+                  pemeriksaan sesuai hasil penilaian tenaga medis.
+                </p>
+              </article>
+            </div>
+          </section>
+
+          <!-- ================= KONDISI DARURAT ================= -->
+
+          <section class="emergency-section" aria-labelledby="emergency-title">
+            <div class="intro-heading">
+              <div class="heading-icon red">
+                <i class="fas fa-triangle-exclamation"></i>
+              </div>
+
+              <div>
+                <h2 id="emergency-title" style="font-size: 16px">
+                  Kapan Harus Segera ke IGD?
+                </h2>
+
+                <p>
+                  Klik kartu kondisi darurat di bawah untuk melihat tanda bahaya
+                  dan pertolongan pertama.
+                </p>
+              </div>
+            </div>
+
+            <div class="emergency-grid">
+              <!-- 1. KECELAKAAN -->
+
+              <button
+                type="button"
+                class="emergency-card"
+                data-emergency="accident"
+                aria-expanded="false"
+                aria-controls="emergency-detail"
+              >
+                <span class="emergency-icon">
+                  <i class="fas fa-car-burst"></i>
+                </span>
+
+                <span class="emergency-info">
+                  <h3>Kecelakaan &amp; Cedera</h3>
+                  <span class="severity danger">Darurat</span>
+                </span>
+
+                <i class="fas fa-chevron-down emergency-chevron"></i>
+              </button>
+
+              <!-- 2. STROKE -->
+
+              <button
+                type="button"
+                class="emergency-card"
+                data-emergency="stroke"
+                aria-expanded="false"
+                aria-controls="emergency-detail"
+              >
+                <span class="emergency-icon">
+                  <i class="fas fa-brain"></i>
+                </span>
+
+                <span class="emergency-info">
+                  <h3>Stroke Medis</h3>
+                  <span class="severity critical">Kritis</span>
+                </span>
+
+                <i class="fas fa-chevron-down emergency-chevron"></i>
+              </button>
+
+              <!-- 3. SERANGAN JANTUNG -->
+
+              <button
+                type="button"
+                class="emergency-card"
+                data-emergency="heart"
+                aria-expanded="false"
+                aria-controls="emergency-detail"
+              >
+                <span class="emergency-icon">
+                  <i class="fas fa-heart-pulse"></i>
+                </span>
+
+                <span class="emergency-info">
+                  <h3>Serangan Jantung</h3>
+                  <span class="severity critical">Kritis</span>
+                </span>
+
+                <i class="fas fa-chevron-down emergency-chevron"></i>
+              </button>
+
+              <!-- 4. SESAK NAPAS -->
+
+              <button
+                type="button"
+                class="emergency-card"
+                data-emergency="breathing"
+                aria-expanded="false"
+                aria-controls="emergency-detail"
+              >
+                <span class="emergency-icon yellow">
+                  <i class="fas fa-lungs"></i>
+                </span>
+
+                <span class="emergency-info">
+                  <h3>Sesak Napas Berat</h3>
+                  <span class="severity danger">Darurat</span>
+                </span>
+
+                <i class="fas fa-chevron-down emergency-chevron"></i>
+              </button>
+
+              <!-- 5. PERDARAHAN -->
+
+              <button
+                type="button"
+                class="emergency-card"
+                data-emergency="bleeding"
+                aria-expanded="false"
+                aria-controls="emergency-detail"
+              >
+                <span class="emergency-icon">
+                  <i class="fas fa-droplet"></i>
+                </span>
+
+                <span class="emergency-info">
+                  <h3>Perdarahan Hebat</h3>
+                  <span class="severity critical">Darurat</span>
+                </span>
+
+                <i class="fas fa-chevron-down emergency-chevron"></i>
+              </button>
+
+              <!-- 6. KEJANG -->
+
+              <button
+                type="button"
+                class="emergency-card"
+                data-emergency="seizure"
+                aria-expanded="false"
+                aria-controls="emergency-detail"
+              >
+                <span class="emergency-icon">
+                  <i class="fas fa-head-side-virus"></i>
+                </span>
+
+                <span class="emergency-info">
+                  <h3>Kejang &amp; Pingsan</h3>
+                  <span class="severity critical">Kritis</span>
+                </span>
+
+                <i class="fas fa-chevron-down emergency-chevron"></i>
+              </button>
+
+              <!-- 7. KERACUNAN -->
+
+              <button
+                type="button"
+                class="emergency-card"
+                data-emergency="poisoning"
+                aria-expanded="false"
+                aria-controls="emergency-detail"
+              >
+                <span class="emergency-icon yellow">
+                  <i class="fas fa-prescription-bottle-medical"></i>
+                </span>
+
+                <span class="emergency-info">
+                  <h3>Keracunan Medis</h3>
+                  <span class="severity danger">Darurat</span>
+                </span>
+
+                <i class="fas fa-chevron-down emergency-chevron"></i>
+              </button>
+
+              <!-- 8. LUKA BAKAR -->
+
+              <button
+                type="button"
+                class="emergency-card"
+                data-emergency="burn"
+                aria-expanded="false"
+                aria-controls="emergency-detail"
+              >
+                <span class="emergency-icon">
+                  <i class="fas fa-fire"></i>
+                </span>
+
+                <span class="emergency-info">
+                  <h3>Luka Bakar Luas</h3>
+                  <span class="severity danger">Darurat</span>
+                </span>
+
+                <i class="fas fa-chevron-down emergency-chevron"></i>
+              </button>
+            </div>
+
+            <!-- PANEL DETAIL INTERAKTIF -->
+
+            <div
+              id="emergency-detail"
+              class="emergency-detail"
+              hidden
+              aria-live="polite"
+            >
+              <div class="detail-heading">
+                <i class="fas fa-circle-exclamation" id="detail-icon"></i>
+
+                <div>
+                  <h3 id="detail-title">Informasi Kondisi Darurat</h3>
+
+                  <p id="detail-subtitle">
+                    Kenali tanda bahaya dan tindakan awal.
+                  </p>
+                </div>
+              </div>
+
+              <div class="detail-columns">
+                <div>
+                  <h4>
+                    <i
+                      class="fas fa-magnifying-glass"
+                      style="color: var(--green); margin-right: 5px"
+                    ></i>
+                    Tanda Bahaya
+                  </h4>
+
+                  <ul id="detail-symptoms"></ul>
+                </div>
+
+                <div>
+                  <h4>
+                    <i
+                      class="fas fa-hand-holding-medical"
+                      style="color: var(--green); margin-right: 5px"
+                    ></i>
+                    Pertolongan Pertama
+                  </h4>
+
+                  <ul id="detail-firstaid"></ul>
+                </div>
+              </div>
+
+              <div class="detail-warning">
+                <i class="fas fa-triangle-exclamation"></i>
+
+                <strong>Perhatian:</strong>
+
+                <span id="detail-warning-text">
+                  Jika kondisi mengancam nyawa, segera cari bantuan medis
+                  darurat.
+                </span>
+              </div>
+            </div>
+          </section>
+
+          <!-- ================= FASILITAS IGD ================= -->
+
+          <section class="facility-section" aria-labelledby="facility-title">
+            <div class="section-heading">
+              <span class="eyebrow">Fasilitas Utama</span>
+
+              <div>
+                <h2 id="facility-title">Fasilitas &amp; Peralatan Medis IGD</h2>
+
+                <p class="section-subtitle">
+                  Fasilitas pendukung pelayanan kegawatdaruratan.
+                </p>
+              </div>
+            </div>
+
+            <div class="facility-grid">
+              <article class="facility-card">
+                <div class="facility-icon">
+                  <i class="fas fa-heart-pulse"></i>
+                </div>
+
+                <h3>Ruang Resusitasi &amp; Triage</h3>
+
+                <p>
+                  Fasilitas untuk pemeriksaan awal, pemantauan kondisi, dan
+                  penanganan pasien gawat darurat.
+                </p>
+              </article>
+
+              <article class="facility-card">
+                <div class="facility-icon">
+                  <i class="fas fa-truck-medical"></i>
+                </div>
+
+                <h3>Ambulans Emergency</h3>
+
+                <p>
+                  Dukungan transportasi medis untuk membantu kebutuhan pasien
+                  dalam kondisi darurat.
+                </p>
+              </article>
+
+              <article class="facility-card">
+                <div class="facility-icon">
+                  <i class="fas fa-vial"></i>
+                </div>
+
+                <h3>Laboratorium &amp; Radiologi</h3>
+
+                <p>
+                  Pemeriksaan penunjang sesuai kebutuhan medis untuk membantu
+                  penilaian kondisi pasien.
+                </p>
+              </article>
+
+              <article class="facility-card">
+                <div class="facility-icon">
+                  <i class="fas fa-pills"></i>
+                </div>
+
+                <h3>Farmasi &amp; Ruang Tindakan</h3>
+
+                <p>
+                  Dukungan obat-obatan dan fasilitas tindakan sesuai kebutuhan
+                  pelayanan IGD.
+                </p>
+              </article>
+            </div>
+          </section>
+
+          <!-- ================= DETAIL PELAYANAN ================= -->
+
+          <section class="details-card" aria-labelledby="service-title">
+            <div class="details-grid">
+              <!-- SLIDESHOW FOTO IGD -->
+
+              <div class="igd-slider" aria-label="Galeri foto IGD">
+                <div class="igd-slide active">
+                  <img
+                    src="images/IGD 1.png"
+                    alt="Instalasi Gawat Darurat Rumah Sakit Umum Amanda Mitra Keluarga"
+                    draggable="false"
+                  />
+                </div>
+
+                <div class="igd-slide">
+                  <img
+                    src="images/IGD 2.jpeg"
+                    alt="Fasilitas IGD Rumah Sakit Umum Amanda Mitra Keluarga"
+                    draggable="false"
+                  />
+                </div>
+
+                <div class="igd-slide">
+                  <img
+                    src="images/IGD 3.jpeg"
+                    alt="Ruang IGD Rumah Sakit Umum Amanda Mitra Keluarga"
+                    draggable="false"
+                  />
+                </div>
+
+                <button
+                  type="button"
+                  class="slider-btn prev"
+                  id="prevBtn"
+                  aria-label="Gambar sebelumnya"
+                >
+                  <i class="fas fa-chevron-left"></i>
+                </button>
+
+                <button
+                  type="button"
+                  class="slider-btn next"
+                  id="nextBtn"
+                  aria-label="Gambar berikutnya"
+                >
+                  <i class="fas fa-chevron-right"></i>
+                </button>
+
+                <div class="slider-dots">
+                  <button
+                    type="button"
+                    class="slider-dot active"
+                    data-slide="0"
+                    aria-label="Tampilkan gambar 1"
+                  ></button>
+
+                  <button
+                    type="button"
+                    class="slider-dot"
+                    data-slide="1"
+                    aria-label="Tampilkan gambar 2"
+                  ></button>
+
+                  <button
+                    type="button"
+                    class="slider-dot"
+                    data-slide="2"
+                    aria-label="Tampilkan gambar 3"
+                  ></button>
+                </div>
+              </div>
+
+              <!-- DESKRIPSI PELAYANAN -->
+
+              <div class="igd-text">
+                <h2 id="service-title">Pelayanan Instalasi Gawat Darurat</h2>
+
+                <p>
+                  Instalasi Gawat Darurat (IGD) merupakan layanan rumah sakit
+                  yang memberikan penanganan medis bagi pasien dengan kondisi
+                  yang membutuhkan pertolongan segera.
+                </p>
+
+                <p>
+                  Pelayanan IGD RSU Amanda Mitra Keluarga didukung oleh tenaga
+                  kesehatan dan fasilitas medis untuk membantu memberikan
+                  penanganan sesuai kondisi dan kebutuhan pasien.
+                </p>
+
+                <ul class="igd-list">
+                  <li>
+                    <i class="fas fa-check-circle"></i>
+
+                    <span>
+                      Penanganan pasien yang membutuhkan pertolongan segera.
+                    </span>
+                  </li>
+
+                  <li>
+                    <i class="fas fa-check-circle"></i>
+
+                    <span>
+                      Didukung tenaga kesehatan yang profesional dan kompeten.
+                    </span>
+                  </li>
+
+                  <li>
+                    <i class="fas fa-check-circle"></i>
+
+                    <span>
+                      Pemeriksaan awal dan penilaian kondisi pasien.
+                    </span>
+                  </li>
+
+                  <li>
+                    <i class="fas fa-check-circle"></i>
+
+                    <span>
+                      Mengutamakan keselamatan dan kebutuhan pasien.
+                    </span>
+                  </li>
+                </ul>
+
+                <div class="emergency-box">
+                  <i class="fas fa-truck-medical"></i>
+
+                  <div>
+                    <strong>Pelayanan Kegawatdaruratan</strong>
+
+                    <span>
+                      Jika mengalami kondisi darurat, segera datang ke IGD atau
+                      hubungi rumah sakit.
+                    </span>
+
+                    <a href="tel:+6281287075555" class="emergency-phone">
+                      <i class="fas fa-phone"></i>
+                      0812 8707 5555
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- ================= INFORMASI TAMBAHAN ================= -->
+
+          <section class="additional-box">
+            <h3>
+              <i
+                class="fas fa-circle-info"
+                style="color: var(--green); margin-right: 8px"
+              ></i>
+
+              Informasi Penting IGD
+            </h3>
 
             <p>
-              Penanganan diberikan berdasarkan kondisi dan tingkat kegawatan
-              pasien.
+              IGD diperuntukkan bagi pasien yang mengalami kondisi kesehatan
+              yang membutuhkan pemeriksaan dan penanganan medis segera.
             </p>
+
+            <p>
+              Sampaikan keluhan dan kondisi pasien kepada petugas kesehatan.
+              Jika tersedia, siapkan identitas serta informasi kesehatan pasien
+              untuk membantu proses pemeriksaan.
+            </p>
+
+            <ul class="additional-list">
+              <li>
+                <i class="fas fa-check-circle"></i>
+
+                <span>
+                  Segera menuju IGD apabila mengalami kondisi darurat.
+                </span>
+              </li>
+
+              <li>
+                <i class="fas fa-check-circle"></i>
+
+                <span>
+                  Sampaikan keluhan dan kondisi pasien kepada petugas kesehatan.
+                </span>
+              </li>
+
+              <li>
+                <i class="fas fa-check-circle"></i>
+
+                <span>
+                  Ikuti arahan tenaga kesehatan selama proses pemeriksaan dan
+                  penanganan.
+                </span>
+              </li>
+            </ul>
+          </section>
+
+          <!-- ================= TOMBOL NAVIGASI ================= -->
+
+          <div class="back-to-services">
+            <a href="index.html#services">
+              <i class="fas fa-arrow-left"></i>
+              Kembali ke Layanan
+            </a>
+
+            <a href="pelayanan.html" class="secondary">
+              <i class="fas fa-user-doctor"></i>
+              Lihat Dokter &amp; Jadwal
+            </a>
           </div>
         </div>
-      </div>
-    </section>
-
-    <!-- ================= INFORMASI TAMBAHAN ================= -->
-
-    <section class="additional-section">
-      <div class="container">
-        <div class="additional-box">
-          <h3>
-            <i
-              class="fas fa-circle-info"
-              style="color: var(--primary-color); margin-right: 8px"
-            ></i>
-
-            Informasi Penting IGD
-          </h3>
-
-          <p>
-            IGD diperuntukkan bagi pasien yang mengalami kondisi kesehatan yang
-            membutuhkan pemeriksaan dan penanganan medis segera.
-          </p>
-
-          <p>
-            Pasien akan mendapatkan penilaian awal berdasarkan kondisi klinisnya
-            sehingga penanganan dapat diberikan sesuai tingkat kegawatan.
-          </p>
-
-          <ul class="additional-list">
-            <li>
-              <i class="fas fa-check-circle"></i>
-
-              <span>
-                Segera menuju IGD apabila mengalami kondisi darurat.
-              </span>
-            </li>
-
-            <li>
-              <i class="fas fa-check-circle"></i>
-
-              <span>
-                Sampaikan keluhan dan kondisi pasien kepada petugas kesehatan.
-              </span>
-            </li>
-
-            <li>
-              <i class="fas fa-check-circle"></i>
-
-              <span>
-                Bawa identitas dan informasi kesehatan pasien apabila tersedia.
-              </span>
-            </li>
-
-            <li>
-              <i class="fas fa-check-circle"></i>
-
-              <span>
-                Ikuti arahan tenaga kesehatan selama proses pemeriksaan dan
-                penanganan.
-              </span>
-            </li>
-          </ul>
-        </div>
-
-        <!-- ================= TOMBOL KEMBALI ================= -->
-
-        <div class="back-to-services">
-          <a href="index.html#services">
-            <i class="fas fa-arrow-left"></i>
-
-            Kembali ke Layanan
-          </a>
-        </div>
-      </div>
-    </section>
+      </section>
+    </main>
 
     <!-- ================= FOOTER ================= -->
 
@@ -1026,6 +1936,322 @@
     <!-- ================= JAVASCRIPT ================= -->
 
     <script>
+      /* ==================================================
+         1. JAM WIB OTOMATIS
+      ================================================== */
+
+      (() => {
+        const clock = document.getElementById("live-time");
+
+        function updateClock() {
+          const now = new Date();
+
+          const parts = new Intl.DateTimeFormat("en-GB", {
+            timeZone: "Asia/Jakarta",
+            hour: "2-digit",
+            minute: "2-digit",
+            second: "2-digit",
+            hour12: false,
+          })
+            .format(now)
+            .replace(/:/g, ".");
+
+          if (clock) {
+            clock.textContent = parts + " WIB";
+          }
+        }
+
+        updateClock();
+
+        setInterval(updateClock, 1000);
+      })();
+
+      /* ==================================================
+         2. FITUR PILIHAN BAHASA
+      ================================================== */
+
+      document.querySelectorAll(".language-switch button").forEach((button) => {
+        button.addEventListener("click", () => {
+          document
+            .querySelectorAll(".language-switch button")
+            .forEach((item) => {
+              const active = item === button;
+
+              item.classList.toggle("active", active);
+
+              item.setAttribute("aria-pressed", String(active));
+            });
+
+          /*
+              Tombol ini menandai pilihan bahasa.
+              Konten halaman tetap berbahasa Indonesia.
+            */
+
+          document.documentElement.lang =
+            button.dataset.lang === "en" ? "en" : "id";
+        });
+      });
+
+      /* ==================================================
+         3. FITUR KARTU KONDISI DARURAT INTERAKTIF
+      ================================================== */
+
+      const emergencyData = {
+        accident: {
+          title: "Kecelakaan & Cedera",
+          subtitle: "Kenali cedera yang memerlukan pemeriksaan medis segera.",
+          symptoms: [
+            "Perdarahan yang banyak atau tidak berhenti.",
+            "Cedera kepala, leher, atau tulang belakang.",
+            "Patah tulang terbuka atau perubahan bentuk anggota tubuh.",
+            "Penurunan kesadaran setelah kecelakaan.",
+          ],
+          firstAid: [
+            "Pastikan lokasi aman sebelum mendekati korban.",
+            "Hubungi layanan darurat apabila cedera berat.",
+            "Tekan luka yang berdarah dengan kain bersih jika aman dilakukan.",
+            "Jangan memindahkan korban jika dicurigai mengalami cedera leher atau tulang belakang, kecuali terdapat bahaya langsung.",
+          ],
+          warning:
+            "Jangan menggerakkan leher atau tulang belakang korban secara sembarangan. Cedera berat memerlukan evaluasi medis segera.",
+        },
+
+        stroke: {
+          title: "Stroke Medis",
+          subtitle:
+            "Stroke merupakan kondisi darurat yang membutuhkan penanganan secepat mungkin.",
+          symptoms: [
+            "Wajah mendadak menurun atau tidak simetris.",
+            "Kelemahan atau mati rasa mendadak pada satu sisi tubuh.",
+            "Bicara mendadak pelo atau sulit memahami perkataan.",
+            "Gangguan penglihatan, keseimbangan, atau sakit kepala berat mendadak.",
+          ],
+          firstAid: [
+            "Catat waktu pertama kali gejala terlihat.",
+            "Segera hubungi layanan darurat dan bawa pasien ke IGD.",
+            "Jangan memberikan makanan, minuman, atau obat melalui mulut.",
+            "Dampingi pasien dan pantau pernapasan serta kesadarannya.",
+          ],
+          warning:
+            "Jangan menunggu gejala membaik sendiri. Penanganan stroke sangat bergantung pada kecepatan mendapatkan pertolongan medis.",
+        },
+
+        heart: {
+          title: "Serangan Jantung",
+          subtitle:
+            "Keluhan yang mengarah pada serangan jantung perlu dinilai segera.",
+          symptoms: [
+            "Nyeri, tekanan, atau rasa berat di dada.",
+            "Nyeri menjalar ke lengan, punggung, leher, atau rahang.",
+            "Sesak napas, keringat dingin, atau mual.",
+            "Pusing berat atau pingsan.",
+          ],
+          firstAid: [
+            "Hentikan aktivitas dan bantu pasien beristirahat dalam posisi nyaman.",
+            "Segera hubungi layanan darurat.",
+            "Longgarkan pakaian yang ketat dan tetap dampingi pasien.",
+            "Jika pasien tidak sadar dan tidak bernapas normal, mulai CPR jika mampu dan ikuti instruksi petugas darurat.",
+          ],
+          warning:
+            "Jangan menunda pertolongan untuk menunggu gejala hilang atau mencoba mengantar sendiri apabila ambulans tersedia.",
+        },
+
+        breathing: {
+          title: "Sesak Napas Berat",
+          subtitle: "Kesulitan bernapas berat dapat mengancam nyawa.",
+          symptoms: [
+            "Napas sangat cepat, terengah-engah, atau sulit berbicara.",
+            "Bibir atau wajah tampak kebiruan.",
+            "Dada terasa sangat berat atau tertarik saat bernapas.",
+            "Penurunan kesadaran akibat kesulitan bernapas.",
+          ],
+          firstAid: [
+            "Segera hubungi layanan darurat.",
+            "Bantu pasien mengambil posisi yang paling nyaman untuk bernapas.",
+            "Jauhkan dari asap atau pemicu yang diketahui jika aman.",
+            "Bantu menggunakan obat darurat milik pasien yang memang telah diresepkan, sesuai petunjuk penggunaannya.",
+          ],
+          warning:
+            "Jika pasien tidak sadar atau tidak bernapas normal, ikuti instruksi petugas darurat dan lakukan CPR jika diperlukan serta mampu.",
+        },
+
+        bleeding: {
+          title: "Perdarahan Hebat",
+          subtitle:
+            "Perdarahan berat dapat menyebabkan syok dan membutuhkan pertolongan segera.",
+          symptoms: [
+            "Darah mengalir deras atau memancar dari luka.",
+            "Perdarahan tidak berhenti dengan tekanan langsung.",
+            "Pasien pucat, lemas, berkeringat dingin, atau pusing.",
+            "Luka dalam atau perdarahan akibat kecelakaan berat.",
+          ],
+          firstAid: [
+            "Tekan langsung luka menggunakan kain bersih atau kasa.",
+            "Pertahankan tekanan pada luka sampai bantuan datang.",
+            "Hubungi layanan darurat jika perdarahan berat.",
+            "Jika terdapat benda tertancap, jangan mencabutnya; tekan area di sekitar benda.",
+          ],
+          warning:
+            "Jangan melepas kain pertama yang telah menyerap darah. Jika darah menembus kain, tambahkan kain lain di atasnya sambil terus memberikan tekanan.",
+        },
+
+        seizure: {
+          title: "Kejang & Pingsan",
+          subtitle:
+            "Kejang yang berkepanjangan atau pingsan dengan gangguan pernapasan memerlukan bantuan darurat.",
+          symptoms: [
+            "Kejang berlangsung lebih dari lima menit.",
+            "Kejang berulang tanpa pulihnya kesadaran.",
+            "Kejang pertama kali atau terjadi setelah cedera.",
+            "Pingsan disertai nyeri dada, sesak napas, atau tidak segera sadar.",
+          ],
+          firstAid: [
+            "Jauhkan benda berbahaya di sekitar pasien.",
+            "Lindungi kepala dan jangan menahan gerakan kejang.",
+            "Jangan memasukkan benda, makanan, atau minuman ke mulut pasien.",
+            "Setelah kejang berhenti, periksa pernapasan dan miringkan tubuh jika pasien tidak sadar tetapi bernapas normal.",
+          ],
+          warning:
+            "Hubungi layanan darurat jika kejang berlangsung lebih dari lima menit, berulang, terjadi di dalam air, atau disertai kesulitan bernapas.",
+        },
+
+        poisoning: {
+          title: "Keracunan Medis",
+          subtitle:
+            "Paparan zat beracun atau konsumsi obat berlebihan membutuhkan penilaian medis.",
+          symptoms: [
+            "Mual, muntah, atau nyeri perut setelah terpapar zat tertentu.",
+            "Kebingungan, mengantuk berat, atau penurunan kesadaran.",
+            "Kesulitan bernapas atau kejang.",
+            "Dugaan menelan obat atau bahan kimia dalam jumlah berbahaya.",
+          ],
+          firstAid: [
+            "Jauhkan pasien dari sumber paparan jika aman dilakukan.",
+            "Jangan memancing muntah.",
+            "Jangan memberikan makanan, minuman, atau penawar rumahan tanpa arahan tenaga medis.",
+            "Bawa kemasan zat atau obat yang dicurigai jika aman untuk dibawa.",
+          ],
+          warning:
+            "Segera cari pertolongan medis. Jangan menunggu gejala muncul jika paparan zat beracun yang berbahaya sudah diketahui.",
+        },
+
+        burn: {
+          title: "Luka Bakar Luas",
+          subtitle:
+            "Luka bakar luas, luka bakar dalam, atau luka bakar pada area sensitif memerlukan pemeriksaan medis.",
+          symptoms: [
+            "Luka bakar luas atau tampak dalam.",
+            "Luka bakar pada wajah, tangan, kaki, alat kelamin, atau sendi besar.",
+            "Luka bakar akibat listrik atau bahan kimia.",
+            "Sesak napas setelah terpapar asap atau api.",
+          ],
+          firstAid: [
+            "Jauhkan korban dari sumber panas jika aman.",
+            "Dinginkan luka bakar termal dengan air mengalir yang sejuk, bukan air es, selama sekitar 20 menit jika memungkinkan.",
+            "Lepaskan perhiasan atau pakaian yang tidak melekat pada luka.",
+            "Tutup longgar dengan penutup bersih yang tidak lengket dan segera cari bantuan medis.",
+          ],
+          warning:
+            "Jangan mengoleskan pasta gigi, mentega, minyak, atau es. Jangan menarik pakaian yang menempel pada kulit yang terbakar.",
+        },
+      };
+
+      const emergencyCards = document.querySelectorAll(".emergency-card");
+
+      const emergencyDetail = document.getElementById("emergency-detail");
+
+      const detailTitle = document.getElementById("detail-title");
+
+      const detailSubtitle = document.getElementById("detail-subtitle");
+
+      const detailSymptoms = document.getElementById("detail-symptoms");
+
+      const detailFirstAid = document.getElementById("detail-firstaid");
+
+      const detailWarning = document.getElementById("detail-warning-text");
+
+      let activeEmergency = null;
+
+      function fillList(element, items) {
+        element.replaceChildren();
+
+        items.forEach((item) => {
+          const li = document.createElement("li");
+
+          li.textContent = item;
+
+          element.appendChild(li);
+        });
+      }
+
+      function closeEmergencyDetail() {
+        emergencyDetail.hidden = true;
+
+        emergencyCards.forEach((card) => {
+          card.setAttribute("aria-expanded", "false");
+        });
+
+        activeEmergency = null;
+      }
+
+      function openEmergencyDetail(key, card) {
+        const data = emergencyData[key];
+
+        if (!data) {
+          return;
+        }
+
+        /*
+          Klik kartu yang sedang terbuka akan menutup detail.
+        */
+
+        if (activeEmergency === key && !emergencyDetail.hidden) {
+          closeEmergencyDetail();
+          return;
+        }
+
+        emergencyCards.forEach((item) => {
+          item.setAttribute("aria-expanded", "false");
+        });
+
+        card.setAttribute("aria-expanded", "true");
+
+        activeEmergency = key;
+
+        detailTitle.textContent = data.title;
+
+        detailSubtitle.textContent = data.subtitle;
+
+        fillList(detailSymptoms, data.symptoms);
+
+        fillList(detailFirstAid, data.firstAid);
+
+        detailWarning.textContent = data.warning;
+
+        emergencyDetail.hidden = false;
+
+        /*
+          Pada layar HP, arahkan perhatian ke detail yang dibuka.
+        */
+
+        if (window.innerWidth <= 600) {
+          emergencyDetail.scrollIntoView({
+            behavior: "smooth",
+            block: "nearest",
+          });
+        }
+      }
+
+      emergencyCards.forEach((card) => {
+        card.addEventListener("click", () => {
+          openEmergencyDetail(card.dataset.emergency, card);
+        });
+      });
+
+      /* ==================================================
+         4. SLIDESHOW FOTO IGD
+      ================================================== */
+
       const slides = document.querySelectorAll(".igd-slide");
 
       const dots = document.querySelectorAll(".slider-dot");
@@ -1034,115 +2260,112 @@
 
       const prevBtn = document.getElementById("prevBtn");
 
+      const slider = document.querySelector(".igd-slider");
+
       let currentSlide = 0;
 
-      let autoSlide;
-
-      /* ================= TAMPILKAN SLIDE ================= */
+      let autoSlide = null;
 
       function showSlide(index) {
-        if (index >= slides.length) {
-          currentSlide = 0;
+        if (!slides.length) {
+          return;
         }
 
-        if (index < 0) {
-          currentSlide = slides.length - 1;
-        }
+        currentSlide = (index + slides.length) % slides.length;
 
-        slides.forEach(function (slide) {
-          slide.classList.remove("active");
+        slides.forEach((slide, i) => {
+          slide.classList.toggle("active", i === currentSlide);
         });
 
-        dots.forEach(function (dot) {
-          dot.classList.remove("active");
+        dots.forEach((dot, i) => {
+          dot.classList.toggle("active", i === currentSlide);
         });
-
-        slides[currentSlide].classList.add("active");
-
-        if (dots[currentSlide]) {
-          dots[currentSlide].classList.add("active");
-        }
       }
-
-      /* ================= SLIDE BERIKUTNYA ================= */
 
       function nextSlide() {
-        currentSlide++;
-
-        if (currentSlide >= slides.length) {
-          currentSlide = 0;
-        }
-
-        showSlide(currentSlide);
-
-        resetAutoSlide();
+        showSlide(currentSlide + 1);
       }
-
-      /* ================= SLIDE SEBELUMNYA ================= */
 
       function previousSlide() {
-        currentSlide--;
-
-        if (currentSlide < 0) {
-          currentSlide = slides.length - 1;
-        }
-
-        showSlide(currentSlide);
-
-        resetAutoSlide();
+        showSlide(currentSlide - 1);
       }
 
-      /* ================= TOMBOL NEXT ================= */
+      function stopAutoSlide() {
+        if (autoSlide !== null) {
+          clearInterval(autoSlide);
 
-      nextBtn.addEventListener("click", function () {
-        nextSlide();
-      });
-
-      /* ================= TOMBOL PREVIOUS ================= */
-
-      prevBtn.addEventListener("click", function () {
-        previousSlide();
-      });
-
-      /* ================= DOT NAVIGATION ================= */
-
-      dots.forEach(function (dot, index) {
-        dot.addEventListener("click", function () {
-          currentSlide = index;
-
-          showSlide(currentSlide);
-
-          resetAutoSlide();
-        });
-      });
-
-      /* ================= AUTO SLIDE ================= */
+          autoSlide = null;
+        }
+      }
 
       function startAutoSlide() {
-        autoSlide = setInterval(function () {
-          currentSlide++;
+        stopAutoSlide();
 
-          if (currentSlide >= slides.length) {
-            currentSlide = 0;
-          }
+        /*
+          Hormati preferensi pengguna yang mengurangi animasi.
+        */
 
-          showSlide(currentSlide);
-        }, 4000);
+        if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+          return;
+        }
+
+        autoSlide = setInterval(nextSlide, 4000);
       }
 
-      /* ================= RESET AUTO SLIDE ================= */
+      if (nextBtn && prevBtn && slides.length > 0) {
+        nextBtn.addEventListener("click", () => {
+          nextSlide();
 
-      function resetAutoSlide() {
-        clearInterval(autoSlide);
+          startAutoSlide();
+        });
+
+        prevBtn.addEventListener("click", () => {
+          previousSlide();
+
+          startAutoSlide();
+        });
+
+        dots.forEach((dot, index) => {
+          dot.addEventListener("click", () => {
+            showSlide(index);
+
+            startAutoSlide();
+          });
+        });
+
+        if (slider) {
+          slider.addEventListener("mouseenter", stopAutoSlide);
+
+          slider.addEventListener("mouseleave", startAutoSlide);
+
+          slider.addEventListener("focusin", stopAutoSlide);
+
+          slider.addEventListener("focusout", startAutoSlide);
+        }
+
+        showSlide(0);
 
         startAutoSlide();
       }
 
-      /* ================= MULAI ================= */
+      /* ==================================================
+         5. NAVIGASI DOKTER & JADWAL
+      ================================================== */
 
-      showSlide(currentSlide);
+      const doctorScheduleLink = document.getElementById("doctorScheduleLink");
 
-      startAutoSlide();
+      if (doctorScheduleLink) {
+        doctorScheduleLink.addEventListener("click", function (event) {
+          /*
+            Tujuan navigasi ditetapkan langsung ke pelayanan.html.
+            Browser akan membuka halaman tersebut saat diklik.
+          */
+
+          event.preventDefault();
+
+          window.location.href = "pelayanan.html";
+        });
+      }
     </script>
   </body>
 </html>

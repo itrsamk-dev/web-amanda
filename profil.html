@@ -1,0 +1,355 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Profil RSU Amanda Mitra Keluarga" />
+    <title>Profil - RSU Amanda Mitra Keluarga</title>
+
+    <link rel="stylesheet" href="style.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Poppins", sans-serif;
+        color: #26364b;
+      }
+
+      a {
+        text-decoration: none;
+      }
+
+      /* Background halaman profil */
+      .profile-page {
+        min-height: 100vh;
+        padding: 24px 0 80px;
+        background: linear-gradient(
+          180deg,
+          #ffffff 0%,
+          #f1f8fc 35%,
+          #eaf5fb 100%
+        );
+      }
+
+      .profile-container {
+        width: min(1045px, calc(100% - 40px));
+        margin: 0 auto;
+      }
+
+      /* Breadcrumb */
+      .profile-breadcrumb {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 20px;
+        font-size: 12px;
+      }
+
+      .profile-breadcrumb a {
+        color: #718096;
+      }
+
+      .profile-breadcrumb span {
+        color: #172b43;
+        font-weight: 500;
+      }
+
+      /* Banner foto tim */
+      .profile-hero {
+        width: 100%;
+        height: 378px;
+        overflow: hidden;
+        border-radius: 25px;
+        margin-bottom: 100px;
+        background: #e2ebef;
+        box-shadow: 0 15px 30px rgba(33, 70, 90, 0.06);
+      }
+
+      .profile-hero img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center 43%;
+      }
+
+      /* Bagian tentang rumah sakit */
+      .about-section {
+        position: relative;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+        min-height: 320px;
+      }
+
+      /* Kartu putih di kiri */
+      .about-card {
+        position: relative;
+        z-index: 2;
+        align-self: start;
+        min-height: 270px;
+        margin-top: 0;
+        padding: 45px 36px 32px;
+        background: #ffffff;
+        border-radius: 25px;
+        box-shadow: 0 12px 35px rgba(40, 75, 95, 0.06);
+      }
+
+      .about-label {
+        position: absolute;
+        top: -22px;
+        left: 32px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 163px;
+        min-height: 44px;
+        padding: 10px 25px;
+        border-radius: 30px;
+        color: #ffffff;
+        font-size: 14px;
+        font-weight: 700;
+        background: linear-gradient(110deg, #ff633d, #f20b70);
+        box-shadow: 0 7px 15px rgba(242, 11, 112, 0.23);
+      }
+
+      .about-card h2 {
+        margin: 0 0 12px;
+        color: #173451;
+        font-size: 23px;
+        font-weight: 700;
+      }
+
+      .about-card p {
+        margin: 0 0 14px;
+        color: #4a5568;
+        font-size: 12px;
+        line-height: 2;
+        text-align: justify;
+      }
+
+      .about-card h3 {
+        margin: 24px 0 8px;
+        color: #087f43;
+        font-size: 17px;
+      }
+
+      /* Foto gedung di kanan */
+      .about-image {
+        position: relative;
+        width: calc(100% + 20px);
+        height: 320px;
+        margin-left: -20px;
+        margin-top: 4px;
+        overflow: hidden;
+        border-radius: 0 25px 25px 0;
+        background: #dcebf2;
+      }
+
+      .about-image img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
+
+      /* Tombol kembali */
+      .profile-back {
+        display: inline-flex;
+        align-items: center;
+        gap: 9px;
+        margin-top: 14px;
+        padding: 11px 19px;
+        border-radius: 25px;
+        background: #087f43;
+        color: #ffffff;
+        font-size: 12px;
+        font-weight: 600;
+        transition: 0.25s;
+      }
+
+      .profile-back:hover {
+        background: #056534;
+        transform: translateY(-2px);
+      }
+
+      /* Tablet */
+      @media (max-width: 768px) {
+        .profile-page {
+          padding-top: 20px;
+        }
+
+        .profile-hero {
+          height: 290px;
+          margin-bottom: 70px;
+        }
+
+        .about-section {
+          grid-template-columns: 1fr;
+          gap: 25px;
+        }
+
+        .about-card {
+          padding: 42px 25px 28px;
+        }
+
+        .about-image {
+          width: 100%;
+          height: 280px;
+          margin: 0;
+          border-radius: 20px;
+        }
+      }
+
+      /* HP */
+      @media (max-width: 480px) {
+        .profile-container {
+          width: calc(100% - 28px);
+        }
+
+        .profile-hero {
+          height: 210px;
+          border-radius: 17px;
+          margin-bottom: 65px;
+        }
+
+        .profile-breadcrumb {
+          font-size: 11px;
+        }
+
+        .about-card {
+          padding: 38px 20px 24px;
+          border-radius: 18px;
+        }
+
+        .about-label {
+          left: 20px;
+          min-height: 40px;
+          min-width: 145px;
+          font-size: 12px;
+        }
+
+        .about-card p {
+          font-size: 12px;
+        }
+
+        .about-image {
+          height: 220px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Navbar menggunakan navbar yang sudah ada di style.css -->
+    <header class="navbar">
+      <div class="container navbar-inner">
+        <a href="index.html#home" class="logo">
+          <img
+            src="images/logo-removebg-preview.png"
+            alt="Logo RSU Amanda Mitra Keluarga"
+            style="width: 58px; height: auto"
+          />
+
+          <div class="logo-text">
+            <strong>Rumah Sakit Umum Amanda</strong>
+            <span>Mitra Keluarga</span>
+          </div>
+        </a>
+
+        <nav class="nav-links">
+          <a href="index.html#home" class="nav-link">Beranda</a>
+          <a href="profil.html" class="nav-link active">Profil</a>
+          <a href="index.html#services" class="nav-link">Layanan</a>
+          <a href="index.html#partners" class="nav-link">Our Partner</a>
+          <a href="index.html#contact" class="nav-link">Kontak</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="profile-page">
+      <div class="profile-container">
+        <!-- Breadcrumb -->
+        <div class="profile-breadcrumb">
+          <a href="index.html">Beranda</a>
+          <span>›</span>
+          <span>Tentang Kami</span>
+        </div>
+
+        <!-- Banner foto tim rumah sakit -->
+        <section class="profile-hero">
+          <img
+            src="images/tim-rumah-sakit.jpg"
+            alt="Tim RSU Amanda Mitra Keluarga"
+          />
+        </section>
+
+        <!-- Tentang Kami -->
+        <section class="about-section">
+          <article class="about-card">
+            <div class="about-label">Tentang Kami</div>
+
+            <p>
+              <strong>RSU Amanda Mitra Keluarga</strong> merupakan fasilitas
+              kesehatan yang berkomitmen memberikan pelayanan medis kepada
+              masyarakat dengan mengutamakan profesionalisme, keselamatan,
+              kenyamanan, dan kepedulian terhadap pasien serta keluarga.
+            </p>
+
+            <p>
+              Kami terus berupaya meningkatkan mutu pelayanan kesehatan melalui
+              tenaga medis profesional, fasilitas yang memadai, serta pelayanan
+              yang ramah dan berorientasi pada kebutuhan pasien.
+            </p>
+
+            <h3>Visi Kami</h3>
+
+            <p>
+              Menjadi rumah sakit pilihan utama masyarakat yang memberikan
+              pelayanan kesehatan bermutu, profesional, terjangkau, dan
+              berorientasi pada keselamatan serta kepuasan pasien.
+            </p>
+
+            <h3>Misi Kami</h3>
+
+            <p>
+              Memberikan pelayanan medis berkualitas, mengutamakan keselamatan
+              pasien, meningkatkan kompetensi tenaga kesehatan, serta membangun
+              hubungan yang baik dengan pasien dan keluarga.
+            </p>
+
+            <a href="index.html" class="profile-back">
+              <i class="fa-solid fa-arrow-left"></i>
+              Kembali ke Beranda
+            </a>
+          </article>
+
+          <!-- Foto gedung rumah sakit -->
+          <div class="about-image">
+            <img
+              src="images/gedung-rumah-sakit.jpg"
+              alt="Gedung RSU Amanda Mitra Keluarga"
+            />
+          </div>
+        </section>
+      </div>
+    </main>
+  </body>
+</html>
